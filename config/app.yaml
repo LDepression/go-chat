@@ -1,0 +1,43 @@
+Serve:
+  addr: ":8084"
+  read_timeout: 5s #读超时的时间
+  write_timeout: 5s #写超时的时间
+  default_timeout: 30s #优雅退出的时间
+Mysql:
+  user: "root"
+  password: "zxz123456"
+  host: "127.0.0.1"
+  port: 3306
+  dbName: "chat_app"
+Log: # 日志配置文件
+  Level: debug
+  LogSavePath: "storage/Applogs/" # 日志保存路径
+  HighLevelFile: error          # 高级别日志文件名
+  LowLevelFile: info          # 低级别文件名
+  LogFileExt: .log          # 日志文件后缀
+  MaxSize: 10 # 日志文件最大大小
+  MaxAge: 30 # 日志文件最大保存天数
+  MaxBackups: 7 # 最大备份数
+  Compress: false # 是否压缩
+SMTPInfo:
+  host: "smtp.qq.com"
+  port: 465
+  userName: "1197285120@qq.com"
+  password: "vwwnlngkludzjecc" #密码
+  isSSL: true
+  from: "1197285120@qq.com" #发件人
+  to: #接收人
+    - "1197285120@qq.com"
+    - "2224081986@qq.com"
+Redis:
+  addr: "127.0.0.1:6379"
+  password: "123456"
+  poolSize: 20
+  CacheTime: 1h
+Work: #工作池配置
+  TaskChanCapacity: 50 # 任务队列容量
+  WorkerChanCapacity: 50 # 工作队列容量
+  WorkerNum: 10 # 工作池数量
+Rule:
+  delUserTime: 60s
+  delCodeTime: 120s

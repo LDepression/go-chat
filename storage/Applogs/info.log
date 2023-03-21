@@ -1,0 +1,16 @@
+2023-03-21T09:51:18.998+0800	INFO	logic/email.go:57	send error: %vdial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T10:00:14.759+0800	INFO	logic/email.go:57	send error: %vdial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:14:50.780+0800	INFO	logic/email.go:62	send error: %vdial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:16:15.655+0800	INFO	logic/email.go:62	send error: dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:18:23.038+0800	INFO	logic/email.go:58	400
+2023-03-21T19:18:23.049+0800	INFO	logic/email.go:59	dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:18:23.050+0800	INFO	logic/email.go:64	send error: dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:21:00.267+0800	INFO	email/email.go:91	&{ 0 false   }
+2023-03-21T19:21:00.284+0800	INFO	logic/email.go:58	400
+2023-03-21T19:21:00.285+0800	INFO	logic/email.go:59	dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:21:00.285+0800	INFO	logic/email.go:64	send error: dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:22:26.723+0800	INFO	email/email.go:94	&{ 0 false   }
+2023-03-21T19:22:26.734+0800	INFO	logic/email.go:58	400
+2023-03-21T19:22:26.734+0800	INFO	logic/email.go:59	dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:22:26.734+0800	INFO	logic/email.go:64	send error: dial tcp :0: connectex: The requested address is not valid in its context.
+2023-03-21T19:23:08.163+0800	INFO	go-chat/main.go:76	{smtp.qq.com 465 true 1197285120@qq.com vwwnlngkludzjecc 1197285120@qq.com [1197285120@qq.com 2224081986@qq.com]}
