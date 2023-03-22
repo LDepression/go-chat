@@ -16,3 +16,8 @@ func (q *Queries) CheckEmailExists(ctx context.Context, email string) (bool, err
 	exist, err := q.rdb.SIsMember(ctx, EmailKey, email).Result()
 	return exist, err
 }
+
+func (q Queries) SaveEmail(ctx context.Context, email string) error {
+	err := q.rdb.SAdd(ctx, EmailKey, email).Err()
+	return err
+}

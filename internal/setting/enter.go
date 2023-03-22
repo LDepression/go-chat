@@ -13,6 +13,7 @@ type group struct {
 	Log    elog
 	Va     va
 	Worker worker
+	Maker  maker
 }
 
 var Group = new(group)
@@ -22,4 +23,5 @@ func InitAll() {
 	Group.Log.Init()
 	Group.Va.InitTrans("zh")
 	Group.Worker.Init()
+	Group.Maker.Init()
 }

@@ -40,7 +40,9 @@ func (user) Register(ctx *gin.Context) {
 		rly.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	if err := logic.Group.User.Register(ctx, reqRegister.Mobile, reqRegister.Email, reqRegister.Password); err != nil {
-		rly.Reply()
+	if err := logic.Group.User.Register(ctx, reqRegister.Mobile, reqRegister.Email, reqRegister.Password, reqRegister.EmailCode); err != nil {
+		rly.Reply(errcode.ErrServer.WithDetails(err.Error()))
+		return
 	}
+	rly.Reply(nil)
 }

@@ -24,3 +24,8 @@ func (quser) CheckEmailBeUsed(emailStr string) (bool, error) {
 	result := dao.Group.DB.Where("email = ?", emailStr).Find(&user)
 	return result.RowsAffected == 1, result.Error
 }
+
+func (quser) SaveRegisterInfo(user automigrate.User) error {
+	result := dao.Group.DB.Create(&user)
+	return result.Error
+}

@@ -13,6 +13,7 @@ import (
 	"go-chat/internal/model/config"
 	"go-chat/internal/pkg/goroutine/work"
 	"go-chat/internal/pkg/logger"
+	"go-chat/internal/pkg/token"
 )
 
 var (
@@ -21,4 +22,5 @@ var (
 	Logger   *logger.Log
 	Trans    ut.Translator
 	Worker   *work.Worker
+	Maker    token.Maker
 )

@@ -18,6 +18,8 @@ type Settings struct {
 	Redis    Redis    `json:"Redis" mapstructure:"Redis"`
 	Work     Work     `json:"Work" mapstructure:"Work"`
 	Rule     Rule     `json:"Rule" mapstructure:"Rule"`
+	Auto     Auto     `json:"Auto" mapstructure:"Auto"`
+	Token    Token    `json:"Token" mapstructure:"Token"`
 }
 
 type Mysql struct {
@@ -72,4 +74,21 @@ type Work struct {
 type Rule struct {
 	DelUserTime time.Duration `json:"delUserTime" mapstructure:"delUserTime"` //延时删除用户的时间
 	DelCodeTime time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"` //延时删除验证码的时间
+}
+
+type Auto struct {
+	Retry Retry `json:"retry" mapstructure:"retry"`
+}
+
+type Retry struct {
+	TimeDuration time.Duration `json:"timeDuration" mapstructure:"timeDuration" ` //重试的时间间隔
+	TimeCount    int           `json:"timeCount" mapstructure:"timeCount"`        //重试的次数
+}
+
+type Token struct {
+	Key                string        `mapstructure:"Key"`
+	AccessTokenExpire  time.Duration `mapstructure:"AccessTokenExpire"`
+	RefreshTokenExpire time.Duration `mapstructure:"RefreshTokenExpire"`
+	AuthType           string        `mapstructure:"AuthType"`
+	AuthKey            string        `mapstructure:"AuthKey"`
 }

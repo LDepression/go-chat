@@ -115,3 +115,15 @@ func (s *SendEmailCode) SendTask() func() {
 func (s *SendEmailCode) GetChanResult() Result {
 	return <-s.Result
 }
+
+func CheckEmailAndCodeValid(email, code string) bool {
+	value, ok := gMask.CodeMask.Load(email)
+	//说明此时有这个用户
+	if ok {
+		if code == value {
+			gMask.CodeMask.Delete(email)
+			return true
+		}
+	}
+	return false
+}
