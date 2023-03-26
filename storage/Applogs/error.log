@@ -1,0 +1,299 @@
+2023-03-25T13:50:48.217+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 15 0 invalid WriteHeader code 1001 <nil>} {request 15 0 POST /api/v1/email/sendEmail HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 35
+Content-Type: application/json
+User-Agent: apifox/1.0.0 (https://www.apifox.cn)
+
+ <nil>} {body 15 0 {
+    "email":1197285120qq.com"
+} <nil>} {stack 15 0 goroutine 37 [running]:
+runtime/debug.Stack()
+	D:/workspace/go/go1.19.5/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x8d1060, 0xc000140120})
+	D:/workspace/go/go1.19.5/src/runtime/panic.go:884 +0x212
+net/http.checkWriteHeaderCode(...)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1116
+net/http.(*response).WriteHeader(0xc000468000, 0x3e9)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1150 +0x9db
+github.com/gin-gonic/gin.(*responseWriter).WriteHeaderNow(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:77
+github.com/gin-gonic/gin.(*responseWriter).Write(0xc000454100, {0xc00013a280?, 0x3b?, 0x40?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:82 +0x54
+github.com/gin-gonic/gin/render.WriteJSON({0x1c437f14a58, 0xc000454100}, {0x922700, 0xc0000f0120})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:72 +0x91
+github.com/gin-gonic/gin/render.JSON.Render(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:57
+github.com/gin-gonic/gin.(*Context).Render(0xc000454100, 0x3e9, {0xaffd70, 0xc000140040})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:926 +0xf8
+github.com/gin-gonic/gin.(*Context).JSON(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:971
+go-chat/internal/api/base.HandleValidatorError(0x0?, {0xafc040?, 0xc00008a198})
+	D:/workspace/go/src/go-chat/internal/api/base/base.go:29 +0x15e
+go-chat/internal/api/v1.email.SendEmail({}, 0xc000454100)
+	D:/workspace/go/src/go-chat/internal/api/v1/email.go:68 +0x11c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc000454100)
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000085ba0, 0xc000454100)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000085ba0, {0xb00a30?, 0xc000468000}, 0xc000454000)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xaff320?}, {0xb00a30, 0xc000468000}, 0xc000454000)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0000f6000, {0xb016a0, 0xc000448120})
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-03-25T13:51:59.193+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 15 0 invalid WriteHeader code 1001 <nil>} {request 15 0 POST /api/v1/email/sendEmail HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 35
+Content-Type: application/json
+User-Agent: apifox/1.0.0 (https://www.apifox.cn)
+
+ <nil>} {body 15 0 {
+    "email":1197285120qq.com"
+} <nil>} {stack 15 0 goroutine 82 [running]:
+runtime/debug.Stack()
+	D:/workspace/go/go1.19.5/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x1532060, 0xc00008df60})
+	D:/workspace/go/go1.19.5/src/runtime/panic.go:884 +0x212
+net/http.checkWriteHeaderCode(...)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1116
+net/http.(*response).WriteHeader(0xc00039c0e0, 0x3e9)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1150 +0x9db
+github.com/gin-gonic/gin.(*responseWriter).WriteHeaderNow(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:77
+github.com/gin-gonic/gin.(*responseWriter).Write(0xc0001ba500, {0xc0000c0b80?, 0x3b?, 0x40?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:82 +0x54
+github.com/gin-gonic/gin/render.WriteJSON({0x218e0144e98, 0xc0001ba500}, {0x1583700, 0xc000486e10})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:72 +0x91
+github.com/gin-gonic/gin/render.JSON.Render(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:57
+github.com/gin-gonic/gin.(*Context).Render(0xc0001ba500, 0x3e9, {0x1760d70, 0xc00008de90})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:926 +0xf8
+github.com/gin-gonic/gin.(*Context).JSON(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:971
+go-chat/internal/api/base.HandleValidatorError(0x0?, {0x175d040?, 0xc00008a4e0})
+	D:/workspace/go/src/go-chat/internal/api/base/base.go:29 +0x1fe
+go-chat/internal/api/v1.email.SendEmail({}, 0xc0001ba500)
+	D:/workspace/go/src/go-chat/internal/api/v1/email.go:68 +0x11c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0001ba500)
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000684680, 0xc0001ba500)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000684680, {0x1761a30?, 0xc00039c0e0}, 0xc0001ba400)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0x1760320?}, {0x1761a30, 0xc00039c0e0}, 0xc0001ba400)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc000340000, {0x17626a0, 0xc000486c00})
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-03-25T13:52:58.493+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 15 0 invalid WriteHeader code 1001 <nil>} {request 15 0 POST /api/v1/email/sendEmail HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 35
+Content-Type: application/json
+User-Agent: apifox/1.0.0 (https://www.apifox.cn)
+
+ <nil>} {body 15 0 {
+    "email":1197285120qq.com"
+} <nil>} {stack 15 0 goroutine 82 [running]:
+runtime/debug.Stack()
+	D:/workspace/go/go1.19.5/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x8e2060, 0xc000689930})
+	D:/workspace/go/go1.19.5/src/runtime/panic.go:884 +0x212
+net/http.checkWriteHeaderCode(...)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1116
+net/http.(*response).WriteHeader(0xc0004b6000, 0x3e9)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1150 +0x9db
+github.com/gin-gonic/gin.(*responseWriter).WriteHeaderNow(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:77
+github.com/gin-gonic/gin.(*responseWriter).Write(0xc0004a4100, {0xc0004cc0c0?, 0x3b?, 0x40?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/response_writer.go:82 +0x54
+github.com/gin-gonic/gin/render.WriteJSON({0x1f5787e4958, 0xc0004a4100}, {0x933700, 0xc00049a330})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:72 +0x91
+github.com/gin-gonic/gin/render.JSON.Render(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/render/json.go:57
+github.com/gin-gonic/gin.(*Context).Render(0xc0004a4100, 0x3e9, {0xb10d70, 0xc000689860})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:926 +0xf8
+github.com/gin-gonic/gin.(*Context).JSON(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:971
+go-chat/internal/api/base.HandleValidatorError(0x0?, {0xb0d040?, 0xc0006aa2e8})
+	D:/workspace/go/src/go-chat/internal/api/base/base.go:29 +0x1ed
+go-chat/internal/api/v1.email.SendEmail({}, 0xc0004a4100)
+	D:/workspace/go/src/go-chat/internal/api/v1/email.go:68 +0x11c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0004a4100)
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000584ea0, 0xc0004a4100)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000584ea0, {0xb11a30?, 0xc0004b6000}, 0xc0004a4000)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xb10320?}, {0xb11a30, 0xc0004b6000}, 0xc0004a4000)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc00033e0a0, {0xb126a0, 0xc00049a120})
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-03-25T13:59:15.951+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 15 0 Undefined validation function ' gte' on field 'Password' <nil>} {request 15 0 POST /api/v1/user/register HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 148
+Content-Type: application/json
+User-Agent: apifox/1.0.0 (https://www.apifox.cn)
+
+ <nil>} {body 15 0 {
+    "email":"1197285120@qq.com",
+    "mobile":"13877777777",
+    "password":"123456",
+    "rePassword":"123456",
+    "email_code":"jmryLT"
+} <nil>} {stack 15 0 goroutine 85 [running]:
+runtime/debug.Stack()
+	D:/workspace/go/go1.19.5/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0xcf2060, 0xc000484410})
+	D:/workspace/go/go1.19.5/src/runtime/panic.go:884 +0x212
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0xc0003160e0, {0xce8683?, 0x0?}, {0xce8661, 0x8}, {0x0, 0x0}, 0x0)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/cache.go:294 +0xa19
+github.com/go-playground/validator/v10.(*Validate).extractStructCache(0xc0003160e0, {0xd90980?, 0xc0004280a0?, 0x0?}, {0xcb4418, 0x8})
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/cache.go:155 +0x60f
+github.com/go-playground/validator/v10.(*validate).validateStruct(0xc0002be360, {0xf22630, 0xc00009e010}, {0xd90980?, 0xc0004280a0?, 0x2030001?}, {0xd90980?, 0xc0004280a0?, 0x0?}, {0xf2bda0, ...}, ...)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator.go:37 +0x190
+github.com/go-playground/validator/v10.(*Validate).StructCtx(0xc0003160e0, {0xf22630, 0xc00009e010}, {0xd90980, 0xc0004280a0?})
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator_instance.go:385 +0x46c
+github.com/go-playground/validator/v10.(*Validate).Struct(...)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x13a08a0, {0xd90980, 0xc0004280a0})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4e
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0xd90980?, {0xd90980?, 0xc0004280a0?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x189
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0xc00042c000?, {0xcd7ea0?, 0xc000428050?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0x105
+github.com/gin-gonic/gin/binding.validate(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON({0x2bbca573fd8?, 0xc000484300?}, {0xcd7ea0, 0xc000428050})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0x9b
+github.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0xc00042e420?, {0xcd7ea0, 0xc000428050})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x66
+github.com/gin-gonic/gin.(*Context).ShouldBindWith(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701
+go-chat/internal/api/v1.user.Register({}, 0xc000076100)
+	D:/workspace/go/src/go-chat/internal/api/v1/user.go:38 +0x6f
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc000076100)
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0005844e0, 0xc000076100)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0005844e0, {0xf21a30?, 0xc0003bc0e0}, 0xc0002b0100)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xf20320?}, {0xf21a30, 0xc0003bc0e0}, 0xc0002b0100)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0004440a0, {0xf226a0, 0xc00042e180})
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-03-25T14:02:39.919+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 15 0 Undefined validation function 'equals' on field 'RePassword' <nil>} {request 15 0 POST /api/v1/user/register HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 148
+Content-Type: application/json
+User-Agent: apifox/1.0.0 (https://www.apifox.cn)
+
+ <nil>} {body 15 0 {
+    "email":"1197285120@qq.com",
+    "mobile":"13877777777",
+    "password":"123456",
+    "rePassword":"123456",
+    "email_code":"jmryLT"
+} <nil>} {stack 15 0 goroutine 16 [running]:
+runtime/debug.Stack()
+	D:/workspace/go/go1.19.5/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x14f2040, 0xc000104d70})
+	D:/workspace/go/go1.19.5/src/runtime/panic.go:884 +0x212
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0xc0001dc070, {0x14f2775?, 0x0?}, {0x14f274f, 0xa}, {0x0, 0x0}, 0x0)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/cache.go:294 +0xa19
+github.com/go-playground/validator/v10.(*Validate).extractStructCache(0xc0001dc070, {0x1590960?, 0xc0001005a0?, 0x0?}, {0x14b4418, 0x8})
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/cache.go:155 +0x60f
+github.com/go-playground/validator/v10.(*validate).validateStruct(0xc0001570e0, {0x1722610, 0xc00011a010}, {0x1590960?, 0xc0001005a0?, 0x2030000?}, {0x1590960?, 0xc0001005a0?, 0x0?}, {0x172bd80, ...}, ...)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator.go:37 +0x190
+github.com/go-playground/validator/v10.(*Validate).StructCtx(0xc0001dc070, {0x1722610, 0xc00011a010}, {0x1590960, 0xc0001005a0?})
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator_instance.go:385 +0x46c
+github.com/go-playground/validator/v10.(*Validate).Struct(...)
+	C:/GOPATH/pkg/mod/github.com/go-playground/validator/v10@v10.11.2/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x1ba08a0, {0x1590960, 0xc0001005a0})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4e
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x1590960?, {0x1590960?, 0xc0001005a0?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x189
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0xc0001148c0?, {0x14d7ec0?, 0xc000100550?})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0x105
+github.com/gin-gonic/gin/binding.validate(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON({0x1d3e03d9298?, 0xc00041ff60?}, {0x14d7ec0, 0xc000100550})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0x9b
+github.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0xc0000a2b70?, {0x14d7ec0, 0xc000100550})
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x66
+github.com/gin-gonic/gin.(*Context).ShouldBindWith(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701
+go-chat/internal/api/v1.user.Register({}, 0xc0000a6b00)
+	D:/workspace/go/src/go-chat/internal/api/v1/user.go:38 +0x6f
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0000a6b00)
+	D:/workspace/go/src/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000485a00, 0xc0000a6b00)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000485a00, {0x1721a10?, 0xc0000a42a0}, 0xc0000a6a00)
+	C:/GOPATH/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0x1720300?}, {0x1721a10, 0xc0000a42a0}, 0xc0000a6a00)
+	D:/workspace/go/go1.19.5/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0002a8a00, {0x1722680, 0xc0000a29c0})
+	D:/workspace/go/go1.19.5/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
+ <nil>}
