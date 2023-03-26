@@ -17,6 +17,7 @@ import (
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
+	gin.SetMode(gin.DebugMode)
 	r.Use(middleware.Recovery(true), middleware.LogBody())
 	r.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, "ok")

@@ -14,3 +14,56 @@
 2023-03-21T19:22:26.734+0800	INFO	logic/email.go:59	dial tcp :0: connectex: The requested address is not valid in its context.
 2023-03-21T19:22:26.734+0800	INFO	logic/email.go:64	send error: dial tcp :0: connectex: The requested address is not valid in its context.
 2023-03-21T19:23:08.163+0800	INFO	go-chat/main.go:76	{smtp.qq.com 465 true 1197285120@qq.com vwwnlngkludzjecc 1197285120@qq.com [1197285120@qq.com 2224081986@qq.com]}
+2023-03-25T13:30:42.770+0800	INFO	v1/email.go:66	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character '@' after object key:value pair
+2023-03-25T13:37:20.114+0800	INFO	v1/email.go:66	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character '@' after object key:value pair
+2023-03-25T13:37:39.009+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character '@' after object key:value pair
+2023-03-25T13:38:00.923+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vKey: 'SendEmail.email' Error:Field validation for 'email' failed on the 'email' tag
+2023-03-25T13:43:14.099+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:44:08.706+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:44:35.989+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vKey: 'SendEmail.email' Error:Field validation for 'email' failed on the 'email' tag
+2023-03-25T13:45:03.755+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vKey: 'SendEmail.email' Error:Field validation for 'email' failed on the 'email' tag
+2023-03-25T13:45:04.651+0800	INFO	logic/email.go:59	400
+2023-03-25T13:45:04.651+0800	INFO	logic/email.go:60	gomail: could not send email 1: gomail: invalid address "1197285120qq.com": mail: missing '@' or angle-addr
+2023-03-25T13:45:04.651+0800	INFO	logic/email.go:65	send error: gomail: could not send email 1: gomail: invalid address "1197285120qq.com": mail: missing '@' or angle-addr
+2023-03-25T13:46:40.402+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:50:46.668+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:51:57.627+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:52:57.057+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:54:27.089+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vinvalid character 'q' after object key:value pair
+2023-03-25T13:54:34.375+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vKey: 'SendEmail.email' Error:Field validation for 'email' failed on the 'email' tag
+2023-03-25T14:03:09.636+0800	INFO	v1/user.go:39	ctx.ShouldBindJSON(&reqRegister) failed: %vKey: 'Register.rePassword' Error:Field validation for 'rePassword' failed on the 'eqfield' tag
+2023-03-25T14:43:20.877+0800	INFO	v1/user.go:63	ctx.ShouldBindJSON(&reqLogin) failed: %vKey: 'Login.loginType' Error:Field validation for 'loginType' failed on the 'required' tag
+2023-03-25T14:43:55.533+0800	INFO	v1/user.go:64	ctx.ShouldBindJSON(&reqLogin) failed: %vKey: 'Login.loginType' Error:Field validation for 'loginType' failed on the 'required' tag
+2023-03-25T14:46:52.465+0800	INFO	v1/email.go:67	ctx.ShouldBindJSON(&reqEmail) failed,error=%vKey: 'SendEmail.email' Error:Field validation for 'email' failed on the 'required' tag
+2023-03-25T14:47:09.314+0800	INFO	logic/email.go:59	400
+2023-03-25T14:47:09.314+0800	INFO	logic/email.go:60	dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:09.315+0800	INFO	logic/email.go:65	send error: dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:39.429+0800	INFO	logic/email.go:59	400
+2023-03-25T14:47:39.430+0800	INFO	logic/email.go:60	dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:39.430+0800	INFO	logic/email.go:65	send error: dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:44.469+0800	INFO	logic/email.go:59	400
+2023-03-25T14:47:44.469+0800	INFO	logic/email.go:60	dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:44.469+0800	INFO	logic/email.go:65	send error: dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:45.480+0800	INFO	logic/email.go:59	400
+2023-03-25T14:47:45.481+0800	INFO	logic/email.go:60	dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:47:45.481+0800	INFO	logic/email.go:65	send error: dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:48:07.999+0800	INFO	logic/email.go:59	400
+2023-03-25T14:48:08.000+0800	INFO	logic/email.go:60	dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T14:48:08.001+0800	INFO	logic/email.go:65	send error: dial tcp: lookup smtp.qq.com: no such host
+2023-03-25T17:34:53.163+0800	INFO	logic/user.go:165	quser.ModifyPassword failed,{error 15 0 unsupported data type: map[password:$2a$10$GReKko/ABM/NH3Ql.t/bpeT294rYxYeIV/j7ZXcCbru3YzuCQ/ACq]: Table not set, please set it like: db.Model(&user) or db.Table("users") <nil>}
+2023-03-25T17:38:06.930+0800	INFO	logic/user.go:165	quser.ModifyPassword failed,{error 15 0 unsupported data type: map[password:$2a$10$rldpiFWpEmUbNhmXYvxdyOgIvLyqg0cFVsgHiSmP6gEI3r3.ABrQ.]: Table not set, please set it like: db.Model(&user) or db.Table("users") <nil>}
+2023-03-25T17:40:38.301+0800	INFO	logic/user.go:153	{userID 11 6  <nil>}
+2023-03-25T17:41:29.237+0800	INFO	logic/user.go:153	6
+2023-03-25T17:42:01.591+0800	INFO	logic/user.go:153	6
+2023-03-25T17:44:08.046+0800	INFO	logic/user.go:153	6
+2023-03-25T17:44:08.106+0800	INFO	logic/user.go:166	quser.ModifyPassword failed,{error 15 0 unsupported data type: map[password:$2a$10$V3hnIPpyl8ty4PTLFbbxVe8NiYOkmgz4goR4VD4kfx0kye0r/B8ja]: Table not set, please set it like: db.Model(&user) or db.Table("users") <nil>}
+2023-03-25T17:44:45.412+0800	INFO	logic/user.go:153	6
+2023-03-25T17:45:07.486+0800	INFO	logic/user.go:153	6
+2023-03-25T17:45:07.547+0800	INFO	logic/user.go:166	quser.ModifyPassword failed,{error 15 0 unsupported data type: map[password:$2a$10$KomlkDMSwupAuq0PEbwTSOjs9qbCTMRfmg35scYUmAplDs61rhIXi]: Table not set, please set it like: db.Model(&user) or db.Table("users") <nil>}
+2023-03-25T17:46:30.625+0800	INFO	logic/user.go:153	6
+2023-03-25T17:47:08.384+0800	INFO	logic/user.go:153	6
+2023-03-25T17:58:47.168+0800	INFO	logic/user.go:153	6
+2023-03-25T18:00:11.567+0800	INFO	logic/user.go:153	6
+2023-03-25T19:06:56.175+0800	INFO	logic/user.go:165	6
+2023-03-25T19:07:56.698+0800	INFO	logic/user.go:165	6
+2023-03-25T19:09:06.903+0800	INFO	logic/user.go:165	6

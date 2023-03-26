@@ -31,6 +31,15 @@ func init() {
 	log.SetFlags(log.Ltime | log.Llongfile)
 }
 
+const (
+	// DebugMode indicates gin mode is debug.
+	DebugMode = "debug"
+	// ReleaseMode indicates gin mode is release.
+	ReleaseMode = "release"
+	// TestMode indicates gin mode is test.
+	TestMode = "test"
+)
+
 // @title        chat
 // @version      1.0
 // @description  在线聊天系统

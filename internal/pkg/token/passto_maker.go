@@ -24,25 +24,25 @@ func NewPasetoMaker(key []byte) (Maker, error) {
 }
 
 func (p *PasetoMaker) CreateToken(userID int64, expireDate time.Duration) (string, *Payload, error) {
-	paload, err := NewPayload(userID, expireDate)
+	payload, err := NewPayload(userID, expireDate)
 	if err != nil {
 		return "", nil, nil
 	}
-	token, err := p.paseto.Encrypt(p.key, paload, nil)
+	token, err := p.paseto.Encrypt(p.key, payload, nil)
 	if err != nil {
 		return "", nil, err
 	}
-	return token, paload, nil
+	return token, payload, nil
 }
 
 func (p *PasetoMaker) VerifyToken(token string) (*Payload, error) {
-	paload := &Payload{}
-	err := p.paseto.Decrypt(token, p.key, paload, nil)
+	payload := &Payload{}
+	err := p.paseto.Decrypt(token, p.key, payload, nil)
 	if err != nil {
 		return nil, err
 	}
-	if paload.ExpiredAt.Before(time.Now()) {
+	if payload.ExpiredAt.Before(time.Now()) {
 		return nil, errors.New("超时错误")
 	}
-	return paload, nil
+	return payload, nil
 }

@@ -25,7 +25,29 @@ func (quser) CheckEmailBeUsed(emailStr string) (bool, error) {
 	return result.RowsAffected == 1, result.Error
 }
 
-func (quser) SaveRegisterInfo(user automigrate.User) error {
+func (quser) SaveRegisterInfo(user automigrate.User) (uint, error) {
 	result := dao.Group.DB.Create(&user)
+	return user.ID, result.Error
+}
+
+func (quser) GetUserByEmail(emailStr string) (*automigrate.User, error) {
+	var user automigrate.User
+	if result := dao.Group.DB.Where(automigrate.User{Email: emailStr}).Find(&user); result.RowsAffected == 0 {
+		return nil, result.Error
+	}
+	return &user, nil
+}
+
+func (quser) GetUserByID(userID int64) (*automigrate.User, error) {
+	var user automigrate.User
+	if result := dao.Group.DB.Model(&automigrate.User{}).Where("id =?", userID).Find(&user); result.RowsAffected == 0 {
+		return nil, result.Error
+	}
+	return &user, nil
+
+}
+
+func (quser) ModifyPassword(email string, hashPassword string) error {
+	result := dao.Group.DB.Model(&automigrate.User{}).Where(automigrate.User{Email: email}).Update("password", hashPassword)
 	return result.Error
 }

@@ -8,4 +8,15 @@
 
 package reply
 
+import (
+	"go-chat/internal/pkg/token"
+)
+
 type email struct{}
+
+type LoginReply struct {
+	UserID       int64         `json:"UserID"`
+	AccessToken  string        `json:"AccessToken"`
+	RefreshToken string        `json:"RefreshToken"`
+	PayLoad      token.Payload `json:"Payload"`
+}

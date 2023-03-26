@@ -9,8 +9,10 @@
 package logic
 
 import (
+	"github.com/gin-gonic/gin"
 	"go-chat/internal/global"
 	"go-chat/internal/pkg/retry"
+	"go-chat/internal/pkg/token"
 )
 
 // 尝试重试
@@ -22,4 +24,13 @@ func reTry(name string, f func() error) {
 		report := <-retry.NewTry(name, f, d, times).Run()
 		global.Logger.Error(report.Error())
 	}()
+}
+
+func GetPayLoad(ctx *gin.Context) (string, *token.Payload, error) {
+	tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
+	payLoad, err := global.Maker.VerifyToken(tokenString)
+	if err != nil {
+		return "", nil, err
+	}
+	return tokenString, payLoad, nil
 }

@@ -10,6 +10,7 @@ package v1
 
 import (
 	"github.com/gin-gonic/gin"
+	"go-chat/internal/api/base"
 	"go-chat/internal/logic"
 	"go-chat/internal/model/request"
 	"go-chat/internal/myerr"
@@ -34,6 +35,7 @@ func (email) ExistEmail(ctx *gin.Context) {
 	var reqEmail request.CheckEmailExist
 	if err := ctx.ShouldBindJSON(&reqEmail); err != nil {
 		zap.S().Infof("ctx.ShouldBindJSON(&reqEmail) failed,error=%v", err)
+		base.HandleValidatorError(ctx, err)
 		return
 	}
 	ok, err := logic.Group.Email.CheckEmailIsUsed(ctx, reqEmail.Email)
@@ -43,9 +45,9 @@ func (email) ExistEmail(ctx *gin.Context) {
 	}
 	reMap := map[string]interface{}{}
 	if ok {
-		reMap["status"] = "邮箱已经被注册过了"
+		reMap["status"] = "邮箱已被注册"
 	} else {
-		reMap["status"] = "你可以使用该邮箱"
+		reMap["status"] = "邮箱可使用"
 	}
 	rly.Reply(nil, reMap)
 	return
@@ -64,6 +66,7 @@ func (email) SendEmail(ctx *gin.Context) {
 	var reqEmail request.SendEmail
 	if err := ctx.ShouldBindJSON(&reqEmail); err != nil {
 		zap.S().Info("ctx.ShouldBindJSON(&reqEmail) failed,error=%v", err)
+		base.HandleValidatorError(ctx, err)
 		return
 	}
 	if ok := logic.Group.Email.SendEmail(reqEmail.Email); ok != nil {
