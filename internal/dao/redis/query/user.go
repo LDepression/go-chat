@@ -10,6 +10,7 @@ package query
 
 import (
 	"github.com/gin-gonic/gin"
+	"go-chat/internal/global"
 	"go-chat/internal/pkg/utils"
 )
 
@@ -21,6 +22,7 @@ func (q *Queries) SaveUserToken(ctx *gin.Context, userID int64, tokens []string)
 		if err := q.rdb.SAdd(ctx, key, token).Err(); err != nil {
 			return err
 		}
+		q.rdb.Expire(ctx, key, global.Settings.Token.AccessTokenExpire)
 	}
 	return nil
 }
@@ -37,4 +39,11 @@ func (q *Queries) DeleteAllTokenByUser(ctx *gin.Context, userID int64) error {
 		return err
 	}
 	return nil
+}
+
+func (q *Queries) CountUserToken(ctx *gin.Context, userID int64) int64 {
+	key := utils.LinkStr(UserKey, utils.IDToSting(userID))
+	count := q.rdb.SCard(ctx, key).Val()
+	return count
+
 }

@@ -19,9 +19,10 @@ type user struct {
 
 func (u *user) Init(root *gin.RouterGroup) {
 	user := v1.NewUser()
-	g := root.Group("user")
-	g.POST("/register", user.Register)
-	g.POST("/login", user.Login)
-	g.POST("/modifyPassword", middleware.Auth(), user.ModifyPassword)
-	g.GET("/logout", middleware.Auth(), user.Logout)
+
+	root.POST("/register", user.Register)
+	root.POST("/login", user.Login)
+	g := root.Group("user").Use(middleware.Auth())
+	g.POST("/modifyPassword", user.ModifyPassword)
+	g.GET("/logout", user.Logout)
 }

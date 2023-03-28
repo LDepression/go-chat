@@ -23,8 +23,8 @@ func NewPasetoMaker(key []byte) (Maker, error) {
 	}, nil
 }
 
-func (p *PasetoMaker) CreateToken(userID int64, expireDate time.Duration) (string, *Payload, error) {
-	payload, err := NewPayload(userID, expireDate)
+func (p *PasetoMaker) CreateToken(content []byte, expireDate time.Duration) (string, *Payload, error) {
+	payload, err := NewPayload(content, expireDate)
 	if err != nil {
 		return "", nil, nil
 	}

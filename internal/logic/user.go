@@ -13,6 +13,8 @@ import (
 	"go-chat/internal/dao"
 	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
+	"go-chat/internal/middleware"
+	"go-chat/internal/model"
 	"go-chat/internal/model/automigrate"
 	"go-chat/internal/model/reply"
 	"go-chat/internal/model/request"
@@ -35,10 +37,12 @@ type tokenResult struct {
 	Err     error
 }
 
-func CreateToken(resultChan chan<- tokenResult, userID int64, ExpireTime time.Duration) func() {
+func CreateToken(resultChan chan<- tokenResult, t model.TokenType, id int64, ExpireTime time.Duration) func() {
 	return func() {
 		defer close(resultChan)
-		Token, payLoad, err := global.Maker.CreateToken(userID, ExpireTime)
+		content, _ := model.NewContent(t, id).Marshal()
+		zap.S().Info(string(content))
+		Token, payLoad, err := global.Maker.CreateToken(content, ExpireTime)
 		resultChan <- tokenResult{
 			token:   Token,
 			PayLoad: payLoad,
@@ -83,8 +87,8 @@ func (user) Register(ctx *gin.Context, mobile, email, password, code string) (*r
 	//生成AUTH Token
 	accessChan := make(chan tokenResult, 1)
 	refreshChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, int64(userID), global.Settings.Token.AccessTokenExpire))
-	global.Worker.SendTask(CreateToken(refreshChan, int64(userID), global.Settings.Token.RefreshTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, int64(userID), global.Settings.Token.AccessTokenExpire))
+	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, int64(userID), global.Settings.Token.RefreshTokenExpire))
 	accessRes := <-accessChan
 	refreshRes := <-refreshChan
 
@@ -100,6 +104,9 @@ func (user) Register(ctx *gin.Context, mobile, email, password, code string) (*r
 }
 
 func (user) Login(ctx *gin.Context, req request.Login) (*reply.LoginReply, errcode.Err) {
+
+	//先要判断一下用户是否已经登录了
+
 	quser := query.NewQueryUser()
 	exist, err := quser.CheckEmailBeUsed(req.Email)
 	if err != nil {
@@ -111,6 +118,10 @@ func (user) Login(ctx *gin.Context, req request.Login) (*reply.LoginReply, errco
 	userInfo, err := quser.GetUserByEmail(req.Email)
 	if err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+	count := dao.Group.Redis.CountUserToken(ctx, int64(userInfo.ID))
+	if count != 0 {
+		return nil, myerr.UserExist
 	}
 	switch req.LoginType {
 	case request.LoginByPassword:
@@ -135,8 +146,8 @@ func (user) Login(ctx *gin.Context, req request.Login) (*reply.LoginReply, errco
 	//生成AUTH Token
 	accessChan := make(chan tokenResult, 1)
 	refreshChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, int64(userInfo.ID), global.Settings.Token.AccessTokenExpire))
-	global.Worker.SendTask(CreateToken(refreshChan, int64(userInfo.ID), global.Settings.Token.RefreshTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, int64(userInfo.ID), global.Settings.Token.AccessTokenExpire))
+	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, int64(userInfo.ID), global.Settings.Token.RefreshTokenExpire))
 	accessRes := <-accessChan
 	refreshRes := <-refreshChan
 
@@ -162,8 +173,12 @@ func (user) ModifyPassword(ctx *gin.Context, req request.ReqModifyPassword) errc
 	//判断一下token是否失效
 
 	quser := query.NewQueryUser()
-	zap.S().Info(payLoad.UserID)
-	userInfo, err := quser.GetUserByID(payLoad.UserID)
+	zap.S().Info(payLoad.Content)
+	content, exist := middleware.GetPayLoad(ctx)
+	if !exist {
+		return myerr.TokenNotFound
+	}
+	userInfo, err := quser.GetUserByID(content.ID)
 	if ok := dao.Group.Redis.CheckUserTokenValid(ctx, int64(userInfo.ID), Token); ok == false {
 		return myerr.TokenInValid
 	}
@@ -191,14 +206,17 @@ func (user) ModifyPassword(ctx *gin.Context, req request.ReqModifyPassword) errc
 func (user) Logout(ctx *gin.Context) errcode.Err {
 	Token, payLoad, err := GetPayLoad(ctx)
 	if err != nil {
-		return errcode.ErrServer.WithDetails(err.Error())
+		return myerr.TokenInValid
 	}
+	content := &model.Content{}
+	_ = content.UnMarshal(payLoad.Content)
+
 	//先判断用户在redis中是否存在
-	if ok := dao.Group.Redis.CheckUserTokenValid(ctx, payLoad.UserID, Token); !ok {
+	if ok := dao.Group.Redis.CheckUserTokenValid(ctx, content.ID, Token); !ok {
 		return myerr.UserNotExist
 	}
 	//先将token从redis中清除
-	if err := dao.Group.Redis.DeleteAllTokenByUser(ctx, payLoad.UserID); err != nil {
+	if err := dao.Group.Redis.DeleteAllTokenByUser(ctx, content.ID); err != nil {
 		return errcode.ErrServer.WithDetails(err.Error())
 	}
 	return nil

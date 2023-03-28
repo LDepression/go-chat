@@ -23,7 +23,7 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	gin.SetMode(gin.DebugMode)
-	r.Use(middleware.Recovery(true), middleware.LogBody())
+	r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())
 	r.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, "ok")
 	})

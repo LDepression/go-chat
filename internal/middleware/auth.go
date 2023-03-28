@@ -10,13 +10,19 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
+	"go-chat/internal/model"
 	"go-chat/internal/myerr"
 	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/app/errcode"
 	"go.uber.org/zap"
 )
+
+func GetPayLoad(ctx *gin.Context) (*model.Content, bool) {
+	Content, ok := ctx.Get(global.Settings.Token.AuthKey)
+	c := Content.(*model.Content)
+	return c, ok
+}
 
 func Auth() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
@@ -24,18 +30,20 @@ func Auth() gin.HandlerFunc {
 		tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
 		payLoad, err := global.Maker.VerifyToken(tokenString)
 		if err != nil {
-			rly.Reply(errcode.ErrServer)
+			rly.Reply(myerr.TokenInValid)
 			zap.S().Infof("global.Maker.VerifyToken(tokenString) failed: %v", err)
 			ctx.Abort()
 		}
-		userID := payLoad.UserID
-		quser := query.NewQueryUser()
-		userInfo, err := quser.GetUserByID(userID)
-		if err != nil || userInfo.ID == 0 || userInfo.Email == "" {
-			rly.Reply(myerr.UserNotFound)
-			zap.S().Infof("quser.GetUserByID(userID) failed: %v", err)
+		content := &model.Content{}
+		err = content.UnMarshal(payLoad.Content)
+		if err != nil {
+			zap.S().Infof("global.Maker.UnMarshal failed,err: %v", err)
+			rly.Reply(errcode.ErrServer)
 			ctx.Abort()
 		}
+		zap.S().Info(content)
+		ctx.Set(global.Settings.Token.AuthKey, content)
+
 		ctx.Next()
 	}
 }

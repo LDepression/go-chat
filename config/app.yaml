@@ -28,7 +28,6 @@ SMTPInfo:
   from: "1197285120@qq.com" #发件人
   to: #接收人
     - "1197285120@qq.com"
-    - "1780006511@qq.com"
 Redis:
   addr: "127.0.0.1:6379"
   password: "123456"

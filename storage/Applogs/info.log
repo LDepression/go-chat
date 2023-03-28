@@ -76,3 +76,29 @@
 2023-03-27T22:27:47.351+0800	INFO	logic/email.go:59	400
 2023-03-27T22:27:47.352+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
 2023-03-27T22:27:47.352+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-28T17:22:19.979+0800	INFO	logic/email.go:59	400
+2023-03-28T17:22:19.983+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-28T17:22:19.983+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-28T19:14:50.753+0800	INFO	middleware/auth.go:25	v2.local.UhX1s7w2eWQx9Y7JVN3VkLeVh0gqZctGM7tAOlvPWqJj6ixhLIgzt9GHvGr_feXz0VyI34B_v8NJ95gpKU285m-K0b8l_SR5W3lznWwxlENKsO8-26gvzBd4-9HOOBYe42eH-v94mXgYpND9obLgIqmzIHDqf7CirdgOoynCWvmndF5F3uwJrAYQvNTOagf3F4-X8Bd3MRahqJYVgB9BATjQ8zo_EcI0SlR5rT1gzJHpyJAxBP2kXtqyHwg9am_FB3M.bnVsbA
+2023-03-28T19:40:53.016+0800	INFO	v1/user.go:66	ctx.ShouldBindJSON(&reqLogin) failed: %vjson: cannot unmarshal string into Go struct field Login.loginType of type request.LoginType
+2023-03-28T20:22:44.643+0800	INFO	logic/user.go:44	[123 34 116 121 112 101 34 58 34 117 115 101 114 34 44 34 105 100 34 58 49 125]
+2023-03-28T20:22:44.643+0800	INFO	logic/user.go:44	[123 34 116 121 112 101 34 58 34 117 115 101 114 34 44 34 105 100 34 58 49 125]
+2023-03-28T20:23:12.728+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:23:12.728+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:24:23.104+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:24:23.105+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:24:47.961+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:24:47.961+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:28:01.440+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:28:01.440+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:29:00.156+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:29:00.156+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:31:05.182+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:31:05.182+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:34:21.711+0800	INFO	middleware/auth.go:31	v2.local.wUSjbtJRrgcdQI6y5XUq8siSKYko3Zm3PAsdAqjipbxz75ksx1Ketj3d8jSEmT0h_wAN6zqEm4jo9NXZIVQZTezUMF-083ZaxyCqlWfdzKLsw_BAPCdtXOLv3OaTY3-f58Wua0QOe2utNAGcQn5P9beJ62gV1Q-PYub1SBGUvbcnYLGvC9Cab1jNHFF-Imi_PXyf3YOsnAMgqxO_5ornlCPcCAZd-QubzPcKpser9zcyKY1_4gri3ioBvi_aWYfibF4.bnVsbA
+2023-03-28T20:34:21.712+0800	INFO	middleware/auth.go:41	global.Maker.UnMarshal failed,err: unexpected end of JSON input
+2023-03-28T20:34:21.712+0800	INFO	middleware/auth.go:45	&{ 0}
+2023-03-28T20:34:57.892+0800	INFO	middleware/auth.go:31	v2.local.3qDVX2K2qlkkRNz9m-0SQ8bItsXmcDCfBIkQKHM94qPpx5XMhCnQBmulxIJsHcdsjqCbLoLg9YU44hg2mkE4bSr2hbBkN7G3fFH7WAaaKWsntu82wSLAXd92gx1JtI-OGCP0zpMNW49ZuXDLdVQy_-EiDYZZ6wRHegplh3KmNOB4zTfmjY9vw2eKIKm2uo-K_SCdyQZ1nzwyD6cigrLpO5W1pGJV648p43V-KNlcFtL8HFR7iIZNfA2B-XNGCU-U3J74O50dOeH3l6BKUIPYG6yzL7wWr72TNWEK2F74UHH9XeU.bnVsbA
+2023-03-28T20:34:57.892+0800	INFO	middleware/auth.go:45	&{user 1}
+2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}

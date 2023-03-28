@@ -20,5 +20,7 @@ var (
 	ChoiceNotFound   = errcode.NewErr(3008, "登录选项错误")
 	UserNotFound     = errcode.NewErr(3009, "请先注册或登录")
 	TokenInValid     = errcode.NewErr(3010, "token失效了")
-	UserNotExist     = errcode.NewErr(3011, "用户不存在")
+	TokenNotFound    = errcode.NewErr(3011, "token不存在")
+	UserNotExist     = errcode.NewErr(3012, "用户不存在")
+	UserExist        = errcode.NewErr(3013, "用户已经登录了")
 )
