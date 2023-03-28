@@ -12,7 +12,6 @@ import (
 	"fmt"
 	"go-chat/internal/dao"
 	"go-chat/internal/global"
-	"go-chat/internal/model/automigrate"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -46,5 +45,5 @@ func InitMySql() {
 		panic(err)
 	}
 	dao.Group.DB = DB
-	_ = DB.AutoMigrate(&automigrate.User{}, &automigrate.Account{}, &automigrate.Relation{}, &automigrate.Setting{})
+	//_ = DB.AutoMigrate(&automigrate.User{}, &automigrate.Account{}, &automigrate.Relation{}, &automigrate.Setting{})
 }
