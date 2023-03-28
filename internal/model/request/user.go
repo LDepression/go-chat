@@ -9,11 +9,11 @@
 package request
 
 type Register struct {
-	Email      string `json:"email" binding:"required,email"`
-	Mobile     string `json:"mobile" binding:"required,mobile"`
-	EmailCode  string `json:"email_code" binding:"required"`
-	Password   string `json:"password" binding:"gte=3,lte=12"`
-	RePassword string `json:"rePassword" binding:"required,eqfield=Password"`
+	Email      string `json:"email" binding:"required,email"`                 //注册邮箱
+	Mobile     string `json:"mobile" binding:"required,mobile"`               //手机
+	EmailCode  string `json:"email_code" binding:"required"`                  //邮箱验证码
+	Password   string `json:"password" binding:"gte=3,lte=12"`                //密码
+	RePassword string `json:"rePassword" binding:"required,eqfield=Password"` //第二次输出密码
 }
 
 type LoginType int

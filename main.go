@@ -44,10 +44,10 @@ const (
 // @version      1.0
 // @description  在线聊天系统
 
-// @license.name  lyc
+// @license.name  lyc,why
 // @license.url
 
-// @host      127.0.0.1
+// @host      127.0.0.1:8084
 // @BasePath  /
 
 // @securityDefinitions.basic  BasicAuth

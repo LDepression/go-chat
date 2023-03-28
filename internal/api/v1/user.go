@@ -30,8 +30,9 @@ func NewUser() *user {
 // @Summary  用户注册
 // @accept   application/json
 // @Produce  application/json
+// @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.Register                   true  "用户注册信息"
-// @Success  200   {object}  common.State{data=reply.Register}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
+// @Success  200   {object}  common.State{data=reply.LoginReply}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
 // @Router   /api/v1/user/register [post]
 func (user) Register(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
@@ -54,6 +55,7 @@ func (user) Register(ctx *gin.Context) {
 // @Summary  用户登录
 // @accept   application/json
 // @Produce  application/json
+// @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.Login                   true  "用户登录信息"
 // @Success  200   {object}  common.State{data=reply.LoginReply}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
 // @Router   /api/v1/user/login [post]
@@ -78,6 +80,7 @@ func (user) Login(ctx *gin.Context) {
 // @Summary  用户更改密码
 // @accept   application/json
 // @Produce  application/json
+// @Param Authorization header string true "x-token 用户令牌"
 // @Param    data  body      request.ReqModifyPassword                   true  "用户登录信息"
 // @Success  200   {object}  common.State{}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
 // @Router   /api/v1/user/modifyPassword [post]
@@ -101,9 +104,9 @@ func (user) ModifyPassword(ctx *gin.Context) {
 // @Summary  用户登出
 // @accept   application/json
 // @Produce  application/json
-// @Param    data  body                        true  "用户登录信息"
+// @Param Authorization header string true "x-token 用户令牌"
 // @Success  200   {object}  common.State{}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
-// @Router   /api/v1/user/logout [post]
+// @Router   /api/v1/user/logout [get]
 func (user) Logout(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
 	if err := logic.Group.User.Logout(ctx); err != nil {

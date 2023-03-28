@@ -46,5 +46,5 @@ func InitMySql() {
 		panic(err)
 	}
 	dao.Group.DB = DB
-	_ = DB.AutoMigrate(&automigrate.User{})
+	_ = DB.AutoMigrate(&automigrate.User{}, &automigrate.Account{}, &automigrate.Relation{}, &automigrate.Setting{})
 }

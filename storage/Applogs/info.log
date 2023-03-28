@@ -67,3 +67,12 @@
 2023-03-25T19:06:56.175+0800	INFO	logic/user.go:165	6
 2023-03-25T19:07:56.698+0800	INFO	logic/user.go:165	6
 2023-03-25T19:09:06.903+0800	INFO	logic/user.go:165	6
+2023-03-27T22:21:42.803+0800	INFO	logic/email.go:59	400
+2023-03-27T22:21:42.804+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-27T22:21:42.804+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-27T22:22:02.086+0800	INFO	logic/email.go:59	400
+2023-03-27T22:22:02.086+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-27T22:22:02.086+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-27T22:27:47.351+0800	INFO	logic/email.go:59	400
+2023-03-27T22:27:47.352+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-03-27T22:27:47.352+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256

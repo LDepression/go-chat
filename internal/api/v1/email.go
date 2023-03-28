@@ -27,6 +27,7 @@ type email struct {
 // @Summary  判断邮箱是否被注册
 // @accept   application/json
 // @Produce  application/json
+// @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.CheckEmailExist  true  "email"
 // @Success  200   {object}  common.State{}     "1001:参数有误 1003:系统错误 "
 // @Router   /api/v1/email/check [post]
@@ -58,6 +59,7 @@ func (email) ExistEmail(ctx *gin.Context) {
 // @Summary  发送邮件
 // @accept   application/json
 // @Produce  application/json
+// @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.SendEmail  true  "email"
 // @Success  200   {object}  common.State{}     "1001:参数有误 1003:系统错误 3001:邮箱已经注册 3002:邮件发送频繁，请稍后再试"
 // @Router   /api/v1/email/send [post]
