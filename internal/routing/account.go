@@ -1,11 +1,10 @@
-/**
- * @Author: lenovo
- * @Description:
- * @File:  account
- * @Version: 1.0.0
- * @Date: 2023/03/28 16:33
- */
-
 package routing
 
-type account struct{}
+import "github.com/gin-gonic/gin"
+
+type account struct {
+}
+
+func (a *account) Init(root *gin.RouterGroup) {
+
+}

@@ -5,7 +5,7 @@ Serve:
   default_timeout: 30s #优雅退出的时间
 Mysql:
   user: "root"
-  password: "zxz123456"
+  password: "123456"
   host: "127.0.0.1"
   port: 3306
   dbName: "chat_app"
