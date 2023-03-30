@@ -1,5 +1,5 @@
 Serve:
-  addr: ":8085"
+  addr: ":8084"
   read_timeout: 5s #读超时的时间
   write_timeout: 5s #写超时的时间
   default_timeout: 30s #优雅退出的时间
@@ -50,8 +50,3 @@ Token:
   RefreshTokenExpire: 720h
   AuthType: "x-token"
   AuthKey: "Claims"
-Page:
-  DefaultPageSize: 10
-  MaxPageSize: 200
-  PageKey: page
-  PageSizeKey: page_size

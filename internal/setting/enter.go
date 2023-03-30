@@ -14,7 +14,6 @@ type group struct {
 	Va     va
 	Worker worker
 	Maker  maker
-	Pager  page
 }
 
 var Group = new(group)
@@ -25,5 +24,4 @@ func InitAll() {
 	Group.Va.InitTrans("zh")
 	Group.Worker.Init()
 	Group.Maker.Init()
-	Group.Pager.Init()
 }

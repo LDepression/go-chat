@@ -1,7 +1,6 @@
 package app
 
 import (
-	"fmt"
 	"go-chat/internal/pkg/utils"
 
 	"github.com/gin-gonic/gin"
@@ -29,12 +28,10 @@ func InitPage(defaultPageSize, maxPageSize int32, pageKey, pageSizeKey string) *
 // GetPageSizeAndOffset 获取偏移值和页尺寸
 func (p *Page) GetPageSizeAndOffset(c *gin.Context) (limit, offset int32) {
 	page := utils.StrTo(c.Query(p.PageKey)).MustInt32()
-	fmt.Println("page=", page)
 	if page <= 0 {
 		page = 1
 	}
 	limit = utils.StrTo(c.Query(p.PageSizeKey)).MustInt32()
-	fmt.Println("limit=", limit)
 	if limit <= 0 {
 		limit = p.DefaultPageSize
 	}

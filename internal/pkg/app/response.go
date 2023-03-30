@@ -34,7 +34,7 @@ func (r *Response) Reply(err errcode.Err, datas ...interface{}) {
 	})
 }
 
-func (r *Response) ReplyList(err errcode.Err, Total int64, datas ...interface{}) {
+func (r *Response) ReplyList(err errcode.Err, datas ...interface{}) {
 	var data interface{}
 	if len(datas) > 0 {
 		data = datas[0]
@@ -47,9 +47,6 @@ func (r *Response) ReplyList(err errcode.Err, Total int64, datas ...interface{})
 	r.c.JSON(http.StatusOK, common.State{
 		Code: err.ECode(),
 		Msg:  err.Error(),
-		Data: common.List{
-			Total: Total,
-			List:  data,
-		},
+		Data: common.List{List: data},
 	})
 }

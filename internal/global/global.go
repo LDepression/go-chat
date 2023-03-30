@@ -11,7 +11,6 @@ package global
 import (
 	ut "github.com/go-playground/universal-translator"
 	"go-chat/internal/model/config"
-	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/goroutine/work"
 	"go-chat/internal/pkg/logger"
 	"go-chat/internal/pkg/token"
@@ -24,5 +23,4 @@ var (
 	Trans    ut.Translator
 	Worker   *work.Worker
 	Maker    token.Maker
-	Pager    *app.Page
 )
