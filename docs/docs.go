@@ -12,13 +12,120 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "contact": {},
         "license": {
-            "name": "lyc"
+            "name": "lyc,why"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/account/info": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "获取账户信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "minimum": 1,
+                        "type": "integer",
+                        "name": "account_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2009:权限不足 2007:身份不存在 2008:身份验证失败 2010:账号不存在",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.State"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/reply.GetAccountByID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/account/infos/name": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "通过昵称模糊查找账户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "Page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "PageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "account_name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.State"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/reply.GetAccountsByName"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/email/check": {
             "post": {
                 "consumes": [
@@ -288,6 +395,72 @@ const docTemplate = `{
                 }
             }
         },
+        "reply.Account": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "reply.GetAccountByID": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "reply.GetAccountsByName": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/reply.Account"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
         "reply.LoginReply": {
             "type": "object",
             "properties": {
@@ -312,6 +485,7 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
+                    "description": "检查是否存在的邮箱",
                     "type": "string"
                 }
             }
@@ -351,20 +525,25 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
+                    "description": "注册邮箱",
                     "type": "string"
                 },
                 "email_code": {
+                    "description": "邮箱验证码",
                     "type": "string"
                 },
                 "mobile": {
+                    "description": "手机",
                     "type": "string"
                 },
                 "password": {
+                    "description": "密码",
                     "type": "string",
                     "maxLength": 12,
                     "minLength": 3
                 },
                 "rePassword": {
+                    "description": "第二次输出密码",
                     "type": "string"
                 }
             }
@@ -393,6 +572,7 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
+                    "description": "发送邮箱的验证码",
                     "type": "string"
                 }
             }
@@ -400,6 +580,13 @@ const docTemplate = `{
         "token.Payload": {
             "type": "object",
             "properties": {
+                "content": {
+                    "description": "可以是用户或者是账户",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "expired-at": {
                     "type": "string"
                 },
@@ -410,9 +597,6 @@ const docTemplate = `{
                 "issued-at": {
                     "description": "创建时间用于检验",
                     "type": "string"
-                },
-                "user_id": {
-                    "type": "integer"
                 }
             }
         }
@@ -427,7 +611,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "127.0.0.1",
+	Host:             "127.0.0.1:8084",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "chat",

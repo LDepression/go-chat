@@ -20,6 +20,7 @@ type Settings struct {
 	Rule     Rule     `json:"Rule" mapstructure:"Rule"`
 	Auto     Auto     `json:"Auto" mapstructure:"Auto"`
 	Token    Token    `json:"Token" mapstructure:"Token"`
+	Page     Page     `json:"Page" mapstructure:"Page"`
 }
 
 type Mysql struct {
@@ -91,4 +92,11 @@ type Token struct {
 	RefreshTokenExpire time.Duration `mapstructure:"RefreshTokenExpire"`
 	AuthType           string        `mapstructure:"AuthType"`
 	AuthKey            string        `mapstructure:"AuthKey"`
+}
+
+type Page struct {
+	MaxPageSize     int32  `json:"maxPageSize" mapstructure:"maxPageSize"`
+	PageKey         string `json:"pageKey" mapstructure:"pageKey"`
+	PageSizeKey     string `json:"pageSizeKey" mapstructure:"pageSizeKey"`
+	DefaultPageSize int32  `json:"defaultPageSize" mapstructure:"defaultPageSize"`
 }

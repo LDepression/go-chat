@@ -16,5 +16,11 @@ type State struct {
 }
 
 type List struct {
-	List interface{} `json:"list"`
+	List  interface{} `json:"list"`
+	Total int64       `json:"total"`
+}
+
+type Pager struct {
+	Page     int32 `json:"Page" form:"Page"`
+	PageSize int32 `json:"PageSize" form:"PageSize"`
 }
