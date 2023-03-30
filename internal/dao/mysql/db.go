@@ -45,5 +45,6 @@ func InitMySql() {
 		panic(err)
 	}
 	dao.Group.DB = DB
+	fmt.Println("数据库连接成功！！！")
 	//_ = DB.AutoMigrate(&automigrate.User{}, &automigrate.Account{}, &automigrate.Relation{}, &automigrate.Setting{})
 }

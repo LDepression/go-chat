@@ -11,6 +11,49 @@ definitions:
         description: 返回状态描述
         type: string
     type: object
+  reply.Account:
+    properties:
+      avatar:
+        type: string
+      created_at:
+        type: string
+      gender:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      signature:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  reply.GetAccountByID:
+    properties:
+      avatar:
+        type: string
+      created_at:
+        type: string
+      gender:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      signature:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  reply.GetAccountsByName:
+    properties:
+      account:
+        items:
+          $ref: '#/definitions/reply.Account'
+        type: array
+      total:
+        type: integer
+    type: object
   reply.LoginReply:
     properties:
       AccessToken:
@@ -25,6 +68,7 @@ definitions:
   request.CheckEmailExist:
     properties:
       email:
+        description: 检查是否存在的邮箱
         type: string
     required:
     - email
@@ -50,16 +94,21 @@ definitions:
   request.Register:
     properties:
       email:
+        description: 注册邮箱
         type: string
       email_code:
+        description: 邮箱验证码
         type: string
       mobile:
+        description: 手机
         type: string
       password:
+        description: 密码
         maxLength: 12
         minLength: 3
         type: string
       rePassword:
+        description: 第二次输出密码
         type: string
     required:
     - email
@@ -82,12 +131,18 @@ definitions:
   request.SendEmail:
     properties:
       email:
+        description: 发送邮箱的验证码
         type: string
     required:
     - email
     type: object
   token.Payload:
     properties:
+      content:
+        description: 可以是用户或者是账户
+        items:
+          type: integer
+        type: array
       expired-at:
         type: string
       id:
@@ -96,18 +151,79 @@ definitions:
       issued-at:
         description: 创建时间用于检验
         type: string
-      user_id:
-        type: integer
     type: object
-host: 127.0.0.1
+host: 127.0.0.1:8084
 info:
   contact: {}
   description: 在线聊天系统
   license:
-    name: lyc
+    name: lyc,why
   title: chat
   version: "1.0"
 paths:
+  /api/account/info:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        minimum: 1
+        name: account_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2009:权限不足 2007:身份不存在 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.GetAccountByID'
+              type: object
+      summary: 获取账户信息
+      tags:
+      - account
+  /api/account/infos/name:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: Page
+        type: integer
+      - in: query
+        name: PageSize
+        type: integer
+      - in: query
+        name: account_name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.GetAccountsByName'
+              type: object
+      summary: 通过昵称模糊查找账户
+      tags:
+      - account
   /api/v1/email/check:
     post:
       consumes:

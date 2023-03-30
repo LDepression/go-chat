@@ -21,7 +21,9 @@ import (
 )
 
 func NewRouter() *gin.Engine {
+
 	r := gin.New()
+	gin.ForceConsoleColor()
 	gin.SetMode(gin.DebugMode)
 	r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())
 	r.GET("/ping", func(ctx *gin.Context) {
@@ -31,5 +33,6 @@ func NewRouter() *gin.Engine {
 	root := r.Group("api/v1")
 	routing.Group.User.Init(root)
 	routing.Group.Email.Init(root)
+	routing.Group.Account.Init(root)
 	return r
 }

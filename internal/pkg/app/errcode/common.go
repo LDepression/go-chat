@@ -16,4 +16,5 @@ var (
 	ErrInsufficientPermissions   = NewErr(2004, "鉴权失败,权限不足")
 	ErrOutTimeRefreshToken       = NewErr(2005, "refreshToken过期")
 	ErrGenerateToken             = NewErr(2006, "生成token失败")
+	AuthNotExist                 = NewErr(2007, "身份不存在") // 没找到header上的token
 )
