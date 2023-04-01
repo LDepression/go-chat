@@ -174,7 +174,7 @@ func (user) ModifyPassword(ctx *gin.Context, req request.ReqModifyPassword) errc
 
 	quser := query.NewQueryUser()
 	zap.S().Info(payLoad.Content)
-	content, exist := middleware.GetPayLoad(ctx)
+	content, exist := middleware.GetContent(ctx)
 	if !exist {
 		return myerr.TokenNotFound
 	}

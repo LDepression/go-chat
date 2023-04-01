@@ -13,11 +13,20 @@ import (
 	"encoding/json"
 )
 
-func (g *FriendType) Value() (driver.Value, error) {
+func (g FriendType) Value() (driver.Value, error) {
+	return json.Marshal(g)
+}
+
+func (g GroupType) Value() (driver.Value, error) {
 	return json.Marshal(g)
 }
 
 // 实现 sql.Scanner 接口，Scan 将 value 扫描至 Jsonb
 func (g *FriendType) Scan(value interface{}) error {
+	return json.Unmarshal(value.([]byte), &g)
+}
+
+// 实现 sql.Scanner 接口，Scan 将 value 扫描至 Jsonb
+func (g *GroupType) Scan(value interface{}) error {
 	return json.Unmarshal(value.([]byte), &g)
 }

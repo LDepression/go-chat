@@ -33,7 +33,7 @@ func NewUser() *user {
 // @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.Register                   true  "用户注册信息"
 // @Success  200   {object}  common.State{data=reply.LoginReply}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
-// @Router   /api/v1/user/register [post]
+// @Router   /api/v1/register [post]
 func (user) Register(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
 	var reqRegister request.Register
@@ -58,7 +58,7 @@ func (user) Register(ctx *gin.Context) {
 // @Param Authorization header string false "x-token 用户令牌"
 // @Param    data  body      request.Login                   true  "用户登录信息"
 // @Success  200   {object}  common.State{data=reply.LoginReply}  "1001:参数有误 1003:系统错误 3001:邮箱已经注册 "
-// @Router   /api/v1/user/login [post]
+// @Router   /api/v1/login [post]
 func (user) Login(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
 	var reqLogin request.Login

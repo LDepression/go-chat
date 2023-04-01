@@ -23,4 +23,7 @@ var (
 	TokenNotFound    = errcode.NewErr(3011, "token不存在")
 	UserNotExist     = errcode.NewErr(3012, "用户不存在")
 	UserExist        = errcode.NewErr(3013, "用户已经登录了")
+	AuthFailed       = errcode.NewErr(3014, "身份认证失败")
+
+	AccountNotExist = errcode.NewErr(4001, "账户不存在")
 )

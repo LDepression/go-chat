@@ -8,6 +8,8 @@
 
 package common
 
+import "time"
+
 // State 状态码
 type State struct {
 	Code int         `json:"status_code"`    // 状态码，0-成功，其他值-失败
@@ -17,4 +19,9 @@ type State struct {
 
 type List struct {
 	List interface{} `json:"list"`
+}
+
+type Token struct {
+	Token     string    `json:"token"`
+	ExpiresAt time.Time `json:"expires_at"`
 }

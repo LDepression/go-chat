@@ -23,13 +23,19 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	gin.SetMode(gin.DebugMode)
-	r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())
-	r.GET("/ping", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, "ok")
-	})
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	root := r.Group("api/v1")
-	routing.Group.User.Init(root)
-	routing.Group.Email.Init(root)
+	gin.ForceConsoleColor()
+	root := r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors(), middleware.Auth())
+	{
+		root.GET("/ping", func(ctx *gin.Context) {
+			ctx.JSON(http.StatusOK, "ok")
+		})
+		root.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+		r := r.Group("api/v1")
+		rg := routing.Group
+		rg.User.Init(r)
+		rg.Email.Init(r)
+		rg.Account.Init(r)
+	}
+
 	return r
 }

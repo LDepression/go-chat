@@ -11,8 +11,13 @@ package request
 type GenderType int
 
 type CreateAccountReq struct {
-	Name      string `json:"name" binding:"required"`   //昵称
-	Avatar    string `json:"avatar" binding:"required"` //头像图片
-	Signature string `json:"sigNature"`                 //个性签名
-	Gender    int    `json:"gender" `
+	ID        int64  `json:"ID"`
+	Name      string `json:"name" binding:"required"`         //昵称
+	Avatar    string `json:"avatar" binding:"required"`       //头像图片
+	Signature string `json:"sigNature"`                       //个性签名
+	Gender    *int   `json:"gender" binding:"required,min=0"` //性别
+}
+
+type DeleteAccountReq struct {
+	AccountID int64 `json:"accountID"` //删除账号的ID
 }

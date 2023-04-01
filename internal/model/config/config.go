@@ -72,8 +72,10 @@ type Work struct {
 }
 
 type Rule struct {
-	DelUserTime time.Duration `json:"delUserTime" mapstructure:"delUserTime"` //延时删除用户的时间
-	DelCodeTime time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"` //延时删除验证码的时间
+	DelUserTime    time.Duration `json:"delUserTime" mapstructure:"delUserTime"`  //延时删除用户的时间
+	DelCodeTime    time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"`  //延时删除验证码的时间
+	AccountMaxNums int           `json:"accountMaxNum" mapstructure:"accountMax"` //账户可以创建的最大的数目
+
 }
 
 type Auto struct {
@@ -89,6 +91,7 @@ type Token struct {
 	Key                string        `mapstructure:"Key"`
 	AccessTokenExpire  time.Duration `mapstructure:"AccessTokenExpire"`
 	RefreshTokenExpire time.Duration `mapstructure:"RefreshTokenExpire"`
+	AccountTokenExpire time.Duration `mapstructure:"AccountTokenExpire"`
 	AuthType           string        `mapstructure:"AuthType"`
 	AuthKey            string        `mapstructure:"AuthKey"`
 }

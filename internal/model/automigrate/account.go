@@ -8,10 +8,8 @@
 
 package automigrate
 
-import "gorm.io/gorm"
-
 type Account struct {
-	gorm.Model
+	BaseModel
 	UserID    uint
 	User      User   `gorm:"foreignKey:UserID;references:ID"`
 	Name      string `gorm:"type:varchar(255);not null"`

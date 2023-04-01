@@ -13,14 +13,16 @@ import (
 	"go-chat/internal/model/config"
 	"go-chat/internal/pkg/goroutine/work"
 	"go-chat/internal/pkg/logger"
+	"go-chat/internal/pkg/snowflake"
 	"go-chat/internal/pkg/token"
 )
 
 var (
-	Settings = &config.Settings{}
-	RootDir  string
-	Logger   *logger.Log
-	Trans    ut.Translator
-	Worker   *work.Worker
-	Maker    token.Maker
+	Settings  = &config.Settings{}
+	RootDir   string
+	Logger    *logger.Log
+	Trans     ut.Translator
+	Worker    *work.Worker
+	Maker     token.Maker
+	SnowFlake *snowflake.Worker
 )
