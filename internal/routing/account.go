@@ -17,7 +17,7 @@ import (
 type account struct{}
 
 func (account) Init(root *gin.RouterGroup) {
-	g := root.Group("account").Use(middleware.AuthMustUser())
+	g := root.Group("account").Use(middleware.Auth(), middleware.AuthMustUser())
 	g.POST("/createAccount", v1.Group.Account.CreateAccount)
 	g.DELETE("/deleteAccount/:id", v1.Group.Account.DeleteAccount)
 	g.GET("/getToken/:id", v1.Group.Account.GetToken)

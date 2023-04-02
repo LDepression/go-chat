@@ -24,7 +24,7 @@ func NewRouter() *gin.Engine {
 	r := gin.New()
 	gin.SetMode(gin.DebugMode)
 	gin.ForceConsoleColor()
-	root := r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors(), middleware.Auth())
+	root := r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())
 	{
 		root.GET("/ping", func(ctx *gin.Context) {
 			ctx.JSON(http.StatusOK, "ok")
