@@ -47,3 +47,10 @@ func Auth() gin.HandlerFunc {
 		ctx.Next()
 	}
 }
+
+func AuthMustAccount() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		//res := app.NewResponse(c)
+		//content, exist := GetPayLoad(c)
+	}
+}

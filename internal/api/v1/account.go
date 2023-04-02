@@ -22,7 +22,7 @@ func NewAccount() *account {
 // GetAccountByID
 // @Tags     account
 // @Summary  获取账户信息
-// @accept   application/json
+// @accept   application/form-data
 // @Produce  application/json
 // @Param    Authorization  header    string               false "x-token 用户令牌"
 // @Param    data           query     request.GetAccountByID                   true  "账号信息"
@@ -51,7 +51,7 @@ func (account) GetAccountByID(c *gin.Context) {
 // GetAccountsByName
 // @Tags     account
 // @Summary  通过昵称模糊查找账户
-// @accept   application/json
+// @accept   application/form-data
 // @Produce  application/json
 // @Param    Authorization  header    string            false "x-token 用户令牌"
 // @Param    data           query     request.GetAccountsByName                   true  "账号信息"
@@ -88,4 +88,25 @@ func (account) GetAccountsByUserID(c *gin.Context) {
 	}
 	result, err := logic.Group.Account.GetAccountsByUserID(c, content.ID)
 	res.ReplyList(err, result.Total, result.AccountInfos)
+}
+
+// UpdateAccount
+// @Tags     account
+// @Summary  更新账户信息
+// @accept   application/json
+// @Produce  application/json
+// @Param    Authorization  header    string        false "x-token 用户令牌"
+// @Param    data           body      request.UpdateAccount  true  "账号信息"
+// @Success  200            {object}  common.State{}         "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败"
+// @Router   /api/account/update [put]
+func (account) UpdateAccount(c *gin.Context) {
+	res := app.NewResponse(c)
+	params := &request.UpdateAccount{}
+	if err := c.ShouldBindJSON(params); err != nil {
+		zap.S().Errorf("&request.UpdateAccount{} c.ShouldBindJSON(params) failed: %v", err)
+		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
+		return
+	}
+	err := logic.Group.Account.UpdateAccount(c, params.AccountID, params.Name, params.Signature, params.Avatar, params.Gender)
+	res.Reply(err)
 }

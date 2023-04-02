@@ -11,11 +11,11 @@ import (
 type account struct {
 }
 
-func (account) GetAccountByID(c *gin.Context, accountID int64) (*reply.GetAccountByID, errcode.Err) {
+func (account) GetAccountByID(c *gin.Context, accountID uint) (*reply.GetAccountByID, errcode.Err) {
 	qAccount := query.NewQueryAccount()
 	accountInfo, err := qAccount.GetAccountByID(accountID)
 	if err != nil {
-		zap.S().Error("dao.qAccount.GetAccountByID() failed:%v", zap.Error(err))
+		zap.S().Errorf("dao.qAccount.GetAccountByID() failed:%v", zap.Error(err))
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
 	return &reply.GetAccountByID{
@@ -35,10 +35,10 @@ func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offs
 	qAccount := query.NewQueryAccount()
 	accountInfos, totalCount, err := qAccount.GetAccountsByName(accountName, limit, offset)
 	if err != nil {
-		zap.S().Error("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
+		zap.S().Errorf("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
 		return &reply.GetAccountsByName{}, errcode.ErrServer.WithDetails(err.Error())
 	}
-	if len(accountInfos) == 0 {
+	if totalCount == 0 {
 		return &reply.GetAccountsByName{}, nil
 	}
 	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
@@ -60,14 +60,14 @@ func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offs
 	}, nil
 }
 
-func (account) GetAccountsByUserID(c *gin.Context, userID int64) (*reply.GetAccountsByUserID, errcode.Err) {
+func (account) GetAccountsByUserID(c *gin.Context, userID uint) (*reply.GetAccountsByUserID, errcode.Err) {
 	qAccount := query.NewQueryAccount()
 	accountInfos, totalCount, err := qAccount.GetAccountsByUserID(userID)
 	if err != nil {
-		zap.S().Error("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
+		zap.S().Errorf("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
 		return &reply.GetAccountsByUserID{}, errcode.ErrNotFound.WithDetails(err.Error())
 	}
-	if len(accountInfos) == 0 {
+	if totalCount == 0 {
 		return &reply.GetAccountsByUserID{}, nil
 	}
 	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
@@ -86,4 +86,14 @@ func (account) GetAccountsByUserID(c *gin.Context, userID int64) (*reply.GetAcco
 		AccountInfos: replyAccountInfos,
 		Total:        totalCount,
 	}, nil
+}
+
+func (account) UpdateAccount(c *gin.Context, accountID uint, name, signature, avatar string, gender int) errcode.Err {
+	qAccount := query.NewQueryAccount()
+	err := qAccount.UpdateAccount(accountID, name, signature, avatar, gender)
+	if err != nil {
+		zap.S().Errorf("dao.qAccount.UpdateAccount() failed:%v", zap.Error(err))
+		return errcode.ErrNotFound.WithDetails(err.Error())
+	}
+	return nil
 }

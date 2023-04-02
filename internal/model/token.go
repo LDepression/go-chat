@@ -19,10 +19,10 @@ const (
 
 type Content struct {
 	Type TokenType `json:"type"`
-	ID   int64     `json:"id"`
+	ID   uint      `json:"id"`
 }
 
-func NewContent(t TokenType, id int64) *Content {
+func NewContent(t TokenType, id uint) *Content {
 	return &Content{
 		Type: t,
 		ID:   id,

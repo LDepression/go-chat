@@ -44,7 +44,6 @@ func (quser) GetUserByID(userID int64) (*automigrate.User, error) {
 		return nil, result.Error
 	}
 	return &user, nil
-
 }
 
 func (quser) ModifyPassword(email string, hashPassword string) error {

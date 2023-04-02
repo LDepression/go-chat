@@ -16,6 +16,7 @@ func (a *account) Init(root *gin.RouterGroup) {
 	{
 		ag.GET("/info", account.GetAccountByID)
 		ag.GET("/infos/name", account.GetAccountsByName)
+		ag.PUT("update", account.UpdateAccount)
 	}
 
 }
