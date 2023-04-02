@@ -105,3 +105,4 @@
 2023-03-30T15:49:58.366+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
 2023-03-30T21:19:36.199+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
 2023-03-30T21:22:11.389+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-03-30T21:22:35.879+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
