@@ -15,5 +15,4 @@ type User struct {
 	Email    string `gorm:"type:varchar(200);not null;index:idx_email;unique"`
 	Mobile   string `gorm:"type:varchar(100);not null;index:idx_mobile;unique"`
 	Password string `gorm:"type:varchar(200);not null;"`
-	Accounts []*Account
 }

@@ -57,7 +57,7 @@ func (AccountTx) CreateAccountWithTX(ctx context.Context, userID int64, req requ
 	AccountInfo.Name = req.Name
 	AccountInfo.UserID = uint(userID)
 	AccountInfo.Avatar = req.Avatar
-	AccountInfo.Gender = *req.Gender
+	AccountInfo.Gender = string(req.Gender)
 	AccountInfo.Signature = req.Signature
 	if result := tx.Create(&AccountInfo); result.RowsAffected == 0 {
 		tx.Rollback()

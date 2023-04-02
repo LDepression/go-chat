@@ -20,30 +20,30 @@ import (
 	reply2 "go-chat/internal/model/reply"
 	"go-chat/internal/model/request"
 	"go-chat/internal/myerr"
-	"gorm.io/gorm"
 	"go-chat/internal/pkg/app/errcode"
 	"go.uber.org/zap"
+	"gorm.io/gorm"
 )
 
 type account struct {
 }
 
-func (account) GetAccountByID(c *gin.Context, accountID uint) (*reply.GetAccountByID, errcode.Err) {
+func (account) GetAccountByID(c *gin.Context, accountID uint) (*reply2.GetAccountByID, errcode.Err) {
 	qAccount := query.NewQueryAccount()
 	accountInfo, err := qAccount.GetAccountByID(accountID)
 	if err != nil {
 		zap.S().Errorf("dao.qAccount.GetAccountByID() failed:%v", zap.Error(err))
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
-	return &reply.GetAccountByID{
-		AccountInfo: reply.AccountInfo{
-			ID:        accountInfo.ID,
+	return &reply2.GetAccountByID{
+		AccountInfo: reply2.AccountInfo{
+			ID:        uint(accountInfo.ID),
 			CreatedAt: accountInfo.CreatedAt,
 			UserID:    accountInfo.UserID,
 			Name:      accountInfo.Name,
 			Signature: accountInfo.Signature,
 			Avatar:    accountInfo.Avatar,
-			Gender:    accountInfo.Gender,
+			Gender:    string(accountInfo.Gender),
 		},
 	}, nil
 }
@@ -57,20 +57,20 @@ func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*r
 	tx := tx2.NewAccountTX()
 	id := global.SnowFlake.GetId()
 	req.ID = id
-	if err := tx.CreateAccountWithTX(ctx, content.ID, req); err != nil {
+	if err := tx.CreateAccountWithTX(ctx, int64(content.ID), req); err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
 	//生成token
 	accessChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, model.AccountToken, id, global.Settings.Token.AccountTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.AccountToken, uint(id), global.Settings.Token.AccountTokenExpire))
 
 	var reply reply2.CreateAccountReply
 	reply.AccountID = id
 	reply.Name = req.Name
-	switch *req.Gender {
-	case 0:
+	switch req.Gender {
+	case "male":
 		reply.Gender = "男"
-	case 1:
+	case "female":
 		reply.Gender = "女"
 	default:
 		return nil, errcode.ErrParamsNotValid
@@ -103,7 +103,7 @@ func (account) GetToken(ctx *gin.Context, accountID int64) (common.Token, errcod
 		return replyInfo, myerr.TokenNotFound
 	}
 	//先去判断一下,id是否是存在的
-	qAccount := query.NewAccount()
+	qAccount := query.NewQueryAccount()
 	accountInfo, err := qAccount.CheckAccountInfoByAccountID(accountID)
 	if err != nil || accountInfo.ID == 0 {
 		return replyInfo, myerr.AccountNotExist
@@ -113,35 +113,40 @@ func (account) GetToken(ctx *gin.Context, accountID int64) (common.Token, errcod
 		return common.Token{}, errcode.ErrInsufficientPermissions
 	}
 	accessChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, model.AccountToken, accountID, global.Settings.Token.AccountTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.AccountToken, uint(accountID), global.Settings.Token.AccountTokenExpire))
 	accessRes := <-accessChan
 	return common.Token{
 		Token:     accessRes.token,
 		ExpiresAt: accessRes.PayLoad.ExpiredAt,
 	}, nil
 }
-func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offset int32) (*reply.GetAccountsByName, errcode.Err) {
+func (account) GetAccountsByName(accountName string, limit, offset int32) (*reply2.GetAccountsByName, errcode.Err) {
 	qAccount := query.NewQueryAccount()
 	accountInfos, totalCount, err := qAccount.GetAccountsByName(accountName, limit, offset)
 	if err != nil {
 		zap.S().Errorf("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
-		return &reply.GetAccountsByName{}, errcode.ErrServer.WithDetails(err.Error())
+		return &reply2.GetAccountsByName{}, errcode.ErrServer.WithDetails(err.Error())
 	}
 	if totalCount == 0 {
-		return &reply.GetAccountsByName{}, nil
+		return &reply2.GetAccountsByName{}, nil
 	}
-	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
+	replyAccountInfos := make([]*reply2.AccountInfo, 0, len(accountInfos))
 	for _, v := range accountInfos {
-		replyAccountInfos = append(replyAccountInfos, &reply.AccountInfo{
-			ID:        v.ID,
+		replyAccountInfos = append(replyAccountInfos, &reply2.AccountInfo{
+			ID:        uint(v.ID),
 			CreatedAt: v.CreatedAt,
 			UserID:    v.UserID,
 			Name:      v.Name,
 			Signature: v.Signature,
 			Avatar:    v.Avatar,
-			Gender:    v.Gender,
+			Gender:    string(v.Gender),
 		})
 	}
+
+	return &reply2.GetAccountsByName{
+		AccountInfos: replyAccountInfos,
+		Total:        totalCount,
+	}, nil
 }
 
 func (account) GetAccountsByUserID(userID int64) (reply2.TotalAccountsReply, errcode.Err) {
@@ -149,14 +154,14 @@ func (account) GetAccountsByUserID(userID int64) (reply2.TotalAccountsReply, err
 
 	//先去查询一下userID是否是存在的]
 	qUser := query.NewQueryUser()
-	userInfo, err := qUser.GetUserByID(userID)
+	userInfo, err := qUser.GetUserByID(uint(userID))
 	if err != nil {
 		return reply, errcode.ErrServer
 	}
 	if userInfo.ID == 0 {
 		return reply, myerr.UserNotExist
 	}
-	qAccount := query.NewAccount()
+	qAccount := query.NewQueryAccount()
 	AccountsInfo, err := qAccount.GetAccountsByUserID(userID)
 	if err != nil {
 		if errors.Is(gorm.ErrRecordNotFound, err) {
@@ -175,7 +180,6 @@ func (account) GetAccountsByUserID(userID int64) (reply2.TotalAccountsReply, err
 	}
 	return reply, nil
 }
-
 
 func (account) UpdateAccount(c *gin.Context, accountID uint, name, signature, avatar, gender string) errcode.Err {
 	qAccount := query.NewQueryAccount()

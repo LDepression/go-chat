@@ -3,6 +3,7 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/api/base"
+	"go-chat/internal/global"
 	"go-chat/internal/logic"
 	"go-chat/internal/middleware"
 	"go-chat/internal/model"
@@ -66,12 +67,10 @@ func (account) GetAccountsByName(c *gin.Context) {
 		return
 	}
 	limit, offset := global.Pager.GetPageSizeAndOffset(c)
-	result, err := logic.Group.Account.GetAccountsByName(c, params.AccountName, limit, offset)
+	result, err := logic.Group.Account.GetAccountsByName(params.AccountName, limit, offset)
 
 	res.ReplyList(err, result.Total, result.AccountInfos)
 }
-
-
 
 // CreateAccount 创建账户
 // @Tags     account
@@ -152,7 +151,7 @@ func (account) GetAccountsByUserID(ctx *gin.Context) {
 		rly.Reply(errcode.ErrUnauthorizedAuthNotExist)
 		return
 	}
-	AccountInfosReply, err := logic.Group.Account.GetAccountsByUserID(content.ID)
+	AccountInfosReply, err := logic.Group.Account.GetAccountsByUserID(int64(content.ID))
 	rly.Reply(err, AccountInfosReply)
 }
 
@@ -173,6 +172,6 @@ func (account) UpdateAccount(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	err := logic.Group.Account.UpdateAccount(c, params.AccountID, params.Name, params.Signature, params.Avatar, params.Gender)
+	err := logic.Group.Account.UpdateAccount(c, params.AccountID, params.Name, params.Signature, params.Avatar, string(params.Gender))
 	res.Reply(err)
 }
