@@ -36,11 +36,11 @@ func (account) GetAccountByID(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	content, ok := middleware.GetPayLoad(c)
-	if !ok || content.Type != model.AccountToken {
-		res.Reply(errcode.AuthNotExist)
-		return
-	}
+	//content, ok := middleware.GetPayLoad(c)
+	//if !ok || content.Type != model.AccountToken {
+	//	res.Reply(errcode.AuthNotExist)
+	//	return
+	//}
 	result, err := logic.Group.Account.GetAccountByID(c, params.AccountID)
 	if err != nil {
 		res.Reply(err)
@@ -67,12 +67,25 @@ func (account) GetAccountsByName(c *gin.Context) {
 	}
 	limit, offset := global.Pager.GetPageSizeAndOffset(c)
 	result, err := logic.Group.Account.GetAccountsByName(c, params.AccountName, limit, offset)
-	if err != nil {
-		res.Reply(err)
-	}
-	res.ReplyList(nil, result.Total, result.Account)
+
+	res.ReplyList(err, result.Total, result.AccountInfos)
 }
 
-func (account) GetAccountListByUserID(c *gin.Context) {
-
+// GetAccountsByUserID
+// @Tags     account
+// @Summary  获取用户的所有账户
+// @accept   application/json
+// @Produce  application/json
+// @Param    Authorization  header    string          false "x-token 用户令牌"
+// @Success  200            {object}  common.State{data=reply.GetAccountsByUserID}  "1003:系统错误 2008:身份验证失败 2010:账号不存在"
+// @Router   /api/account/infos/user [get]
+func (account) GetAccountsByUserID(c *gin.Context) {
+	res := app.NewResponse(c)
+	content, ok := middleware.GetPayLoad(c)
+	if !ok || content.Type != model.UserToken {
+		res.Reply(errcode.AuthNotExist)
+		return
+	}
+	result, err := logic.Group.Account.GetAccountsByUserID(c, content.ID)
+	res.ReplyList(err, result.Total, result.AccountInfos)
 }

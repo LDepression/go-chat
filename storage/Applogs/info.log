@@ -103,3 +103,5 @@
 2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}
 2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}
 2023-03-30T15:49:58.366+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-03-30T21:19:36.199+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-03-30T21:22:11.389+0800	INFO	middleware/auth.go:34	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header

@@ -32,3 +32,19 @@ func (qAccount) GetAccountsByName(AccountName string, limit, offset int32) ([]*a
 
 	return accountInfos, totalCount, nil
 }
+
+func (qAccount) GetAccountsByUserID(userID int64) ([]*automigrate.Account, int64, error) {
+	var user automigrate.User
+	if result := dao.Group.DB.Preload("Accounts").First(&user, userID); result.Error != nil {
+		return nil, 0, result.Error
+	}
+	return user.Accounts, int64(len(user.Accounts)), nil
+}
+
+func (qAccount) GetUserByAccountID(accountID int64) (*automigrate.User, error) {
+	var account automigrate.Account
+	if result := dao.Group.DB.Preload("User").First(&account, accountID); result.Error != nil {
+		return nil, result.Error
+	}
+	return account.User, nil
+}

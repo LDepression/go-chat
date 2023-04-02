@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type Account struct {
+type AccountInfo struct {
 	ID        uint      `json:"id" gorm:"primarykey"`
 	CreatedAt time.Time `json:"created_at"`
 	UserID    uint      `json:"user_id"`
@@ -15,10 +15,15 @@ type Account struct {
 }
 
 type GetAccountByID struct {
-	Account
+	AccountInfo
 }
 
 type GetAccountsByName struct {
-	Account []*Account
-	Total   int64
+	AccountInfos []*AccountInfo
+	Total        int64
+}
+
+type GetAccountsByUserID struct {
+	AccountInfos []*AccountInfo
+	Total        int64
 }

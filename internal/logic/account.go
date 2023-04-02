@@ -19,7 +19,7 @@ func (account) GetAccountByID(c *gin.Context, accountID int64) (*reply.GetAccoun
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
 	return &reply.GetAccountByID{
-		Account: reply.Account{
+		AccountInfo: reply.AccountInfo{
 			ID:        accountInfo.ID,
 			CreatedAt: accountInfo.CreatedAt,
 			UserID:    accountInfo.UserID,
@@ -36,11 +36,14 @@ func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offs
 	accountInfos, totalCount, err := qAccount.GetAccountsByName(accountName, limit, offset)
 	if err != nil {
 		zap.S().Error("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
-		return nil, errcode.ErrServer.WithDetails(err.Error())
+		return &reply.GetAccountsByName{}, errcode.ErrServer.WithDetails(err.Error())
 	}
-	replyAccountInfos := make([]*reply.Account, 0, len(accountInfos))
+	if len(accountInfos) == 0 {
+		return &reply.GetAccountsByName{}, nil
+	}
+	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
 	for _, v := range accountInfos {
-		replyAccountInfos = append(replyAccountInfos, &reply.Account{
+		replyAccountInfos = append(replyAccountInfos, &reply.AccountInfo{
 			ID:        v.ID,
 			CreatedAt: v.CreatedAt,
 			UserID:    v.UserID,
@@ -52,7 +55,35 @@ func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offs
 	}
 
 	return &reply.GetAccountsByName{
-		Account: replyAccountInfos,
-		Total:   totalCount,
+		AccountInfos: replyAccountInfos,
+		Total:        totalCount,
+	}, nil
+}
+
+func (account) GetAccountsByUserID(c *gin.Context, userID int64) (*reply.GetAccountsByUserID, errcode.Err) {
+	qAccount := query.NewQueryAccount()
+	accountInfos, totalCount, err := qAccount.GetAccountsByUserID(userID)
+	if err != nil {
+		zap.S().Error("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
+		return &reply.GetAccountsByUserID{}, errcode.ErrNotFound.WithDetails(err.Error())
+	}
+	if len(accountInfos) == 0 {
+		return &reply.GetAccountsByUserID{}, nil
+	}
+	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
+	for _, v := range accountInfos {
+		replyAccountInfos = append(replyAccountInfos, &reply.AccountInfo{
+			ID:        v.ID,
+			CreatedAt: v.CreatedAt,
+			UserID:    v.UserID,
+			Name:      v.Name,
+			Signature: v.Signature,
+			Avatar:    v.Avatar,
+			Gender:    v.Gender,
+		})
+	}
+	return &reply.GetAccountsByUserID{
+		AccountInfos: replyAccountInfos,
+		Total:        totalCount,
 	}, nil
 }
