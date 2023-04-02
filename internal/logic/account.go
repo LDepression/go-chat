@@ -20,11 +20,33 @@ import (
 	reply2 "go-chat/internal/model/reply"
 	"go-chat/internal/model/request"
 	"go-chat/internal/myerr"
-	"go-chat/internal/pkg/app/errcode"
 	"gorm.io/gorm"
+	"go-chat/internal/pkg/app/errcode"
+	"go.uber.org/zap"
 )
 
-type account struct{}
+type account struct {
+}
+
+func (account) GetAccountByID(c *gin.Context, accountID uint) (*reply.GetAccountByID, errcode.Err) {
+	qAccount := query.NewQueryAccount()
+	accountInfo, err := qAccount.GetAccountByID(accountID)
+	if err != nil {
+		zap.S().Errorf("dao.qAccount.GetAccountByID() failed:%v", zap.Error(err))
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+	return &reply.GetAccountByID{
+		AccountInfo: reply.AccountInfo{
+			ID:        accountInfo.ID,
+			CreatedAt: accountInfo.CreatedAt,
+			UserID:    accountInfo.UserID,
+			Name:      accountInfo.Name,
+			Signature: accountInfo.Signature,
+			Avatar:    accountInfo.Avatar,
+			Gender:    accountInfo.Gender,
+		},
+	}, nil
+}
 
 func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*reply2.CreateAccountReply, errcode.Err) {
 	//先来判断一下账户创建的账户是否超过最大了
@@ -98,6 +120,29 @@ func (account) GetToken(ctx *gin.Context, accountID int64) (common.Token, errcod
 		ExpiresAt: accessRes.PayLoad.ExpiredAt,
 	}, nil
 }
+func (account) GetAccountsByName(c *gin.Context, accountName string, limit, offset int32) (*reply.GetAccountsByName, errcode.Err) {
+	qAccount := query.NewQueryAccount()
+	accountInfos, totalCount, err := qAccount.GetAccountsByName(accountName, limit, offset)
+	if err != nil {
+		zap.S().Errorf("dao.qAccount.GetAccountByName() failed:%v", zap.Error(err))
+		return &reply.GetAccountsByName{}, errcode.ErrServer.WithDetails(err.Error())
+	}
+	if totalCount == 0 {
+		return &reply.GetAccountsByName{}, nil
+	}
+	replyAccountInfos := make([]*reply.AccountInfo, 0, len(accountInfos))
+	for _, v := range accountInfos {
+		replyAccountInfos = append(replyAccountInfos, &reply.AccountInfo{
+			ID:        v.ID,
+			CreatedAt: v.CreatedAt,
+			UserID:    v.UserID,
+			Name:      v.Name,
+			Signature: v.Signature,
+			Avatar:    v.Avatar,
+			Gender:    v.Gender,
+		})
+	}
+}
 
 func (account) GetAccountsByUserID(userID int64) (reply2.TotalAccountsReply, errcode.Err) {
 	var reply reply2.TotalAccountsReply
@@ -129,4 +174,15 @@ func (account) GetAccountsByUserID(userID int64) (reply2.TotalAccountsReply, err
 		reply.AccountInfos = append(reply.AccountInfos, accountInfoReply)
 	}
 	return reply, nil
+}
+
+
+func (account) UpdateAccount(c *gin.Context, accountID uint, name, signature, avatar, gender string) errcode.Err {
+	qAccount := query.NewQueryAccount()
+	err := qAccount.UpdateAccount(accountID, name, signature, avatar, gender)
+	if err != nil {
+		zap.S().Errorf("dao.qAccount.UpdateAccount() failed:%v", zap.Error(err))
+		return errcode.ErrNotFound.WithDetails(err.Error())
+	}
+	return nil
 }

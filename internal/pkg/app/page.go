@@ -1,9 +1,10 @@
 package app
 
 import (
-	"go-chat/internal/pkg/utils"
-
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"go-chat/internal/pkg/utils"
+	"gorm.io/gorm"
 )
 
 // 分页处理
@@ -28,10 +29,12 @@ func InitPage(defaultPageSize, maxPageSize int32, pageKey, pageSizeKey string) *
 // GetPageSizeAndOffset 获取偏移值和页尺寸
 func (p *Page) GetPageSizeAndOffset(c *gin.Context) (limit, offset int32) {
 	page := utils.StrTo(c.Query(p.PageKey)).MustInt32()
+	fmt.Println("page=", page)
 	if page <= 0 {
 		page = 1
 	}
 	limit = utils.StrTo(c.Query(p.PageSizeKey)).MustInt32()
+	fmt.Println("limit=", limit)
 	if limit <= 0 {
 		limit = p.DefaultPageSize
 	}
@@ -44,4 +47,23 @@ func (p *Page) GetPageSizeAndOffset(c *gin.Context) (limit, offset int32) {
 
 func CulOffset(page, pageSize int32) (offset int32) {
 	return (page - 1) * pageSize
+}
+
+func (p *Page) Paginate(c *gin.Context) func(db *gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		page := utils.StrTo(c.Query(p.PageKey)).MustInt32()
+		if page <= 0 {
+			page = 1
+		}
+		pageSize := utils.StrTo(c.Query(p.PageSizeKey)).MustInt32()
+		switch {
+		case pageSize > p.MaxPageSize:
+			pageSize = p.MaxPageSize
+		case pageSize <= 0:
+			pageSize = p.DefaultPageSize
+		}
+
+		offset := (page - 1) * pageSize
+		return db.Offset(int(offset)).Limit(int(pageSize))
+	}
 }

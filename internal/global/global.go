@@ -11,6 +11,7 @@ package global
 import (
 	ut "github.com/go-playground/universal-translator"
 	"go-chat/internal/model/config"
+	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/goroutine/work"
 	"go-chat/internal/pkg/logger"
 	"go-chat/internal/pkg/snowflake"
@@ -18,11 +19,12 @@ import (
 )
 
 var (
-	Settings  = &config.Settings{}
-	RootDir   string
-	Logger    *logger.Log
-	Trans     ut.Translator
-	Worker    *work.Worker
-	Maker     token.Maker
+	Settings = &config.Settings{}
+	RootDir  string
+	Logger   *logger.Log
+	Trans    ut.Translator
+	Worker   *work.Worker
+	Maker    token.Maker
+	Pager    *app.Page
 	SnowFlake *snowflake.Worker
 )

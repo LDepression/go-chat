@@ -28,7 +28,7 @@ func TestSaveRegisterInfo(t *testing.T) {
 
 func TestGetUserByID(t *testing.T) {
 	quser := NewQueryUser()
-	userInfo, err := quser.GetUserByID(6)
+	userInfo, err := quser.GetUserByID(300)
 	assert.NoError(t, err)
 	fmt.Println(*userInfo)
 }

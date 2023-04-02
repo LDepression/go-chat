@@ -38,13 +38,12 @@ func (quser) GetUserByEmail(emailStr string) (*automigrate.User, error) {
 	return &user, nil
 }
 
-func (quser) GetUserByID(userID int64) (*automigrate.User, error) {
+func (quser) GetUserByID(userID uint) (*automigrate.User, error) {
 	var user automigrate.User
 	if result := dao.Group.DB.Model(&automigrate.User{}).Where("id =?", userID).Find(&user); result.RowsAffected == 0 {
 		return nil, result.Error
 	}
 	return &user, nil
-
 }
 
 func (quser) ModifyPassword(email string, hashPassword string) error {

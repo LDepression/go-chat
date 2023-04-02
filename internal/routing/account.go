@@ -16,10 +16,21 @@ import (
 
 type account struct{}
 
-func (account) Init(root *gin.RouterGroup) {
+
+func (a *account) Init(root *gin.RouterGroup) {
 	g := root.Group("account").Use(middleware.Auth(), middleware.AuthMustUser())
 	g.POST("/createAccount", v1.Group.Account.CreateAccount)
 	g.DELETE("/deleteAccount/:id", v1.Group.Account.DeleteAccount)
 	g.GET("/getToken/:id", v1.Group.Account.GetToken)
 	g.GET("/infos/user", v1.Group.Account.GetAccountsByUserID)
+
+	//TODO
+	ag := root.Group("account").Use(middleware.Auth())
+	{
+		ag.GET("/info", v1.Group.Account.GetAccountByID)
+		ag.GET("/infos/name", v1.Group.Account.GetAccountsByName)
+		ag.PUT("update",v1.Group.Account.UpdateAccount)
+	}
+
 }
+

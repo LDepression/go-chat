@@ -12,194 +12,13 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "contact": {},
         "license": {
-            "name": "lyc,why"
+            "name": "lyc"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/v1/account//infos/user": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "获取用户的所有账号",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "x-token 用户令牌",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "1001:参数有误 1003:系统错误 ",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/common.State"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/reply.TotalAccountsReply"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/account/createAccount": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "创建账户",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "x-token 用户令牌",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "email",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/request.CreateAccountReq"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "1001:参数有误 1003:系统错误 ",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/common.State"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/reply.CreateAccountReply"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/account/deleteAccount/{id}": {
-            "delete": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "删除账户",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "x-token 用户令牌",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "description": "删除账号的ID",
-                        "name": "accountID",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "1001:参数有误 1003:系统错误 ",
-                        "schema": {
-                            "$ref": "#/definitions/common.State"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/account/getToken/{id}": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "获取账户令牌",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "x-token 用户令牌",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "description": "删除账号的ID",
-                        "name": "accountID",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "1001:参数有误 1003:系统错误 ",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/common.State"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/common.Token"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/v1/email/check": {
             "post": {
                 "consumes": [
@@ -278,7 +97,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/login": {
+        "/api/v1/user/login": {
             "post": {
                 "consumes": [
                     "application/json"
@@ -304,57 +123,6 @@ const docTemplate = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/request.Login"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "1001:参数有误 1003:系统错误 3001:邮箱已经注册 ",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/common.State"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/reply.LoginReply"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/register": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "register"
-                ],
-                "summary": "用户注册",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "x-token 用户令牌",
-                        "name": "Authorization",
-                        "in": "header"
-                    },
-                    {
-                        "description": "用户注册信息",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/request.Register"
                         }
                     }
                 ],
@@ -450,6 +218,57 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/v1/user/register": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "register"
+                ],
+                "summary": "用户注册",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "description": "用户注册信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.Register"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 3001:邮箱已经注册 ",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.State"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/reply.LoginReply"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -466,54 +285,6 @@ const docTemplate = `{
                 "status_msg": {
                     "description": "返回状态描述",
                     "type": "string"
-                }
-            }
-        },
-        "common.Token": {
-            "type": "object",
-            "properties": {
-                "expires_at": {
-                    "type": "string"
-                },
-                "token": {
-                    "type": "string"
-                }
-            }
-        },
-        "reply.AccountInfoReply": {
-            "type": "object",
-            "properties": {
-                "accountID": {
-                    "type": "integer"
-                },
-                "avatar": {
-                    "type": "string"
-                },
-                "gender": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "signature": {
-                    "type": "string"
-                }
-            }
-        },
-        "reply.CreateAccountReply": {
-            "type": "object",
-            "properties": {
-                "accountID": {
-                    "type": "integer"
-                },
-                "gender": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "token": {
-                    "$ref": "#/definitions/common.Token"
                 }
             }
         },
@@ -534,20 +305,6 @@ const docTemplate = `{
                 }
             }
         },
-        "reply.TotalAccountsReply": {
-            "type": "object",
-            "properties": {
-                "accountInfos": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/reply.AccountInfoReply"
-                    }
-                },
-                "total": {
-                    "type": "integer"
-                }
-            }
-        },
         "request.CheckEmailExist": {
             "type": "object",
             "required": [
@@ -555,36 +312,6 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
-                    "description": "检查是否存在的邮箱",
-                    "type": "string"
-                }
-            }
-        },
-        "request.CreateAccountReq": {
-            "type": "object",
-            "required": [
-                "avatar",
-                "gender",
-                "name"
-            ],
-            "properties": {
-                "ID": {
-                    "type": "integer"
-                },
-                "avatar": {
-                    "description": "头像图片",
-                    "type": "string"
-                },
-                "gender": {
-                    "description": "性别",
-                    "type": "integer"
-                },
-                "name": {
-                    "description": "昵称",
-                    "type": "string"
-                },
-                "sigNature": {
-                    "description": "个性签名",
                     "type": "string"
                 }
             }
@@ -624,25 +351,20 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
-                    "description": "注册邮箱",
                     "type": "string"
                 },
                 "email_code": {
-                    "description": "邮箱验证码",
                     "type": "string"
                 },
                 "mobile": {
-                    "description": "手机",
                     "type": "string"
                 },
                 "password": {
-                    "description": "密码",
                     "type": "string",
                     "maxLength": 12,
                     "minLength": 3
                 },
                 "rePassword": {
-                    "description": "第二次输出密码",
                     "type": "string"
                 }
             }
@@ -671,7 +393,6 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
-                    "description": "发送邮箱的验证码",
                     "type": "string"
                 }
             }
@@ -679,13 +400,6 @@ const docTemplate = `{
         "token.Payload": {
             "type": "object",
             "properties": {
-                "content": {
-                    "description": "可以是用户或者是账户",
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
                 "expired-at": {
                     "type": "string"
                 },
@@ -696,6 +410,9 @@ const docTemplate = `{
                 "issued-at": {
                     "description": "创建时间用于检验",
                     "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
                 }
             }
         }
@@ -710,7 +427,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "127.0.0.1:8084",
+	Host:             "127.0.0.1",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "chat",

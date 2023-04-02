@@ -21,7 +21,9 @@ import (
 )
 
 func NewRouter() *gin.Engine {
+
 	r := gin.New()
+	gin.ForceConsoleColor()
 	gin.SetMode(gin.DebugMode)
 	gin.ForceConsoleColor()
 	root := r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())

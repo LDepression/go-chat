@@ -8,7 +8,10 @@
 
 package reply
 
-import "go-chat/internal/model/common"
+import (
+	"go-chat/internal/model/common"
+	"time"
+)
 
 type CreateAccountReply struct {
 	AccountID int64  `json:"accountID"`
@@ -28,4 +31,28 @@ type AccountInfoReply struct {
 type TotalAccountsReply struct {
 	Total        int                `json:"total"`
 	AccountInfos []AccountInfoReply `json:"accountInfos"`
+}
+
+type AccountInfo struct {
+	ID        uint      `json:"id" gorm:"primarykey"`
+	CreatedAt time.Time `json:"created_at"`
+	UserID    uint      `json:"user_id"`
+	Name      string    `json:"name"`
+	Signature string    `json:"signature"`
+	Avatar    string    `json:"avatar"`
+	Gender    string    `json:"gender"`
+}
+
+type GetAccountByID struct {
+	AccountInfo
+}
+
+type GetAccountsByName struct {
+	AccountInfos []*AccountInfo
+	Total        int64
+}
+
+type GetAccountsByUserID struct {
+	AccountInfos []*AccountInfo
+	Total        int64
 }

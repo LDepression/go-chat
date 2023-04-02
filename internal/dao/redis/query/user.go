@@ -16,7 +16,7 @@ import (
 
 var UserKey = "user"
 
-func (q *Queries) SaveUserToken(ctx *gin.Context, userID int64, tokens []string) error {
+func (q *Queries) SaveUserToken(ctx *gin.Context, userID uint, tokens []string) error {
 	key := utils.LinkStr(UserKey, utils.IDToSting(userID))
 	for _, token := range tokens {
 		if err := q.rdb.SAdd(ctx, key, token).Err(); err != nil {
@@ -27,13 +27,13 @@ func (q *Queries) SaveUserToken(ctx *gin.Context, userID int64, tokens []string)
 	return nil
 }
 
-func (q *Queries) CheckUserTokenValid(ctx *gin.Context, userID int64, token string) bool {
+func (q *Queries) CheckUserTokenValid(ctx *gin.Context, userID uint, token string) bool {
 	key := utils.LinkStr(UserKey, utils.IDToSting(userID))
 	ok := q.rdb.SIsMember(ctx, key, token).Val()
 	return ok
 }
 
-func (q *Queries) DeleteAllTokenByUser(ctx *gin.Context, userID int64) error {
+func (q *Queries) DeleteAllTokenByUser(ctx *gin.Context, userID uint) error {
 	key := utils.LinkStr(UserKey, utils.IDToSting(userID))
 	if err := q.rdb.Del(ctx, key).Err(); err != nil {
 		return err
@@ -41,7 +41,7 @@ func (q *Queries) DeleteAllTokenByUser(ctx *gin.Context, userID int64) error {
 	return nil
 }
 
-func (q *Queries) CountUserToken(ctx *gin.Context, userID int64) int64 {
+func (q *Queries) CountUserToken(ctx *gin.Context, userID uint) int64 {
 	key := utils.LinkStr(UserKey, utils.IDToSting(userID))
 	count := q.rdb.SCard(ctx, key).Val()
 	return count
