@@ -88,7 +88,7 @@ func (account) GetAccountsByUserID(c *gin.Context, userID uint) (*reply.GetAccou
 	}, nil
 }
 
-func (account) UpdateAccount(c *gin.Context, accountID uint, name, signature, avatar string, gender int) errcode.Err {
+func (account) UpdateAccount(c *gin.Context, accountID uint, name, signature, avatar, gender string) errcode.Err {
 	qAccount := query.NewQueryAccount()
 	err := qAccount.UpdateAccount(accountID, name, signature, avatar, gender)
 	if err != nil {

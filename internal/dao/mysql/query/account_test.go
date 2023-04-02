@@ -106,7 +106,7 @@ func TestUpdateAccount(t *testing.T) {
 		fmt.Println("dao.Group.DB == nil")
 	}
 	qAccount := NewQueryAccount()
-	err := qAccount.UpdateAccount(4, "wangda", "", "", 0)
+	err := qAccount.UpdateAccount(4, "wangda", "", "", "asd")
 	if err != nil {
 		fmt.Printf("qAccount.UpdateAccount failed, err:%#v \n", err)
 		t.Errorf("err:%v\n,", err)

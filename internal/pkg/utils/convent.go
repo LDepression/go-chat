@@ -49,8 +49,8 @@ func (s StrTo) MustInt32() int32 {
 	return v
 }
 
-func IDToSting(id int64) string {
-	return strconv.FormatInt(id, 10)
+func IDToSting(id uint) string {
+	return strconv.FormatInt(int64(id), 10)
 }
 
 func StringToIDMust(id string) int64 {
@@ -62,7 +62,7 @@ func LinkStr(a, b string) string {
 	return a + ":" + b
 }
 
-func LinkID(a, b int64) string {
+func LinkID(a, b uint) string {
 	return IDToSting(a) + ":" + IDToSting(b)
 }
 

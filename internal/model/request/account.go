@@ -10,7 +10,7 @@ type AccountRequestInfo struct {
 	Name      string `json:"name"`
 	Signature string `json:"signature"`
 	Avatar    string `json:"avatar"`
-	Gender    int    `json:"gender"`
+	Gender    string `json:"gender"`
 }
 
 type GetAccountByID struct {
@@ -27,5 +27,5 @@ type UpdateAccount struct {
 	Name      string `json:"name,omitempty" form:"name"`
 	Signature string `json:"signature,omitempty" form:"signature"`
 	Avatar    string `json:"avatar,omitempty" form:"avatar"`
-	Gender    int    `json:"gender,omitempty" form:"gender"`
+	Gender    string `json:"gender,omitempty" form:"gender"`
 }

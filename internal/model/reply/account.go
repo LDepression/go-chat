@@ -11,7 +11,7 @@ type AccountInfo struct {
 	Name      string    `json:"name"`
 	Signature string    `json:"signature"`
 	Avatar    string    `json:"avatar"`
-	Gender    int       `json:"gender"`
+	Gender    string    `json:"gender"`
 }
 
 type GetAccountByID struct {

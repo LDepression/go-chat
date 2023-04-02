@@ -50,7 +50,7 @@ func (qAccount) GetUserByAccountID(accountID int64) (*automigrate.User, error) {
 	return account.User, nil
 }
 
-func (qAccount) UpdateAccount(accountID uint, name, signature, avatar string, gender int) error {
+func (qAccount) UpdateAccount(accountID uint, name, signature, avatar, gender string) error {
 	updateFields := map[string]interface{}{
 		"name":      name,
 		"signature": signature,

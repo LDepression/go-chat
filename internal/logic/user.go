@@ -37,7 +37,7 @@ type tokenResult struct {
 	Err     error
 }
 
-func CreateToken(resultChan chan<- tokenResult, t model.TokenType, id int64, ExpireTime time.Duration) func() {
+func CreateToken(resultChan chan<- tokenResult, t model.TokenType, id uint, ExpireTime time.Duration) func() {
 	return func() {
 		defer close(resultChan)
 		content, _ := model.NewContent(t, id).Marshal()
@@ -87,12 +87,12 @@ func (user) Register(ctx *gin.Context, mobile, email, password, code string) (*r
 	//生成AUTH Token
 	accessChan := make(chan tokenResult, 1)
 	refreshChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, int64(userID), global.Settings.Token.AccessTokenExpire))
-	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, int64(userID), global.Settings.Token.RefreshTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, userID, global.Settings.Token.AccessTokenExpire))
+	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, userID, global.Settings.Token.RefreshTokenExpire))
 	accessRes := <-accessChan
 	refreshRes := <-refreshChan
 
-	if err := dao.Group.Redis.SaveUserToken(ctx, int64(userID), []string{accessRes.token, refreshRes.token}); err != nil {
+	if err := dao.Group.Redis.SaveUserToken(ctx, userID, []string{accessRes.token, refreshRes.token}); err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
 	return &reply.LoginReply{
@@ -119,7 +119,7 @@ func (user) Login(ctx *gin.Context, req request.Login) (*reply.LoginReply, errco
 	if err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
-	count := dao.Group.Redis.CountUserToken(ctx, int64(userInfo.ID))
+	count := dao.Group.Redis.CountUserToken(ctx, userInfo.ID)
 	if count != 0 {
 		return nil, myerr.UserExist
 	}
@@ -146,12 +146,12 @@ func (user) Login(ctx *gin.Context, req request.Login) (*reply.LoginReply, errco
 	//生成AUTH Token
 	accessChan := make(chan tokenResult, 1)
 	refreshChan := make(chan tokenResult, 1)
-	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, int64(userInfo.ID), global.Settings.Token.AccessTokenExpire))
-	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, int64(userInfo.ID), global.Settings.Token.RefreshTokenExpire))
+	global.Worker.SendTask(CreateToken(accessChan, model.UserToken, userInfo.ID, global.Settings.Token.AccessTokenExpire))
+	global.Worker.SendTask(CreateToken(refreshChan, model.UserToken, userInfo.ID, global.Settings.Token.RefreshTokenExpire))
 	accessRes := <-accessChan
 	refreshRes := <-refreshChan
 
-	if err := dao.Group.Redis.SaveUserToken(ctx, int64(userInfo.ID), []string{accessRes.token, refreshRes.token}); err != nil {
+	if err := dao.Group.Redis.SaveUserToken(ctx, userInfo.ID, []string{accessRes.token, refreshRes.token}); err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
 	}
 	return &reply.LoginReply{
@@ -179,7 +179,7 @@ func (user) ModifyPassword(ctx *gin.Context, req request.ReqModifyPassword) errc
 		return myerr.TokenNotFound
 	}
 	userInfo, err := quser.GetUserByID(content.ID)
-	if ok := dao.Group.Redis.CheckUserTokenValid(ctx, int64(userInfo.ID), Token); ok == false {
+	if ok := dao.Group.Redis.CheckUserTokenValid(ctx, userInfo.ID, Token); ok == false {
 		return myerr.TokenInValid
 	}
 	//验证emailCode
@@ -197,7 +197,7 @@ func (user) ModifyPassword(ctx *gin.Context, req request.ReqModifyPassword) errc
 	}
 
 	//现在清除用户的token
-	if err := dao.Group.Redis.DeleteAllTokenByUser(ctx, int64(userInfo.ID)); err != nil {
+	if err := dao.Group.Redis.DeleteAllTokenByUser(ctx, userInfo.ID); err != nil {
 		return errcode.ErrServer.WithDetails(err.Error())
 	}
 	return nil
