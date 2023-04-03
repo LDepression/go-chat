@@ -17,5 +17,5 @@ type sf struct {
 }
 
 func (sf) Init() {
-	global.SnowFlake, _ = snowflake.NewWorker(1)
+	global.SnowFlake, _ = snowflake.NewSnowFlake(0, 0)
 }

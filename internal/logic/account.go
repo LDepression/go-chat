@@ -43,7 +43,7 @@ func (account) GetAccountByID(c *gin.Context, accountID uint) (*reply2.GetAccoun
 			Name:      accountInfo.Name,
 			Signature: accountInfo.Signature,
 			Avatar:    accountInfo.Avatar,
-			Gender:    accountInfo.Gender,
+			Gender:    string(accountInfo.Gender),
 		},
 	}, nil
 }
@@ -55,8 +55,7 @@ func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*r
 		return nil, myerr.TokenNotFound
 	}
 	tx := tx2.NewAccountTX()
-	id := global.SnowFlake.GetId()
-	zap.S().Infof("id := global.SnowFlake.GetId() = %v\n", id)
+	id, _ := global.SnowFlake.NextId()
 	req.ID = id
 	if err := tx.CreateAccountWithTX(ctx, int64(content.ID), req); err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
@@ -68,14 +67,7 @@ func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*r
 	var reply reply2.CreateAccountReply
 	reply.AccountID = id
 	reply.Name = req.Name
-	switch req.Gender {
-	case "男":
-		reply.Gender = "男"
-	case "女":
-		reply.Gender = "女"
-	default:
-		return nil, errcode.ErrParamsNotValid
-	}
+	reply.Gender = string(req.Gender)
 	resChan := <-accessChan
 	reply.Token = common.Token{
 		Token:     resChan.token,
