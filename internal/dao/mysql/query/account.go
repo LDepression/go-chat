@@ -7,6 +7,7 @@
  */
 
 package query
+
 import (
 	"fmt"
 	"go-chat/internal/dao"
@@ -39,14 +40,6 @@ func (qAccount) GetAccountsByName(AccountName string, limit, offset int32) ([]*a
 	}
 
 	return accountInfos, totalCount, nil
-}
-
-func (qAccount) GetUserByAccountID(accountID int64) (*automigrate.User, error) {
-	var account automigrate.Account
-	if result := dao.Group.DB.Preload("User").First(&account, accountID); result.Error != nil {
-		return nil, result.Error
-	}
-	return account.User, nil
 }
 
 func (qAccount) UpdateAccount(accountID uint, name, signature, avatar, gender string) error {

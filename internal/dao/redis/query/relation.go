@@ -17,7 +17,7 @@ var RelationKey = "Group"
 
 func (q *Queries) AddRelationAccount(ctx context.Context, relationID int64, accountIDs []int64) error {
 	for i := 0; i < len(accountIDs); i++ {
-		id := utils.IDToSting(relationID)
+		id := utils.IDToSting(uint(relationID))
 		if err := q.rdb.SAdd(ctx, utils.LinkStr(RelationKey, id), accountIDs[i]).Err(); err != nil {
 			return err
 		}
@@ -30,7 +30,7 @@ func (q *Queries) DeleteRelationAccount(ctx context.Context, relationID int64, a
 	if len(accountIDs) == 0 {
 		return nil
 	}
-	id := utils.IDToSting(relationID)
+	id := utils.IDToSting(uint(relationID))
 	key := utils.LinkStr(RelationKey, id)
 	if err := q.rdb.SRem(ctx, key, accountIDs).Err(); err != nil {
 		return err
@@ -43,7 +43,7 @@ func (q *Queries) DeleteAccountByRelations(ctx context.Context, accountID int64,
 		return nil
 	}
 	for _, relationID := range relationIDs {
-		id := utils.IDToSting(relationID)
+		id := utils.IDToSting(uint(relationID))
 		key := utils.LinkStr(RelationKey, id)
 		if err := q.rdb.SRem(ctx, key, accountID).Err(); err != nil {
 			return err

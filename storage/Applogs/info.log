@@ -102,3 +102,17 @@
 2023-03-28T20:34:57.892+0800	INFO	middleware/auth.go:45	&{user 1}
 2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}
 2023-03-28T20:47:37.569+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-04-02T22:13:38.430+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:13:38.430+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:18:27.693+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:18:27.693+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:25:52.947+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:25:52.947+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:42:49.849+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:42:49.849+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:43:25.535+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:43:25.535+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:43:49.314+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:43:49.315+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
