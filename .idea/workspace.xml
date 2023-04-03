@@ -4,12 +4,38 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ae59bc-8fd2-4d79-a2d0-3785933aaead" name="变更" comment="将token的id改为uint,gender改为string">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/go-chat.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="20ae59bc-8fd2-4d79-a2d0-3785933aaead" name="变更" comment="合并分支">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/account_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/account_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/query.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/dao/mysql/tx/account_tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/account_tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/tx/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/redis/query/email.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/redis/query/email.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/redis/query/relation.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/redis/query/relation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/redis/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/redis/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/email.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/email.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/ralation.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/ralation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/request/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/request/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/snowflake/gen_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/snowflake/gen_id.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routing/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routing/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/setting/dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/setting/dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/Applogs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/Applogs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/Applogs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/Applogs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/build-errors.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +85,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -75,6 +102,7 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "E:/Go/goproject/src/my_project/go-chat2/go-chat",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "vcs.Git"
   },
   "keyToStringList": {
@@ -83,10 +111,20 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Go 测试.go-chat/internal/dao/mysql/query 中的 TestUpdateAccount">
+  <component name="RunManager" selected="Go 构建.go build main.go">
     <configuration name="go build account.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-chat" />
       <working_directory value="$PROJECT_DIR$" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
       <kind value="FILE" />
       <package value="go-chat" />
       <directory value="$PROJECT_DIR$" />
@@ -102,6 +140,18 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetAccountsByName" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-chat" />
+      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="go-chat/internal/dao/mysql/query" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGetAccountsByName\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetAccountsByUserID" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-chat" />
       <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
@@ -114,37 +164,25 @@
       <pattern value="^\QTestGetAccountsByUserID\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetUserByAccountID" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go-chat/internal/pkg/snowflake 中的 TestSnowFlake" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
+      <working_directory value="$PROJECT_DIR$/internal/pkg/snowflake" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
+      <package value="go-chat/internal/pkg/snowflake" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestGetUserByAccountID\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestUpdateAccount" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUpdateAccount\E$" />
+      <pattern value="^\QTestSnowFlake\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go 测试.go-chat/internal/dao/mysql/query 中的 TestUpdateAccount" />
-        <item itemvalue="Go 测试.go-chat/internal/dao/mysql/query 中的 TestGetUserByAccountID" />
-        <item itemvalue="Go 测试.go-chat/internal/dao/mysql/query 中的 TestGetAccountsByUserID" />
         <item itemvalue="Go 构建.go build main.go" />
         <item itemvalue="Go 构建.go build account.go" />
+        <item itemvalue="Go 测试.go-chat/internal/pkg/snowflake 中的 TestSnowFlake" />
+        <item itemvalue="Go 测试.go-chat/internal/dao/mysql/query 中的 TestGetAccountsByUserID" />
+        <item itemvalue="Go 测试.go-chat/internal/dao/mysql/query 中的 TestGetAccountsByName" />
       </list>
     </recent_temporary>
   </component>
@@ -185,9 +223,21 @@
     <MESSAGE value="完善account模块" />
     <MESSAGE value="修改预加载查询" />
     <MESSAGE value="将token的id改为uint,gender改为string" />
-    <option name="LAST_COMMIT_MESSAGE" value="将token的id改为uint,gender改为string" />
+    <MESSAGE value="合并分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并分支" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/api/v1/account.go</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -20,4 +20,5 @@ type mdao struct {
 func (d mdao) Init() {
 	mysql.InitMySql()
 	dao.Group.Redis = redis.Init()
+
 }

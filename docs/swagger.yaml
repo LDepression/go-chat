@@ -11,6 +11,78 @@ definitions:
         description: 返回状态描述
         type: string
     type: object
+  common.Token:
+    properties:
+      expires_at:
+        type: string
+      token:
+        type: string
+    type: object
+  reply.AccountInfo:
+    properties:
+      avatar:
+        type: string
+      created_at:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      signature:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  reply.AccountInfoReply:
+    properties:
+      accountID:
+        type: integer
+      avatar:
+        type: string
+      gender:
+        type: string
+      name:
+        type: string
+      signature:
+        type: string
+    type: object
+  reply.GetAccountByID:
+    properties:
+      avatar:
+        type: string
+      created_at:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      signature:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  reply.GetAccountsByName:
+    properties:
+      accountInfos:
+        items:
+          $ref: '#/definitions/reply.AccountInfo'
+        type: array
+      total:
+        type: integer
+    type: object
+  reply.GetAccountsByUserID:
+    properties:
+      accountInfos:
+        items:
+          $ref: '#/definitions/reply.AccountInfo'
+        type: array
+      total:
+        type: integer
+    type: object
   reply.LoginReply:
     properties:
       AccessToken:
@@ -22,9 +94,19 @@ definitions:
       UserID:
         type: integer
     type: object
+  reply.TotalAccountsReply:
+    properties:
+      accountInfos:
+        items:
+          $ref: '#/definitions/reply.AccountInfoReply'
+        type: array
+      total:
+        type: integer
+    type: object
   request.CheckEmailExist:
     properties:
       email:
+        description: 检查是否存在的邮箱
         type: string
     required:
     - email
@@ -50,16 +132,21 @@ definitions:
   request.Register:
     properties:
       email:
+        description: 注册邮箱
         type: string
       email_code:
+        description: 邮箱验证码
         type: string
       mobile:
+        description: 手机
         type: string
       password:
+        description: 密码
         maxLength: 12
         minLength: 3
         type: string
       rePassword:
+        description: 第二次输出密码
         type: string
     required:
     - email
@@ -82,12 +169,34 @@ definitions:
   request.SendEmail:
     properties:
       email:
+        description: 发送邮箱的验证码
         type: string
     required:
     - email
     type: object
+  request.UpdateAccount:
+    properties:
+      account_id:
+        minimum: 1
+        type: integer
+      avatar:
+        type: string
+      gender:
+        type: string
+      name:
+        type: string
+      signature:
+        type: string
+    required:
+    - account_id
+    type: object
   token.Payload:
     properties:
+      content:
+        description: 可以是用户或者是账户
+        items:
+          type: integer
+        type: array
       expired-at:
         type: string
       id:
@@ -96,18 +205,200 @@ definitions:
       issued-at:
         description: 创建时间用于检验
         type: string
-      user_id:
-        type: integer
     type: object
-host: 127.0.0.1
+host: 127.0.0.1:8084
 info:
   contact: {}
   description: 在线聊天系统
   license:
-    name: lyc
+    name: lyc,why
   title: chat
   version: "1.0"
 paths:
+  /api/account/info:
+    get:
+      consumes:
+      - application/form-data
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: account_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2009:权限不足 2007:身份不存在 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.GetAccountByID'
+              type: object
+      summary: 获取账户信息
+      tags:
+      - account
+  /api/account/infos/name:
+    get:
+      consumes:
+      - application/form-data
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: Page
+        type: integer
+      - in: query
+        name: PageSize
+        type: integer
+      - in: query
+        name: account_name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.GetAccountsByName'
+              type: object
+      summary: 通过昵称模糊查找账户
+      tags:
+      - account
+  /api/account/infos/user:
+    get:
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      responses:
+        "200":
+          description: 1003:系统错误 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.GetAccountsByUserID'
+              type: object
+      summary: 创建账户
+      tags:
+      - account
+  /api/account/update:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 账号信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.UpdateAccount'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 更新账户信息
+      tags:
+      - account
+  /api/v1/account//infos/user:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '1001:参数有误 1003:系统错误 '
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.TotalAccountsReply'
+              type: object
+      summary: 获取用户的所有账号
+      tags:
+      - account
+  /api/v1/account/deleteAccount/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 删除账号的ID
+        in: query
+        name: accountID
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '1001:参数有误 1003:系统错误 '
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 删除账户
+      tags:
+      - account
+  /api/v1/account/getToken/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 删除账号的ID
+        in: query
+        name: accountID
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '1001:参数有误 1003:系统错误 '
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/common.Token'
+              type: object
+      summary: 获取账户令牌
+      tags:
+      - account
   /api/v1/email/check:
     post:
       consumes:
@@ -158,7 +449,7 @@ paths:
       summary: 发送邮件
       tags:
       - email
-  /api/v1/user/login:
+  /api/v1/login:
     post:
       consumes:
       - application/json
@@ -188,6 +479,36 @@ paths:
       summary: 用户登录
       tags:
       - login
+  /api/v1/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 用户注册信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.Register'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '1001:参数有误 1003:系统错误 3001:邮箱已经注册 '
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.LoginReply'
+              type: object
+      summary: 用户注册
+      tags:
+      - register
   /api/v1/user/logout:
     get:
       consumes:
@@ -234,36 +555,6 @@ paths:
       summary: 用户更改密码
       tags:
       - ModifyPassword
-  /api/v1/user/register:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: x-token 用户令牌
-        in: header
-        name: Authorization
-        type: string
-      - description: 用户注册信息
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/request.Register'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '1001:参数有误 1003:系统错误 3001:邮箱已经注册 '
-          schema:
-            allOf:
-            - $ref: '#/definitions/common.State'
-            - properties:
-                data:
-                  $ref: '#/definitions/reply.LoginReply'
-              type: object
-      summary: 用户注册
-      tags:
-      - register
 securityDefinitions:
   BasicAuth:
     type: basic

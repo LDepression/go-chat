@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/api/base"
 	"go-chat/internal/global"
@@ -37,14 +38,12 @@ func (account) GetAccountByID(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	//content, ok := middleware.GetPayLoad(c)
-	//if !ok || content.Type != model.AccountToken {
-	//	res.Reply(errcode.AuthNotExist)
-	//	return
-	//}
+	zap.S().Infof("params.AccountID:%v", params.AccountID)
+	fmt.Println("params.AccountID:", params.AccountID)
 	result, err := logic.Group.Account.GetAccountByID(c, params.AccountID)
 	if err != nil {
 		res.Reply(err)
+		return
 	}
 	res.Reply(nil, result)
 }
@@ -89,7 +88,7 @@ func (account) CreateAccount(ctx *gin.Context) {
 	replyInfo, err := logic.Group.Account.CreateAccount(ctx, req)
 	if err != nil {
 		rly.Reply(err)
-		zap.S().Info("logic.Group.Account.CreateAccount failed", zap.Any("err", err))
+		zap.S().Errorf("logic.Group.Account.CreateAccount failed, err:%v", err)
 		return
 	}
 	rly.Reply(nil, replyInfo)
@@ -172,6 +171,11 @@ func (account) UpdateAccount(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	err := logic.Group.Account.UpdateAccount(c, params.AccountID, params.Name, params.Signature, params.Avatar, string(params.Gender))
+	content, ok := middleware.GetContent(c)
+	if !ok || content.Type != model.AccountToken {
+		res.Reply(errcode.AuthNotExist)
+		return
+	}
+	err := logic.Group.Account.UpdateAccount(c, content.ID, params.Name, params.Signature, params.Avatar, string(params.Gender))
 	res.Reply(err)
 }

@@ -297,3 +297,38 @@ net/http.(*conn).serve(0xc0002a8a00, {0x1722680, 0xc0000a29c0})
 created by net/http.(*Server).Serve
 	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
  <nil>}
+2023-04-03T10:02:21.619+0800	ERROR	v1/account.go:36	&request.GetAccountByID{} c.ShouldBindJSON(params) failed: Key: 'GetAccountByID.account_id' Error:Field validation for 'account_id' failed on the 'required' tag
+2023-04-03T10:05:59.376+0800	ERROR	v1/account.go:36	&request.GetAccountByID{} c.ShouldBindJSON(params) failed: Key: 'GetAccountByID.account_id' Error:Field validation for 'account_id' failed on the 'gte' tag
+2023-04-03T10:06:14.812+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T14:53:54.304+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T14:54:25.284+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T14:54:41.641+0800	ERROR	v1/account.go:61	&request.GetAccountByName{} c.ShouldBindJSON(params) failed: Key: 'GetAccountsByName.account_name' Error:Field validation for 'account_name' failed on the 'required' tag
+2023-04-03T17:03:44.804+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:03:55.456+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:05:19.726+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T17:08:11.806+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T17:14:44.376+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:14:48.512+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:14:50.353+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:14:53.726+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:14:59.896+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:15:02.807+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:15:04.673+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:15:13.880+0800	ERROR	v1/account.go:88	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T17:15:39.608+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T17:17:18.409+0800	ERROR	logic/account.go:35	dao.qAccount.GetAccountByID() failed:{error 26 0  record not found}
+2023-04-03T17:20:40.921+0800	ERROR	v1/account.go:63	&request.GetAccountByName{} c.ShouldBindJSON(params) failed: Key: 'GetAccountsByName.account_name' Error:Field validation for 'account_name' failed on the 'required' tag
+2023-04-03T17:35:21.922+0800	ERROR	v1/account.go:169	&request.UpdateAccount{} c.ShouldBindJSON(params) failed: Key: 'UpdateAccount.account_id' Error:Field validation for 'account_id' failed on the 'required' tag
+2023-04-03T19:21:31.492+0800	ERROR	v1/account.go:90	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T19:47:55.963+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T19:59:06.725+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T19:59:12.570+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:14:48.759+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:17:10.062+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:17:11.773+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:23:40.140+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:27:43.783+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:27:44.677+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:27:46.736+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:27:47.807+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]
+2023-04-03T20:27:48.870+0800	ERROR	v1/account.go:91	logic.Group.Account.CreateAccount failed, err:错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]

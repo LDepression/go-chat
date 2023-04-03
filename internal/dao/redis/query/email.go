@@ -8,7 +8,9 @@
 
 package query
 
-import "context"
+import (
+	"context"
+)
 
 var EmailKey = "Email"
 

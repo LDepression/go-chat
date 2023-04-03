@@ -2,6 +2,7 @@ package snowflake
 
 import (
 	"errors"
+	"go.uber.org/zap"
 	"sync"
 	"time"
 )
@@ -51,5 +52,6 @@ func (w *Worker) GetId() int64 {
 		w.timestamp = now
 	}
 	ID := int64((now-startTime)<<timeShift | (w.workerId << workerShift) | (w.number))
+	zap.S().Infof("在雪花中:%v\n", ID)
 	return ID
 }

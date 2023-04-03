@@ -30,7 +30,7 @@ func init() {
 		User:     "root",
 		Host:     "127.0.0.1",
 		Port:     3306,
-		Password: "zxz123456",
+		Password: "123456",
 		DbName:   "chat_app",
 	}
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", m.User, m.Password, m.Host, m.Port, m.DbName)

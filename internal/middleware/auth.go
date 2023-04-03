@@ -9,6 +9,7 @@
 package middleware
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
@@ -81,13 +82,35 @@ func AuthMustUser() gin.HandlerFunc {
 	}
 }
 
-//func AuthMustAccount() gin.HandlerFunc {
-//	return func(ctx *gin.Context) {
-//		rly := app.NewResponse(ctx)
-//		content, exist := GetPayLoad(ctx)
-//		if !exist {
-//			rly.Reply(myerr.TokenNotFound)
-//			ctx.Abort()
-//		}
-//	}
-//}
+func AuthMustAccount() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		res := app.NewResponse(ctx)
+		content, exist := GetContent(ctx)
+		if !exist {
+			res.Reply(myerr.TokenNotFound)
+			fmt.Println("1")
+			ctx.Abort()
+			return
+		}
+		if content.Type != model.AccountToken {
+			res.Reply(myerr.AuthFailed)
+			fmt.Println("2")
+			ctx.Abort()
+			return
+		}
+		qAccount := query.NewQueryAccount()
+		accountInfo, err := qAccount.GetAccountByID(content.ID)
+		if err != nil {
+			res.Reply(errcode.ErrServer.WithDetails(err.Error()))
+			fmt.Println("3")
+			ctx.Abort()
+			return
+		}
+		if accountInfo == nil {
+			res.Reply(myerr.AccountNotExist)
+			fmt.Println("4")
+			ctx.Abort()
+			return
+		}
+	}
+}
