@@ -38,3 +38,7 @@ type UpdateAccount struct {
 	Avatar    string     `json:"avatar,omitempty" form:"avatar"`
 	Gender    GenderType `json:"gender,omitempty" form:"gender"`
 }
+
+func FuncA(a, b, c int) (int, int) {
+	return 0, 0
+}

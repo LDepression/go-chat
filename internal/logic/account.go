@@ -55,7 +55,7 @@ func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*r
 		return nil, myerr.TokenNotFound
 	}
 	tx := tx2.NewAccountTX()
-	id := global.SnowFlake.GetId()
+	id, _ := global.SnowFlake.NextId()
 	req.ID = id
 	if err := tx.CreateAccountWithTX(ctx, int64(content.ID), req); err != nil {
 		return nil, errcode.ErrServer.WithDetails(err.Error())
@@ -67,14 +67,7 @@ func (account) CreateAccount(ctx *gin.Context, req request.CreateAccountReq) (*r
 	var reply reply2.CreateAccountReply
 	reply.AccountID = id
 	reply.Name = req.Name
-	switch req.Gender {
-	case "male":
-		reply.Gender = "男"
-	case "female":
-		reply.Gender = "女"
-	default:
-		return nil, errcode.ErrParamsNotValid
-	}
+	reply.Gender = string(req.Gender)
 	resChan := <-accessChan
 	reply.Token = common.Token{
 		Token:     resChan.token,

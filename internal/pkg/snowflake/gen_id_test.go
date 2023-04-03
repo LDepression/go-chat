@@ -14,7 +14,7 @@ import (
 )
 
 func TestSnowFlake(t *testing.T) {
-	worker, _ := NewWorker(1)
-	id := worker.GetId()
+	mySnow, _ := NewSnowFlake(0, 0) //生成雪花算法
+	id, _ := mySnow.NextId()
 	fmt.Println(id)
 }

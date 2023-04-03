@@ -54,13 +54,12 @@ func init() {
 	}
 	dao.Group.DB = DB
 
-	global.SnowFlake, _ = snowflake.NewWorker(1)
+	global.SnowFlake, _ = snowflake.NewSnowFlake(0, 0)
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "123456", // 密码
 		DB:       0,        // 数据库
 		PoolSize: 20,       // 连接池大小
 	})
-	global.SnowFlake, _ = snowflake.NewWorker(1)
 	dao.Group.Redis = query.New(rdb)
 }

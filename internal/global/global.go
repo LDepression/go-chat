@@ -19,12 +19,12 @@ import (
 )
 
 var (
-	Settings = &config.Settings{}
-	RootDir  string
-	Logger   *logger.Log
-	Trans    ut.Translator
-	Worker   *work.Worker
-	Maker    token.Maker
-	Pager    *app.Page
-	SnowFlake *snowflake.Worker
+	Settings  = &config.Settings{}
+	RootDir   string
+	Logger    *logger.Log
+	Trans     ut.Translator
+	Worker    *work.Worker
+	Maker     token.Maker
+	Pager     *app.Page
+	SnowFlake *snowflake.SnowFlake
 )

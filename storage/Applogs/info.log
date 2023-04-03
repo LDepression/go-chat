@@ -116,3 +116,20 @@
 2023-04-02T22:43:49.315+0800	INFO	logic/user.go:44	{"type":"user","id":2}
 2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
 2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
+2023-04-03T15:08:00.367+0800	INFO	v1/user.go:66	ctx.ShouldBindJSON(&reqLogin) failed: %vjson: cannot unmarshal string into Go struct field Login.loginType of type request.LoginType
+2023-04-03T20:07:03.638+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:08:10.319+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:10:27.583+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:10:27.589+0800	INFO	logic/user.go:44	{"type":"account","id":2}
+2023-04-03T20:32:45.935+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-04-03T20:32:45.935+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-04-03T20:33:06.137+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:33:06.142+0800	INFO	logic/user.go:44	{"type":"account","id":7041584876973195264}
+2023-04-03T20:33:06.142+0800	INFO	v1/account.go:92	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
+2023-04-03T20:34:43.971+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:34:43.974+0800	INFO	v1/account.go:92	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[用户名已经被该用户注册过了]}
+2023-04-03T20:35:36.983+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:35:36.989+0800	INFO	logic/user.go:44	{"type":"account","id":7041585509100945408}
+2023-04-03T20:40:06.848+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:43:12.398+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T20:43:12.407+0800	INFO	logic/user.go:44	{"type":"account","id":7041587417215664128}

@@ -297,3 +297,4 @@ net/http.(*conn).serve(0xc0002a8a00, {0x1722680, 0xc0000a29c0})
 created by net/http.(*Server).Serve
 	D:/workspace/go/go1.19.5/src/net/http/server.go:3102 +0x4db
  <nil>}
+2023-04-03T20:07:03.640+0800	ERROR	v1/account.go:36	&request.GetAccountByID{} c.ShouldBindJSON(params) failed: Key: 'GetAccountByID.account_id' Error:Field validation for 'account_id' failed on the 'required' tag

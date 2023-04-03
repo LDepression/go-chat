@@ -53,7 +53,7 @@ func (AccountTx) CreateAccountWithTX(ctx context.Context, userID int64, req requ
 		return ErrUserNameHasBeenRegister
 	}
 	var AccountInfo automigrate.Account
-	AccountInfo.ID = int32(req.ID)
+	AccountInfo.ID = uint64(req.ID)
 	AccountInfo.Name = req.Name
 	AccountInfo.UserID = uint(userID)
 	AccountInfo.Avatar = req.Avatar
@@ -112,7 +112,7 @@ func (AccountTx) DeleteAccountWithTX(ctx context.Context, accountID int64) error
 
 	var accountIDs []int64
 	if result := tx.Model(&automigrate.Account{}).Where(&automigrate.Account{
-		BaseModel: automigrate.BaseModel{ID: int32(accountID)},
+		BaseModel: automigrate.BaseModel{ID: uint64(accountID)},
 	}).Delete(&accounts); result.RowsAffected == 0 {
 		tx.Rollback()
 		return result.Error
