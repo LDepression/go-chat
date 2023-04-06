@@ -17,6 +17,14 @@ type State struct {
 	Data interface{} `json:"data,omitempty"` // 失败时返回空
 }
 
+type ApplicationStatus string
+
+const (
+	ApplicationStateAccepted ApplicationStatus = "已接受"
+	ApplicationStateLoading  ApplicationStatus = "申请中"
+	ApplicationStateRefused  ApplicationStatus = "已拒绝"
+)
+
 type List struct {
 	List  interface{} `json:"list"`
 	Total int64       `json:"total"`

@@ -58,7 +58,7 @@ func TestGetAccountsByName(t *testing.T) {
 		fmt.Println("dao.Group.DB == nil")
 	}
 	qAccount := NewQueryAccount()
-	accountInfos, total, err := qAccount.GetAccountsByName("wang", 5, 1)
+	accountInfos, total, err := qAccount.GetAccountsByName("why", 5, 1)
 	if err != nil {
 		fmt.Printf("qAccount.GetAccountsByName failed, err:%#v \n", err)
 		t.Errorf("err:%v\n,", err)

@@ -132,7 +132,7 @@ func (account) GetAccountsByName(accountName string, limit, offset int32) (*repl
 			Name:      v.Name,
 			Signature: v.Signature,
 			Avatar:    v.Avatar,
-			Gender:    string(v.Gender),
+			Gender:    v.Gender,
 		})
 	}
 

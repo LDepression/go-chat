@@ -15,7 +15,7 @@ import (
 
 type Setting struct {
 	gorm.Model
-	AccountID      uint
+	AccountID      uint    // 目标id
 	Account        Account `gorm:"foreignKey:AccountID;references:ID"`
 	RelationID     uint
 	Relation       Relation  `gorm:"foreignKey:RelationID;references:ID"`

@@ -25,5 +25,6 @@ var (
 	UserExist        = errcode.NewErr(3013, "用户已经登录了")
 	AuthFailed       = errcode.NewErr(3014, "身份认证失败")
 
-	AccountNotExist = errcode.NewErr(4001, "账户不存在")
+	AccountNotExist     = errcode.NewErr(4001, "账户不存在")
+	ApplicationNotFound = errcode.NewErr(5001, "好友申请不存在")
 )

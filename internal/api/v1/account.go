@@ -26,7 +26,7 @@ func NewAccount() *account {
 // @Summary  获取账户信息
 // @accept   application/form-data
 // @Produce  application/json
-// @Param    Authorization  header    string               false "x-token 用户令牌"
+// @Param    Authorization  header    string               true "x-token 用户令牌"
 // @Param    data           query     request.GetAccountByID                   true  "账号信息"
 // @Success  200            {object}  common.State{data=reply.GetAccountByID}  "1001:参数有误 1003:系统错误 2009:权限不足 2007:身份不存在 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/info [get]
@@ -53,7 +53,7 @@ func (account) GetAccountByID(c *gin.Context) {
 // @Summary  通过昵称模糊查找账户
 // @accept   application/form-data
 // @Produce  application/json
-// @Param    Authorization  header    string            false "x-token 用户令牌"
+// @Param    Authorization  header    string            true "x-token 用户令牌"
 // @Param    data           query     request.GetAccountsByName                   true  "账号信息"
 // @Success  200            {object}  common.State{data=reply.GetAccountsByName}  "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/infos/name [get]
@@ -74,7 +74,7 @@ func (account) GetAccountsByName(c *gin.Context) {
 // CreateAccount 创建账户
 // @Tags     account
 // @Summary  创建账户
-// @Param    Authorization  header    string          false "x-token 用户令牌"
+// @Param    Authorization  header    string          true "x-token 用户令牌"
 // @Success  200            {object}  common.State{data=reply.GetAccountsByUserID}  "1003:系统错误 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/infos/user [get]
 func (account) CreateAccount(ctx *gin.Context) {

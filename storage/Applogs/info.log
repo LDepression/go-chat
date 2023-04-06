@@ -352,3 +352,53 @@
 
 2023-04-03T20:27:56.853+0800	INFO	logic/user.go:43	account649359393179045888
 2023-04-03T20:27:56.853+0800	INFO	logic/user.go:45	{"type":"account","id":649359393179045888}
+2023-04-03T22:00:54.725+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T22:00:54.732+0800	INFO	logic/user.go:43	account7041606952899575808
+2023-04-03T22:00:54.733+0800	INFO	logic/user.go:45	{"type":"account","id":7041606952899575808}
+2023-04-03T22:01:46.112+0800	INFO	middleware/auth.go:48	&{account 649340521046609920}
+2023-04-03T22:02:07.333+0800	INFO	middleware/auth.go:48	&{account 649340521046609920}
+2023-04-03T22:02:40.776+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:02:40.776+0800	INFO	v1/account.go:41	params.AccountID:7041606952899575808
+2023-04-03T22:03:10.722+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:03:10.723+0800	INFO	v1/account.go:41	params.AccountID:2046824448
+2023-04-03T22:04:03.228+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:04:03.229+0800	INFO	v1/account.go:41	params.AccountID:7041606952899575808
+2023-04-03T22:05:17.207+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:06:01.612+0800	INFO	middleware/auth.go:48	&{account 649356694823899136}
+2023-04-03T22:06:30.620+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-04T17:33:09.481+0800	INFO	middleware/auth.go:36	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-05T20:30:24.165+0800	INFO	middleware/auth.go:36	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-04-05T20:31:48.408+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:31:48.410+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type request.GenderType
+2023-04-05T20:33:35.732+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:33:35.734+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type string
+2023-04-05T20:34:10.279+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:34:10.290+0800	INFO	logic/user.go:43	account7042309196552863744
+2023-04-05T20:34:10.290+0800	INFO	logic/user.go:45	{"type":"account","id":7042309196552863744}
+2023-04-05T20:35:03.736+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:35:54.330+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:36:41.086+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:39:13.423+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:46:44.963+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:47:38.249+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:50:15.619+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:54:32.859+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:56:34.419+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:56:55.489+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:38:38.493+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:41:27.845+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:41:54.317+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:42:14.648+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:44:12.908+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:47:36.929+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:56:21.989+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T23:40:12.331+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T23:51:51.049+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:12:46.493+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:13:44.159+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:15:56.396+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:18:17.574+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:35:08.425+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:52:55.380+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:53:12.593+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:57:12.313+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
