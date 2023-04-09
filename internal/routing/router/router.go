@@ -37,6 +37,7 @@ func NewRouter() *gin.Engine {
 		rg.User.Init(r)
 		rg.Email.Init(r)
 		rg.Account.Init(r)
+		rg.Application.Init(r)
 	}
 
 	return r

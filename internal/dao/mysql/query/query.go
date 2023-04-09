@@ -48,5 +48,5 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	dao.Group.DB = DB
+	dao.Group.DB = DB.Debug()
 }

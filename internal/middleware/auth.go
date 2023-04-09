@@ -10,9 +10,11 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
+	"go-chat/internal/dao"
 	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
 	"go-chat/internal/model"
+	"go-chat/internal/model/automigrate"
 	"go-chat/internal/myerr"
 	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/app/errcode"
@@ -81,13 +83,22 @@ func AuthMustUser() gin.HandlerFunc {
 	}
 }
 
-//func AuthMustAccount() gin.HandlerFunc {
-//	return func(ctx *gin.Context) {
-//		rly := app.NewResponse(ctx)
-//		content, exist := GetPayLoad(ctx)
-//		if !exist {
-//			rly.Reply(myerr.TokenNotFound)
-//			ctx.Abort()
-//		}
-//	}
-//}
+func AuthMustAccount() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		rly := app.NewResponse(ctx)
+		content, exist := GetContent(ctx)
+		if !exist || content.Type != model.AccountToken {
+			rly.Reply(errcode.ErrInsufficientPermissions)
+			ctx.Abort()
+			return
+		}
+		result := dao.Group.DB.Model(&automigrate.Account{}).Where(automigrate.Account{
+			BaseModel: automigrate.BaseModel{ID: uint64(content.ID)},
+		}).First(&automigrate.Account{})
+		if result.RowsAffected == 0 {
+			rly.Reply(myerr.AccountNotExist)
+			ctx.Abort()
+			return
+		}
+	}
+}
