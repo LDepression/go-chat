@@ -8,6 +8,8 @@
 
 package request
 
+import "go-chat/internal/model/common"
+
 type CreateApplicationReq struct {
 	AccountID      uint64 `json:"accountID" binding:"required"`
 	ApplicationMsg string `json:"applicationMsg" binding:"required"`
@@ -16,7 +18,6 @@ type CreateApplicationReq struct {
 type DeleteApplicationReq struct {
 	AccountID uint64 `json:"accountID" binding:"required"`
 }
-
 
 type AcceptApplication struct {
 	ApplicantID uint `json:"applicant_id" form:"applicant_id" binding:"required"`

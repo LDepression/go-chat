@@ -9,13 +9,10 @@
 package middleware
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"go-chat/internal/dao"
 	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
 	"go-chat/internal/model"
-	"go-chat/internal/model/automigrate"
 	"go-chat/internal/myerr"
 	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/app/errcode"

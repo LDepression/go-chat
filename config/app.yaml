@@ -5,7 +5,7 @@ Serve:
   default_timeout: 30s #优雅退出的时间
 Mysql:
   user: "root"
-  password: "123456"
+  password: "zxz123456"
   host: "127.0.0.1"
   port: 3306
   dbName: "chat_app"
@@ -22,15 +22,15 @@ Log: # 日志配置文件
 SMTPInfo:
   host: "smtp.qq.com"
   port: 465
-  userName: "1780006511@qq.com"
-  password: "zzxmcdhdtdxqdajd" #密码
+  userName: "1197285120@qq.com"
+  password: "***" #密码
   isSSL: true
-  from: "1780006511@qq.com" #发件人
+  from: "1197285120@qq.com" #发件人
   to: #接收人
-    - "1780006511@qq.com"
+    - "1197285120@qq.com"
 Redis:
-  addr: "192.168.1.134:6379"
-  password: ""
+  addr: "127.0.0.1:6379"
+  password: "123456"
   poolSize: 20
   CacheTime: 1h
 Work: #工作池配置
@@ -47,9 +47,9 @@ Auto:
     timeCount: 3
 Token:
   Key: "wJZ8a507mbp3HZiJzUL0aUBo3WDlvmbp"
-  AccessTokenExpire: 16800h
-  RefreshTokenExpire: 72000h
-  AccountTokenExpire: 2400h
+  AccessTokenExpire: 168h
+  RefreshTokenExpire: 720h
+  AccountTokenExpire: 24h
   AuthType: "x-token"
   AuthKey: "Claims"
 Page:

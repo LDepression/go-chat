@@ -12,6 +12,7 @@ import (
 	"go-chat/internal/dao"
 	"go-chat/internal/model/automigrate"
 	"go-chat/internal/model/common"
+	"go-chat/internal/model/request"
 )
 
 type qApplication struct {

@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"go-chat/internal/dao"
 	"go-chat/internal/global"
+	"go-chat/internal/model/automigrate"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

@@ -1,20 +1,49 @@
 package tx
 
 import (
+	"errors"
 	"go-chat/internal/dao"
+	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/model/automigrate"
 	"go-chat/internal/model/common"
+	"go-chat/internal/model/request"
 	"gorm.io/gorm"
 )
 
-type ApplicationTX struct {
+var (
+	ErrHasThisFriend = errors.New("已经是好友了")
+	ErrIsSelf        = errors.New("不能添加自己为好友")
+)
+
+type applicationTX struct {
 }
 
-func NewApplicationTX() *ApplicationTX {
-	return &ApplicationTX{}
+func NewApplicationTX() *applicationTX {
+	return &applicationTX{}
 }
 
-func (ApplicationTX) AcceptApplicationWithTX(applicantID, receiverID uint) error {
+// CreateApplicationWithTX 第一个参数是申请者,第二个参数是被申请者
+func (applicationTX) CreateApplicationWithTX(account1ID, account2ID uint64, ApplyMsg string) (uint64, error) {
+	//先去判断一下目标id是不是自己
+	if uint64(account2ID) == account1ID {
+		return 0, ErrIsSelf
+	}
+	//先去判断一下两者是否已经是好友了
+	qR := query.NewRelation()
+	if ok := qR.CheckISFriend(account1ID, account2ID); ok {
+		return 0, ErrHasThisFriend
+	}
+	q := query.NewApplication()
+	applicationID, err := q.CreateApplication(account1ID, request.CreateApplicationReq{
+		AccountID:      account2ID,
+		ApplicationMsg: ApplyMsg,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return applicationID, nil
+}
+func (applicationTX) AcceptApplicationWithTX(applicantID, receiverID uint) error {
 
 	tx := dao.Group.DB.Begin()
 	defer tx.Commit()
