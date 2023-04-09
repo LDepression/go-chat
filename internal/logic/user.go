@@ -40,6 +40,7 @@ type tokenResult struct {
 func CreateToken(resultChan chan<- tokenResult, t model.TokenType, id uint, ExpireTime time.Duration) func() {
 	return func() {
 		defer close(resultChan)
+		zap.S().Info(t, id)
 		content, _ := model.NewContent(t, id).Marshal()
 		zap.S().Info(string(content))
 		Token, payLoad, err := global.Maker.CreateToken(content, ExpireTime)

@@ -9,6 +9,7 @@
 package middleware
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/dao"
 	"go-chat/internal/dao/mysql/query"
@@ -85,18 +86,27 @@ func AuthMustUser() gin.HandlerFunc {
 
 func AuthMustAccount() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		rly := app.NewResponse(ctx)
+		res := app.NewResponse(ctx)
 		content, exist := GetContent(ctx)
-		if !exist || content.Type != model.AccountToken {
-			rly.Reply(errcode.ErrInsufficientPermissions)
+		if !exist {
+			res.Reply(myerr.TokenNotFound)
 			ctx.Abort()
 			return
 		}
-		result := dao.Group.DB.Model(&automigrate.Account{}).Where(automigrate.Account{
-			BaseModel: automigrate.BaseModel{ID: uint64(content.ID)},
-		}).First(&automigrate.Account{})
-		if result.RowsAffected == 0 {
-			rly.Reply(myerr.AccountNotExist)
+		if content.Type != model.AccountToken {
+			res.Reply(myerr.AuthFailed)
+			ctx.Abort()
+			return
+		}
+		qAccount := query.NewQueryAccount()
+		accountInfo, err := qAccount.GetAccountByID(content.ID)
+		if err != nil {
+			res.Reply(errcode.ErrServer.WithDetails(err.Error()))
+			ctx.Abort()
+			return
+		}
+		if accountInfo == nil {
+			res.Reply(myerr.AccountNotExist)
 			ctx.Abort()
 			return
 		}

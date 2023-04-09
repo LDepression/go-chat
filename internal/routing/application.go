@@ -1,11 +1,3 @@
-/**
- * @Author: lenovo
- * @Description:
- * @File:  application'
- * @Version: 1.0.0
- * @Date: 2023/04/04 8:29
- */
-
 package routing
 
 import (
@@ -17,7 +9,11 @@ import (
 type application struct{}
 
 func (application) Init(root gin.RouterGroup) {
-	g := root.Group("/application").Use(middleware.AuthMustAccount())
-	g.POST("/createApplication", v1.Group.Application.CreateApplication)
-	g.DELETE("/deleteApplication", v1.Group.Application.DeleteApplication)
+g := root.Group("/application").Use(middleware.AuthMustAccount())
+g.POST("/createApplication", v1.Group.Application.CreateApplication)
+g.DELETE("/deleteApplication", v1.Group.Application.DeleteApplication)
+g.PUT("accept", v1.Group.Application.AcceptApplication)
+g.PUT("refuse", v1.Group.Application.RefuseApplication)
+g.GET("list", v1.Group.Application.GetApplicationsList)
+
 }

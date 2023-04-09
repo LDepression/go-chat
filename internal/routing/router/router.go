@@ -29,7 +29,7 @@ func NewRouter() *gin.Engine {
 	root := r.Use(middleware.Recovery(true), middleware.LogBody(), middleware.Cors())
 	{
 		root.GET("/ping", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, "ok")
+			ctx.JSON(http.StatusOK, "v2.local.9oFbc42X0v1PkYV8M1Q-VMbHwozORCv26w0Aaw64fqmMbDcCCX_L-4Tpnqv_yUMSz25DqbLdnD-Dxoc8NC-xS2934P6E0XBtC7iYJLZa0ijpXSvdhXWNsqCS7kSlE97fxvjrRKhWjBhspK_gbxc-UyQRcnHyII53K1ClNWU6jS9wXOJ7YJHLpmC7CotRxPm88Iqtd3bU1u7XuxDaAJ8j3ezojd2au-I62OGLwEd4ZuyPJoBlMnY1beLc9ZSHZdJKDBY1wb_pT5CQIEd1wRtbvqeTULpPiVKWv3jTZk7ZwiacstIMLP41kXbfPlGXAWjhDyA_vUOvSrIU2ZVixxRx.bnVsbA")
 		})
 		root.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 		r := r.Group("api/v1")

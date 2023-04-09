@@ -21,7 +21,7 @@ func NewErr(code int, msg string) Err {
 		globalMap = make(map[int]Err)
 	})
 	if _, ok := globalMap[code]; ok {
-		panic("错误码已存在")
+		panic("错误码'" + msg + "'已存在")
 	}
 	err := &myErr{Code: code, Msg: msg}
 	globalMap[code] = err

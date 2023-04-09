@@ -9,6 +9,7 @@
 package logic
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/dao"
 	"go-chat/internal/dao/mysql/query"
@@ -32,11 +33,13 @@ func (email) CheckEmail(ctx *gin.Context, emailStr string) (bool, error) {
 			return exists, nil
 		}
 	}
+	fmt.Println("这里")
 	quser := query.NewQueryUser()
 	used, err := quser.CheckEmailBeUsed(emailStr)
 	return used, err
 }
 func (email) CheckEmailIsUsed(ctx *gin.Context, emailStr string) (bool, error) {
+	fmt.Println("email")
 	used, err := email{}.CheckEmail(ctx, emailStr)
 	if err != nil {
 		return false, err

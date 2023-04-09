@@ -16,7 +16,6 @@ import (
 
 type account struct{}
 
-
 func (a *account) Init(root *gin.RouterGroup) {
 	g := root.Group("account").Use(middleware.Auth(), middleware.AuthMustUser())
 	g.POST("/createAccount", v1.Group.Account.CreateAccount)
@@ -25,12 +24,11 @@ func (a *account) Init(root *gin.RouterGroup) {
 	g.GET("/infos/user", v1.Group.Account.GetAccountsByUserID)
 
 	//TODO
-	ag := root.Group("account").Use(middleware.Auth())
+	ag := root.Group("account").Use(middleware.Auth(), middleware.AuthMustAccount())
 	{
 		ag.GET("/info", v1.Group.Account.GetAccountByID)
 		ag.GET("/infos/name", v1.Group.Account.GetAccountsByName)
-		ag.PUT("update",v1.Group.Account.UpdateAccount)
+		ag.PUT("update", v1.Group.Account.UpdateAccount)
 	}
 
 }
-

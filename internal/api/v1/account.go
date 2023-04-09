@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/api/base"
 	"go-chat/internal/global"
@@ -25,7 +26,7 @@ func NewAccount() *account {
 // @Summary  获取账户信息
 // @accept   application/form-data
 // @Produce  application/json
-// @Param    Authorization  header    string               false "x-token 用户令牌"
+// @Param    Authorization  header    string               true "x-token 用户令牌"
 // @Param    data           query     request.GetAccountByID                   true  "账号信息"
 // @Success  200            {object}  common.State{data=reply.GetAccountByID}  "1001:参数有误 1003:系统错误 2009:权限不足 2007:身份不存在 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/info [get]
@@ -37,14 +38,12 @@ func (account) GetAccountByID(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	//content, ok := middleware.GetPayLoad(c)
-	//if !ok || content.Type != model.AccountToken {
-	//	res.Reply(errcode.AuthNotExist)
-	//	return
-	//}
+	zap.S().Infof("params.AccountID:%v", params.AccountID)
+	fmt.Println("params.AccountID:", params.AccountID)
 	result, err := logic.Group.Account.GetAccountByID(c, params.AccountID)
 	if err != nil {
 		res.Reply(err)
+		return
 	}
 	res.Reply(nil, result)
 }
@@ -54,7 +53,7 @@ func (account) GetAccountByID(c *gin.Context) {
 // @Summary  通过昵称模糊查找账户
 // @accept   application/form-data
 // @Produce  application/json
-// @Param    Authorization  header    string            false "x-token 用户令牌"
+// @Param    Authorization  header    string            true "x-token 用户令牌"
 // @Param    data           query     request.GetAccountsByName                   true  "账号信息"
 // @Success  200            {object}  common.State{data=reply.GetAccountsByName}  "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/infos/name [get]
@@ -75,7 +74,7 @@ func (account) GetAccountsByName(c *gin.Context) {
 // CreateAccount 创建账户
 // @Tags     account
 // @Summary  创建账户
-// @Param    Authorization  header    string          false "x-token 用户令牌"
+// @Param    Authorization  header    string          true "x-token 用户令牌"
 // @Success  200            {object}  common.State{data=reply.GetAccountsByUserID}  "1003:系统错误 2008:身份验证失败 2010:账号不存在"
 // @Router   /api/account/infos/user [get]
 func (account) CreateAccount(ctx *gin.Context) {
@@ -89,7 +88,7 @@ func (account) CreateAccount(ctx *gin.Context) {
 	replyInfo, err := logic.Group.Account.CreateAccount(ctx, req)
 	if err != nil {
 		rly.Reply(err)
-		zap.S().Info("logic.Group.Account.CreateAccount failed", zap.Any("err", err))
+		zap.S().Errorf("logic.Group.Account.CreateAccount failed, err:%v", err)
 		return
 	}
 	rly.Reply(nil, replyInfo)
@@ -172,6 +171,11 @@ func (account) UpdateAccount(c *gin.Context) {
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return
 	}
-	err := logic.Group.Account.UpdateAccount(c, params.AccountID, params.Name, params.Signature, params.Avatar, string(params.Gender))
+	content, ok := middleware.GetContent(c)
+	if !ok || content.Type != model.AccountToken {
+		res.Reply(errcode.AuthNotExist)
+		return
+	}
+	err := logic.Group.Account.UpdateAccount(c, content.ID, params.Name, params.Signature, params.Avatar, string(params.Gender))
 	res.Reply(err)
 }

@@ -1,11 +1,3 @@
-/**
- * @Author: lenovo
- * @Description:
- * @File:  application
- * @Version: 1.0.0
- * @Date: 2023/04/03 22:41
- */
-
 package automigrate
 
 type Application struct {

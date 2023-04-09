@@ -116,20 +116,289 @@
 2023-04-02T22:43:49.315+0800	INFO	logic/user.go:44	{"type":"user","id":2}
 2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
 2023-04-02T22:48:36.530+0800	INFO	logic/user.go:44	{"type":"user","id":2}
-2023-04-03T15:08:00.367+0800	INFO	v1/user.go:66	ctx.ShouldBindJSON(&reqLogin) failed: %vjson: cannot unmarshal string into Go struct field Login.loginType of type request.LoginType
-2023-04-03T20:07:03.638+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:08:10.319+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:10:27.583+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:10:27.589+0800	INFO	logic/user.go:44	{"type":"account","id":2}
-2023-04-03T20:32:45.935+0800	INFO	logic/user.go:44	{"type":"user","id":1}
-2023-04-03T20:32:45.935+0800	INFO	logic/user.go:44	{"type":"user","id":1}
-2023-04-03T20:33:06.137+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:33:06.142+0800	INFO	logic/user.go:44	{"type":"account","id":7041584876973195264}
-2023-04-03T20:33:06.142+0800	INFO	v1/account.go:92	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
-2023-04-03T20:34:43.971+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:34:43.974+0800	INFO	v1/account.go:92	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[用户名已经被该用户注册过了]}
-2023-04-03T20:35:36.983+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:35:36.989+0800	INFO	logic/user.go:44	{"type":"account","id":7041585509100945408}
-2023-04-03T20:40:06.848+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:43:12.398+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-03T20:43:12.407+0800	INFO	logic/user.go:44	{"type":"account","id":7041587417215664128}
+2023-04-03T10:02:21.619+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T10:05:59.376+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T10:06:14.810+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T14:53:10.361+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T14:53:54.301+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T14:54:25.283+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T14:54:41.640+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T14:57:08.571+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-04-03T14:57:33.378+0800	INFO	logic/email.go:59	400
+2023-04-03T14:57:33.379+0800	INFO	logic/email.go:60	535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-04-03T14:57:33.379+0800	INFO	logic/email.go:65	send error: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+2023-04-03T15:03:55.421+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T15:04:17.085+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T15:05:17.249+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T15:05:54.242+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T15:06:37.050+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T15:12:54.808+0800	INFO	logic/email.go:62	400
+2023-04-03T15:12:54.836+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:12:54.836+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:21:20.449+0800	INFO	logic/email.go:62	400
+2023-04-03T15:21:20.476+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:21:20.476+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:41:04.781+0800	INFO	logic/email.go:62	400
+2023-04-03T15:41:04.782+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:41:04.782+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:42:51.470+0800	INFO	logic/email.go:62	400
+2023-04-03T15:42:51.470+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:42:51.470+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T15:43:11.057+0800	INFO	logic/user.go:44	{"type":"user","id":312}
+2023-04-03T15:43:11.057+0800	INFO	logic/user.go:44	{"type":"user","id":312}
+2023-04-03T15:52:37.565+0800	INFO	middleware/auth.go:42	global.Maker.UnMarshal failed,err: unexpected end of JSON input
+2023-04-03T15:58:13.177+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:01:51.760+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:09:53.437+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-04-03T16:10:12.880+0800	INFO	middleware/auth.go:47	&{user 312}
+2023-04-03T16:10:12.884+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[Error 1054 (42S22): Unknown column 'is_deleted' in 'field list']}
+2023-04-03T16:17:40.498+0800	INFO	middleware/auth.go:47	&{user 312}
+2023-04-03T16:17:40.503+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[Error 1406 (22001): Data too long for column 'friend_type' at row 1]}
+2023-04-03T16:44:40.111+0800	INFO	logic/email.go:62	400
+2023-04-03T16:44:40.112+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T16:44:40.112+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-03T16:45:05.608+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-04-03T16:45:05.608+0800	INFO	logic/user.go:44	{"type":"user","id":1}
+2023-04-03T16:47:46.086+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:47:46.093+0800	INFO	logic/user.go:44	{"type":"account","id":649303983231340544}
+2023-04-03T16:47:46.093+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
+2023-04-03T16:54:48.561+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:54:48.562+0800	INFO	v1/account.go:82	ctx.ShouldBindJSON(&req) failed: Key: 'CreateAccountReq.gender' Error:Field validation for 'gender' failed on the 'oneof' tag
+2023-04-03T16:55:17.156+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:55:17.162+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]}
+2023-04-03T16:57:15.227+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:57:15.233+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
+2023-04-03T16:57:15.233+0800	INFO	logic/user.go:44	{"type":"account","id":649306370385907712}
+2023-04-03T16:58:21.052+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:58:21.057+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
+2023-04-03T16:58:21.057+0800	INFO	logic/user.go:44	{"type":"account","id":649306646471774208}
+2023-04-03T16:59:08.278+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:59:08.283+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1003,错误信息:系统错误,详细信息:[Error 1264 (22003): Out of range value for column 'account_id' at row 1]}
+2023-04-03T16:59:26.477+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T16:59:26.482+0800	INFO	logic/user.go:44	{"type":"account","id":649306920884113408}
+2023-04-03T16:59:26.482+0800	INFO	v1/account.go:88	logic.Group.Account.CreateAccount failed{err 26 0  错误码:1001,错误信息:参数有误,详细信息:[]}
+2023-04-03T17:03:44.799+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:03:55.451+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:04:06.744+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:04:06.749+0800	INFO	logic/user.go:44	{"type":"account","id":649308096409112576}
+2023-04-03T17:05:19.724+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:08:11.806+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:14:44.371+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:14:48.508+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:14:50.347+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:14:53.722+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:14:59.891+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:02.801+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:04.668+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:06.230+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:06.236+0800	INFO	logic/user.go:44	{"type":"account","id":649310862493880320}
+2023-04-03T17:15:13.876+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:17.638+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:15:17.643+0800	INFO	logic/user.go:44	{"type":"account","id":649310910342500352}
+2023-04-03T17:15:39.608+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:17:18.407+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:17:51.797+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:20:40.921+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:21:11.239+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:22:22.957+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:22:35.915+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:35:21.922+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:36:24.796+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T17:40:11.908+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-03T19:12:12.786+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:12:57.380+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:12:57.388+0800	INFO	logic/user.go:44	{"type":"account","id":649340521046609920}
+2023-04-03T19:13:33.498+0800	INFO	middleware/auth.go:47	&{account 649340521046609920}
+2023-04-03T19:19:57.843+0800	INFO	middleware/auth.go:47	&{account 649340521046609920}
+2023-04-03T19:20:16.185+0800	INFO	middleware/auth.go:47	&{account 649340521046609920}
+2023-04-03T19:21:31.484+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:21:35.100+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:21:35.106+0800	INFO	logic/user.go:44	{"type":"account","id":649342692521676800}
+2023-04-03T19:27:18.777+0800	INFO	middleware/auth.go:47	&{account 649342692521676800}
+2023-04-03T19:31:11.352+0800	INFO	middleware/auth.go:47	&{account 649342692521676800}
+2023-04-03T19:32:02.467+0800	INFO	middleware/auth.go:47	&{account 649342692521676800}
+2023-04-03T19:32:46.691+0800	INFO	middleware/auth.go:47	&{account 649342692521676800}
+2023-04-03T19:35:06.969+0800	INFO	middleware/auth.go:47	&{account 649342692521676800}
+2023-04-03T19:35:19.999+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:35:31.942+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:39:29.712+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:40:11.795+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:41:10.328+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-03T19:41:10.328+0800	INFO	v1/account.go:41	params.AccountID:%v1832914944
+2023-04-03T19:42:28.863+0800	INFO	middleware/auth.go:47	&{account 649340521046609920}
+2023-04-03T19:42:28.863+0800	INFO	v1/account.go:41	params.AccountID:%v222302208
+2023-04-03T19:44:09.986+0800	INFO	middleware/auth.go:48	&{account 649340521046609920}
+2023-04-03T19:45:11.449+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:45:11.456+0800	INFO	logic/user.go:44	{"type":"account","id":649348633124147200}
+2023-04-03T19:47:55.956+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:47:57.191+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:47:57.197+0800	INFO	logic/user.go:43	account649349328292286464
+2023-04-03T19:47:57.197+0800	INFO	logic/user.go:45	{"type":"account","id":649349328292286464}
+2023-04-03T19:51:39.705+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:51:39.706+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649350261583646720
+
+2023-04-03T19:51:39.712+0800	INFO	logic/user.go:43	account649350261583646720
+2023-04-03T19:51:39.712+0800	INFO	logic/user.go:45	{"type":"account","id":649350261583646720}
+2023-04-03T19:53:07.764+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:53:07.765+0800	INFO	snowflake/gen_id.go:55	在雪花中:649350630929862656
+
+2023-04-03T19:53:07.766+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649350630929862656
+
+2023-04-03T19:53:07.772+0800	INFO	logic/user.go:43	account649350630929862656
+2023-04-03T19:53:07.772+0800	INFO	logic/user.go:45	{"type":"account","id":649350630929862656}
+2023-04-03T19:59:06.717+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:59:06.720+0800	INFO	snowflake/gen_id.go:55	在雪花中:649352136496254976
+
+2023-04-03T19:59:06.720+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649352136496254976
+
+2023-04-03T19:59:06.720+0800	INFO	tx/account_tx.go:39	看一下req里面的id：649352136496254976
+
+2023-04-03T19:59:12.565+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:59:12.566+0800	INFO	snowflake/gen_id.go:55	在雪花中:649352161016156160
+
+2023-04-03T19:59:12.566+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649352161016156160
+
+2023-04-03T19:59:12.566+0800	INFO	tx/account_tx.go:39	看一下req里面的id：649352161016156160
+
+2023-04-03T19:59:14.092+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:59:14.093+0800	INFO	snowflake/gen_id.go:55	在雪花中:649352167420858368
+
+2023-04-03T19:59:14.094+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649352167420858368
+
+2023-04-03T19:59:14.094+0800	INFO	tx/account_tx.go:39	看一下req里面的id：649352167420858368
+
+2023-04-03T19:59:14.099+0800	INFO	logic/user.go:43	account649352167420858368
+2023-04-03T19:59:14.099+0800	INFO	logic/user.go:45	{"type":"account","id":649352167420858368}
+2023-04-03T19:59:46.865+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T19:59:46.867+0800	INFO	snowflake/gen_id.go:55	在雪花中:649352304884977664
+
+2023-04-03T19:59:46.867+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649352304884977664
+
+2023-04-03T19:59:46.867+0800	INFO	tx/account_tx.go:39	看一下req里面的id：649352304884977664
+
+2023-04-03T19:59:46.873+0800	INFO	logic/user.go:43	account649352304884977664
+2023-04-03T19:59:46.873+0800	INFO	logic/user.go:45	{"type":"account","id":649352304884977664}
+2023-04-03T20:14:48.751+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:14:48.753+0800	INFO	snowflake/gen_id.go:55	在雪花中:649356087669035008
+
+2023-04-03T20:14:48.754+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649356087669035008
+
+2023-04-03T20:14:56.144+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:14:56.146+0800	INFO	snowflake/gen_id.go:55	在雪花中:649356118677524480
+
+2023-04-03T20:14:56.147+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649356118677524480
+
+2023-04-03T20:14:56.152+0800	INFO	logic/user.go:43	account649356118677524480
+2023-04-03T20:14:56.153+0800	INFO	logic/user.go:45	{"type":"account","id":649356118677524480}
+2023-04-03T20:17:10.055+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:17:10.057+0800	INFO	snowflake/gen_id.go:55	在雪花中:649356680340967424
+
+2023-04-03T20:17:10.058+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649356680340967424
+
+2023-04-03T20:17:11.769+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:17:11.769+0800	INFO	snowflake/gen_id.go:55	在雪花中:649356687521615872
+
+2023-04-03T20:17:11.769+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649356687521615872
+
+2023-04-03T20:17:13.509+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:17:13.510+0800	INFO	snowflake/gen_id.go:55	在雪花中:649356694823899136
+
+2023-04-03T20:17:13.510+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649356694823899136
+
+2023-04-03T20:17:13.516+0800	INFO	logic/user.go:43	account649356694823899136
+2023-04-03T20:17:13.516+0800	INFO	logic/user.go:45	{"type":"account","id":649356694823899136}
+2023-04-03T20:17:48.746+0800	INFO	middleware/auth.go:48	&{account 649356694823899136}
+2023-04-03T20:23:40.133+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:23:40.135+0800	INFO	snowflake/gen_id.go:55	在雪花中:649358316446683136
+
+2023-04-03T20:23:40.136+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649358316446683136
+
+2023-04-03T20:23:45.836+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:23:45.836+0800	INFO	snowflake/gen_id.go:55	在雪花中:649358340358410240
+
+2023-04-03T20:23:45.836+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649358340358410240
+
+2023-04-03T20:23:45.842+0800	INFO	logic/user.go:43	account649358340358410240
+2023-04-03T20:23:45.842+0800	INFO	logic/user.go:45	{"type":"account","id":649358340358410240}
+2023-04-03T20:27:43.776+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:43.778+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359338359492608
+
+2023-04-03T20:27:43.778+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359338359492608
+
+2023-04-03T20:27:44.673+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:44.673+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359342113394688
+
+2023-04-03T20:27:44.673+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359342113394688
+
+2023-04-03T20:27:46.731+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:46.732+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359350749466624
+
+2023-04-03T20:27:46.732+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359350749466624
+
+2023-04-03T20:27:47.802+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:47.802+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359355237371904
+
+2023-04-03T20:27:47.802+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359355237371904
+
+2023-04-03T20:27:48.866+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:48.867+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359359704305664
+
+2023-04-03T20:27:48.867+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359359704305664
+
+2023-04-03T20:27:56.846+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T20:27:56.848+0800	INFO	snowflake/gen_id.go:55	在雪花中:649359393179045888
+
+2023-04-03T20:27:56.848+0800	INFO	logic/account.go:59	id := global.SnowFlake.GetId() = 649359393179045888
+
+2023-04-03T20:27:56.853+0800	INFO	logic/user.go:43	account649359393179045888
+2023-04-03T20:27:56.853+0800	INFO	logic/user.go:45	{"type":"account","id":649359393179045888}
+2023-04-03T22:00:54.725+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-03T22:00:54.732+0800	INFO	logic/user.go:43	account7041606952899575808
+2023-04-03T22:00:54.733+0800	INFO	logic/user.go:45	{"type":"account","id":7041606952899575808}
+2023-04-03T22:01:46.112+0800	INFO	middleware/auth.go:48	&{account 649340521046609920}
+2023-04-03T22:02:07.333+0800	INFO	middleware/auth.go:48	&{account 649340521046609920}
+2023-04-03T22:02:40.776+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:02:40.776+0800	INFO	v1/account.go:41	params.AccountID:7041606952899575808
+2023-04-03T22:03:10.722+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:03:10.723+0800	INFO	v1/account.go:41	params.AccountID:2046824448
+2023-04-03T22:04:03.228+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:04:03.229+0800	INFO	v1/account.go:41	params.AccountID:7041606952899575808
+2023-04-03T22:05:17.207+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-03T22:06:01.612+0800	INFO	middleware/auth.go:48	&{account 649356694823899136}
+2023-04-03T22:06:30.620+0800	INFO	middleware/auth.go:48	&{account 7041606952899575808}
+2023-04-04T17:33:09.481+0800	INFO	middleware/auth.go:36	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-05T20:30:24.165+0800	INFO	middleware/auth.go:36	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-04-05T20:31:48.408+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:31:48.410+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type request.GenderType
+2023-04-05T20:33:35.732+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:33:35.734+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type string
+2023-04-05T20:34:10.279+0800	INFO	middleware/auth.go:48	&{user 1}
+2023-04-05T20:34:10.290+0800	INFO	logic/user.go:43	account7042309196552863744
+2023-04-05T20:34:10.290+0800	INFO	logic/user.go:45	{"type":"account","id":7042309196552863744}
+2023-04-05T20:35:03.736+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:35:54.330+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:36:41.086+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:39:13.423+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:46:44.963+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:47:38.249+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-05T20:50:15.619+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:54:32.859+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:56:34.419+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T19:56:55.489+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:38:38.493+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:41:27.845+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:41:54.317+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:42:14.648+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:44:12.908+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:47:36.929+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T22:56:21.989+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T23:40:12.331+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-06T23:51:51.049+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:12:46.493+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:13:44.159+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:15:56.396+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:18:17.574+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:35:08.425+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:52:55.380+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:53:12.593+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-07T00:57:12.313+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
