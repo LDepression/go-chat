@@ -58,7 +58,7 @@ func TestGetAccountsByName(t *testing.T) {
 		fmt.Println("dao.Group.DB == nil")
 	}
 	qAccount := NewQueryAccount()
-	accountInfos, total, err := qAccount.GetAccountsByName("why", 5, 1)
+	accountInfos, total, err := qAccount.GetAccountsByName("wang", 1, 1)
 	if err != nil {
 		fmt.Printf("qAccount.GetAccountsByName failed, err:%#v \n", err)
 		t.Errorf("err:%v\n,", err)
@@ -75,29 +75,16 @@ func TestGetAccountsByUserID(t *testing.T) {
 		fmt.Println("dao.Group.DB == nil")
 	}
 	qAccount := NewQueryAccount()
-	accountInfos, err := qAccount.GetAccountsByUserID(300)
+	accountInfos, err := qAccount.GetAccountsByUserID(2)
 	if err != nil {
 		fmt.Printf("qAccount.GetAccountsByUserID failed, err:%#v \n", err)
 		t.Errorf("err:%v\n,", err)
 	}
+	fmt.Println("total:", accountInfos)
 	for _, v := range accountInfos {
 		fmt.Println(v)
 	}
 }
-
-//func TestGetUserByAccountID(t *testing.T) {
-//	InitMySql()
-//	if dao.Group.DB == nil {
-//		fmt.Println("dao.Group.DB == nil")
-//	}
-//	qAccount := NewQueryAccount()
-//	userInfo, err := qAccount.GetUserByAccountID(1)
-//	if err != nil {
-//		fmt.Printf("qAccount.GetUserByAccountID failed, err:%#v \n", err)
-//		t.Errorf("err:%v\n,", err)
-//	}
-//	fmt.Println(userInfo)
-//}
 
 func TestUpdateAccount(t *testing.T) {
 	InitMySql()

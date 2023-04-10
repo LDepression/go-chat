@@ -6,14 +6,14 @@ import (
 	"go-chat/internal/middleware"
 )
 
-type application struct {
-}
+type application struct{}
 
-func (a *application) Init(root *gin.RouterGroup) {
-	g := root.Group("application").Use(middleware.Auth(), middleware.AuthMustAccount())
-	{
-		g.PUT("accept", v1.Group.Application.AcceptApplication)
-		g.PUT("refuse", v1.Group.Application.RefuseApplication)
-		g.GET("list", v1.Group.Application.GetApplicationsList)
-	}
+func (application) Init(root *gin.RouterGroup) {
+	g := root.Group("/application").Use(middleware.AuthMustAccount())
+	g.POST("/createApplication", v1.Group.Application.CreateApplication)
+	g.DELETE("/deleteApplication", v1.Group.Application.DeleteApplication)
+	g.PUT("accept", v1.Group.Application.AcceptApplication)
+	g.PUT("refuse", v1.Group.Application.RefuseApplication)
+	g.GET("list", v1.Group.Application.GetApplicationsList)
+
 }
