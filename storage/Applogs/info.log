@@ -402,3 +402,148 @@
 2023-04-07T00:52:55.380+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
 2023-04-07T00:53:12.593+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
 2023-04-07T00:57:12.313+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
+2023-04-10T23:56:28.131+0800	INFO	middleware/auth.go:47	&{account 7042309196552863744}
+2023-04-10T23:56:53.035+0800	INFO	middleware/auth.go:47	&{account 7042309196552863744}
+2023-04-10T23:59:27.408+0800	INFO	v1/user.go:41	ctx.ShouldBindJSON(&reqRegister) failed: %vKey: 'Register.mobile' Error:Field validation for 'mobile' failed on the 'mobile' tag
+2023-04-11T00:00:29.539+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-11T00:00:29.540+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type request.GenderType
+2023-04-11T00:00:55.767+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-11T00:00:55.778+0800	INFO	logic/user.go:43	account7044171305423208448
+2023-04-11T00:00:55.779+0800	INFO	logic/user.go:45	{"type":"account","id":7044171305423208448}
+2023-04-11T00:01:49.222+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-11T00:01:49.229+0800	INFO	logic/user.go:43	account7044171529629728768
+2023-04-11T00:01:49.229+0800	INFO	logic/user.go:45	{"type":"account","id":7044171529629728768}
+2023-04-11T00:05:14.264+0800	INFO	middleware/auth.go:47	&{account 7044171305423208448}
+2023-04-13T20:08:22.901+0800	INFO	logic/email.go:62	400
+2023-04-13T20:08:22.901+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-13T20:08:22.902+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-13T20:09:47.533+0800	INFO	logic/user.go:43	user1
+2023-04-13T20:09:47.533+0800	INFO	logic/user.go:43	user1
+2023-04-13T20:09:47.533+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-13T20:09:47.534+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-13T20:17:43.073+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:17:43.083+0800	INFO	logic/user.go:43	account7045201268041580544
+2023-04-13T20:17:43.084+0800	INFO	logic/user.go:45	{"type":"account","id":7045201268041580544}
+2023-04-13T20:18:04.882+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:04.889+0800	INFO	logic/user.go:43	account7045201359510962176
+2023-04-13T20:18:04.889+0800	INFO	logic/user.go:45	{"type":"account","id":7045201359510962176}
+2023-04-13T20:18:08.911+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:08.918+0800	INFO	logic/user.go:43	account7045201376409812992
+2023-04-13T20:18:08.918+0800	INFO	logic/user.go:45	{"type":"account","id":7045201376409812992}
+2023-04-13T20:18:12.221+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:12.229+0800	INFO	logic/user.go:43	account7045201390292959232
+2023-04-13T20:18:12.229+0800	INFO	logic/user.go:45	{"type":"account","id":7045201390292959232}
+2023-04-13T20:18:15.048+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:15.054+0800	INFO	logic/user.go:43	account7045201402150256640
+2023-04-13T20:18:15.054+0800	INFO	logic/user.go:45	{"type":"account","id":7045201402150256640}
+2023-04-13T20:18:17.841+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:17.848+0800	INFO	logic/user.go:43	account7045201413864947712
+2023-04-13T20:18:17.848+0800	INFO	logic/user.go:45	{"type":"account","id":7045201413864947712}
+2023-04-13T20:18:22.438+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:22.445+0800	INFO	logic/user.go:43	account7045201433146163200
+2023-04-13T20:18:22.445+0800	INFO	logic/user.go:45	{"type":"account","id":7045201433146163200}
+2023-04-13T20:18:25.862+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:25.871+0800	INFO	logic/user.go:43	account7045201447507460096
+2023-04-13T20:18:25.871+0800	INFO	logic/user.go:45	{"type":"account","id":7045201447507460096}
+2023-04-13T20:18:28.898+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:28.905+0800	INFO	logic/user.go:43	account7045201460241367040
+2023-04-13T20:18:28.905+0800	INFO	logic/user.go:45	{"type":"account","id":7045201460241367040}
+2023-04-13T20:18:32.265+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:18:32.273+0800	INFO	logic/user.go:43	account7045201474363588608
+2023-04-13T20:18:32.273+0800	INFO	logic/user.go:45	{"type":"account","id":7045201474363588608}
+2023-04-13T20:18:45.347+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-04-13T20:18:58.647+0800	INFO	middleware/auth.go:47	&{account 7045201268041580544}
+2023-04-13T20:24:55.893+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:25:07.212+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:25:11.616+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:26:39.619+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:26:39.626+0800	INFO	logic/user.go:43	account7045203512245878784
+2023-04-13T20:26:39.626+0800	INFO	logic/user.go:45	{"type":"account","id":7045203512245878784}
+2023-04-13T20:26:48.328+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:33:21.720+0800	INFO	logic/user.go:43	user1
+2023-04-13T20:33:21.720+0800	INFO	logic/user.go:43	user1
+2023-04-13T20:33:21.721+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-13T20:33:21.721+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-13T20:34:37.726+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:34:37.731+0800	INFO	logic/user.go:43	account7045205516011700224
+2023-04-13T20:34:37.732+0800	INFO	logic/user.go:45	{"type":"account","id":7045205516011700224}
+2023-04-13T20:34:51.368+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:34:51.375+0800	INFO	logic/user.go:43	account7045205573230395392
+2023-04-13T20:34:51.375+0800	INFO	logic/user.go:45	{"type":"account","id":7045205573230395392}
+2023-04-13T20:34:54.335+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:34:54.343+0800	INFO	logic/user.go:43	account7045205585674895360
+2023-04-13T20:34:54.343+0800	INFO	logic/user.go:45	{"type":"account","id":7045205585674895360}
+2023-04-13T20:34:57.272+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:34:57.280+0800	INFO	logic/user.go:43	account7045205597997760512
+2023-04-13T20:34:57.281+0800	INFO	logic/user.go:45	{"type":"account","id":7045205597997760512}
+2023-04-13T20:35:01.220+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:01.227+0800	INFO	logic/user.go:43	account7045205614556872704
+2023-04-13T20:35:01.228+0800	INFO	logic/user.go:45	{"type":"account","id":7045205614556872704}
+2023-04-13T20:35:02.997+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:03.003+0800	INFO	logic/user.go:43	account7045205622005956608
+2023-04-13T20:35:03.004+0800	INFO	logic/user.go:45	{"type":"account","id":7045205622005956608}
+2023-04-13T20:35:06.153+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:06.159+0800	INFO	logic/user.go:43	account7045205635243180032
+2023-04-13T20:35:06.160+0800	INFO	logic/user.go:45	{"type":"account","id":7045205635243180032}
+2023-04-13T20:35:08.122+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:08.128+0800	INFO	logic/user.go:43	account7045205643501764608
+2023-04-13T20:35:08.129+0800	INFO	logic/user.go:45	{"type":"account","id":7045205643501764608}
+2023-04-13T20:35:10.368+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:10.376+0800	INFO	logic/user.go:43	account7045205652922171392
+2023-04-13T20:35:10.376+0800	INFO	logic/user.go:45	{"type":"account","id":7045205652922171392}
+2023-04-13T20:35:15.584+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-13T20:35:15.590+0800	INFO	logic/user.go:43	account7045205674799661056
+2023-04-13T20:35:15.590+0800	INFO	logic/user.go:45	{"type":"account","id":7045205674799661056}
+2023-04-13T20:35:34.493+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:36:13.310+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:36:13.311+0800	INFO	v1/account.go:41	params.AccountID:7045205516011700224
+2023-04-13T20:36:41.001+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:54:11.551+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:56:22.083+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:56:34.917+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:56:45.687+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:56:58.364+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:57:08.787+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
+2023-04-13T20:58:05.170+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:59:15.621+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T20:59:34.192+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T21:08:43.900+0800	INFO	middleware/auth.go:38	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T21:11:30.831+0800	INFO	middleware/auth.go:32	tokenString:
+2023-04-13T21:11:30.870+0800	INFO	middleware/auth.go:39	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-13T21:12:28.337+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:12:28.338+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:15:43.617+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:15:43.617+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:16:46.735+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:16:46.735+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:19:13.478+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:19:13.521+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:19:21.707+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:19:21.707+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:21:13.815+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:21:13.815+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:21:35.509+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:21:35.509+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:21:40.371+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:21:40.372+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:23:44.256+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:23:44.301+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:30:04.317+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:30:04.368+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:37:20.368+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:37:20.411+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:47:01.407+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:47:01.450+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:49:09.517+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:49:09.564+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:49:55.595+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:49:55.638+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:50:36.286+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:50:36.328+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:52:06.780+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:52:06.826+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T21:54:30.079+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+2023-04-13T21:54:30.116+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
+2023-04-13T22:00:25.917+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}
+2023-04-13T22:02:13.932+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}
+2023-04-13T22:04:36.069+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}

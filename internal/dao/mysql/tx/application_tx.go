@@ -25,7 +25,7 @@ func NewApplicationTX() *applicationTX {
 // CreateApplicationWithTX 第一个参数是申请者,第二个参数是被申请者
 func (applicationTX) CreateApplicationWithTX(account1ID, account2ID uint64, ApplyMsg string) (uint64, error) {
 	//先去判断一下目标id是不是自己
-	if uint64(account2ID) == account1ID {
+	if account2ID == account1ID {
 		return 0, ErrIsSelf
 	}
 	//先去判断一下两者是否已经是好友了

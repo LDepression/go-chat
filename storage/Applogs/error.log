@@ -622,3 +622,347 @@ created by net/http.(*Server).Serve
 	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
  <nil>}
 2023-04-07T00:52:55.383+0800	ERROR	logic/application.go:41	qApplication.GetApplicationByID failed, err:record not found
+2023-04-13T20:37:07.908+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  interface conversion: interface {} is nil, not *model.Content} {request 15 0 PUT /api/v1/application/accept HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X-Token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0 {
+    "applicant_id": 7045205516011700224
+} <nil>} {stack 15 0 goroutine 111 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x937d60, 0xc000f7d590})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.GetContent(...)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:24
+go-chat/internal/middleware.AuthMustAccount.func1(0xc00016e200)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:87 +0x1de
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc00016e200)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc00016e200)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000605040, 0xc00016e200)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000605040, {0xb69910?, 0xc0005c21c0}, 0xc000506100)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xb677e8?}, {0xb69910, 0xc0005c21c0}, 0xc000506100)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001219a0, {0xb6a620, 0xc0004f58f0})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T20:41:28.639+0800	ERROR	middleware/recovery.go:48	mail.SendMail Error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-13T20:41:28.639+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  interface conversion: interface {} is nil, not *model.Content} {request 15 0 PUT /api/v1/application/accept HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X-Token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0 {
+    "applicant_id": 7045205516011700224
+} <nil>} {stack 15 0 goroutine 57 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x937d60, 0xc0003a81e0})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.GetContent(...)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:24
+go-chat/internal/middleware.AuthMustAccount.func1(0xc0004c6000)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:87 +0x1de
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc0004c6000)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0004c6000)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000605040, 0xc0004c6000)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000605040, {0xb69910?, 0xc0005c2000}, 0xc000492100)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xb677e8?}, {0xb69910, 0xc0005c2000}, 0xc000492100)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc00037e460, {0xb6a620, 0xc0004f58f0})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T20:42:20.065+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  interface conversion: interface {} is nil, not *model.Content} {request 15 0 PUT /api/v1/application/accept HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X-Token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0 {
+    "applicant_id": 7045205516011700224
+} <nil>} {stack 15 0 goroutine 151 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x937d60, 0xc0003a89c0})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.GetContent(...)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:24
+go-chat/internal/middleware.AuthMustAccount.func1(0xc0004c6100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:87 +0x1de
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc0004c6100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0004c6100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000605040, 0xc0004c6100)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000605040, {0xb69910?, 0xc0005c20e0}, 0xc000492300)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xb677e8?}, {0xb69910, 0xc0005c20e0}, 0xc000492300)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc00037e6e0, {0xb6a620, 0xc0004f58f0})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T20:52:47.968+0800	ERROR	middleware/recovery.go:48	mail.SendMail Error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-13T20:52:47.969+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  interface conversion: interface {} is nil, not *model.Content} {request 15 0 PUT /api/v1/application/accept HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X-Token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0 {
+    "applicant_id": 7045205516011700224
+} <nil>} {stack 15 0 goroutine 26 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x877d60, 0xc00011b380})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.GetContent(...)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:24
+go-chat/internal/middleware.AuthMustAccount.func1(0xc0004dec00)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:87 +0x1de
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc0004dec00)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc0004dec00)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000585040, 0xc0004dec00)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000585040, {0xaa98d0?, 0xc0004e22a0}, 0xc0004deb00)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xaa77a8?}, {0xaa98d0, 0xc0004e22a0}, 0xc0004deb00)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc00069c000, {0xaaa5e0, 0xc0003e0480})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T20:54:11.556+0800	ERROR	logic/application.go:51	qApplication.GetApplicationByID failed, err:record not found
+2023-04-13T20:56:22.085+0800	ERROR	logic/application.go:72	qApplication.GetApplicationByID failed, err:record not found
+2023-04-13T20:56:58.366+0800	ERROR	v1/setting.go:31	&request.DeleteFriend{} c.ShouldBindJSON(params) failed: invalid character '}' looking for beginning of object key string
+2023-04-13T20:57:08.789+0800	ERROR	logic/setting.go:24	qSetting.GetRelationInfoByAccountsID failed,err:record not found
+2023-04-13T21:01:14.409+0800	ERROR	middleware/recovery.go:48	mail.SendMail Error: dial tcp: lookup smtp.qq.com: i/o timeout
+2023-04-13T21:01:14.410+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  runtime error: invalid memory address or nil pointer dereference} {request 15 0 GET /api/v1/setting/friend/list HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X_token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0  <nil>} {stack 15 0 goroutine 20 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x17a0060, 0x26dc7d0})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.Auth.func1(0xc00043c100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:36 +0xee
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc00043c100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc00043c100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000585040, 0xc00043c100)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000585040, {0x19d98d0?, 0xc000448000}, 0xc00043c000)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xc00042a090?}, {0x19d98d0, 0xc000448000}, 0xc00043c000)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc00037c1e0, {0x19da5e0, 0xc0004ec180})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T21:01:16.325+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  runtime error: invalid memory address or nil pointer dereference} {request 15 0 GET /api/v1/setting/friend/list HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X_token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0  <nil>} {stack 15 0 goroutine 16 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x17a0060, 0x26dc7d0})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.Auth.func1(0xc00043c300)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:36 +0xee
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc00043c300)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc00043c300)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000585040, 0xc00043c300)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000585040, {0x19d98d0?, 0xc0004480e0}, 0xc0001cc000)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xc0004ec270?}, {0x19d98d0, 0xc0004480e0}, 0xc0001cc000)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc000394280, {0x19da5e0, 0xc0004ec180})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T21:05:53.491+0800	ERROR	middleware/recovery.go:73	[Recovery from panic]{error 26 0  runtime error: invalid memory address or nil pointer dereference} {request 15 0 GET /api/v1/setting/friend/list HTTP/1.1
+Host: 127.0.0.1:8084
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+X_token: v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
+
+ <nil>} {body 15 0  <nil>} {stack 15 0 goroutine 43 [running]:
+runtime/debug.Stack()
+	E:/Go/GoSdk/src/runtime/debug/stack.go:24 +0x65
+go-chat/internal/middleware.Recovery.func1.1()
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:77 +0x69e
+panic({0x1280060, 0x21bc7d0})
+	E:/Go/GoSdk/src/runtime/panic.go:884 +0x212
+go-chat/internal/middleware.Auth.func1(0xc000114100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/auth.go:36 +0xee
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Cors.func1(0xc000114100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/cors.go:42 +0x1a2
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+go-chat/internal/middleware.Recovery.func1(0xc000114100)
+	E:/Go/goproject/src/my_project/go-chat2/go-chat/internal/middleware/recovery.go:89 +0x88
+github.com/gin-gonic/gin.(*Context).Next(...)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc000585040, 0xc000114100)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x671
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc000585040, {0x14b98d0?, 0xc00015e000}, 0xc000114000)
+	E:/Go/goproject/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1dd
+net/http.serverHandler.ServeHTTP({0xc000016090?}, {0x14b98d0, 0xc00015e000}, 0xc000114000)
+	E:/Go/GoSdk/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0003a23c0, {0x14ba5e0, 0xc0004e4120})
+	E:/Go/GoSdk/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	E:/Go/GoSdk/src/net/http/server.go:3102 +0x4db
+ <nil>}
+2023-04-13T21:08:43.858+0800	ERROR	middleware/auth.go:36	payLoad == nil
+2023-04-13T21:11:30.870+0800	ERROR	middleware/auth.go:37	payLoad == nil
+2023-04-13T21:15:43.619+0800	ERROR	v1/setting.go:76	&request.GetFriendsByName{} c.ShouldBindJSON(params) failed: invalid character 'n' looking for beginning of object key string
+2023-04-13T21:16:46.736+0800	ERROR	v1/setting.go:76	&request.GetFriendsByName{} c.ShouldBindJSON(params) failed: invalid character 'n' looking for beginning of object key string
+2023-04-13T21:30:04.375+0800	ERROR	logic/setting.go:123	哈哈哈哈哈哈哈哈哈哈哈哈哈哈:friendsInfos=[0xc000450320]
+,total=1
+
+2023-04-13T21:37:20.415+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:37:20.417+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+
+2023-04-13T21:47:01.455+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:47:01.458+0800	ERROR	query/setting.go:85	test FriednInfo:{{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} 0 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false} <nil>} 0 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}}   }    } 0 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}}  {0 0} {  }}  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false false}
+2023-04-13T21:47:01.459+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+
+2023-04-13T21:49:09.568+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:49:09.570+0800	ERROR	query/setting.go:85	test FriendInfo:00
+2023-04-13T21:49:09.570+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+
+2023-04-13T21:49:55.643+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:49:55.647+0800	ERROR	query/setting.go:85	test FriendInfo:0,,,0
+2023-04-13T21:49:55.647+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+
+2023-04-13T21:50:36.332+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:50:36.334+0800	ERROR	query/setting.go:85	test FriendInfo:0,,,0
+2023-04-13T21:50:36.334+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+
+2023-04-13T21:52:06.831+0800	ERROR	logic/setting.go:111	嘻嘻嘻嘻:friendsInfos=&{{1 2023-04-13 20:34:37.729 +0800 CST 2023-04-13 20:34:37.729 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} friend {7045205516011700224 7045205516011700224} {  }}
+,total=1
+
+2023-04-13T21:52:06.836+0800	ERROR	logic/setting.go:127	hhhhhhhhhhhhh:friendsInfos=&{{7045205516011700224  } {1 friend  false false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false}}
+,total=1
+

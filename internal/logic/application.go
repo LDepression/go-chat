@@ -60,6 +60,7 @@ func (application) AcceptApplication(c *gin.Context, applicantID, receiverID uin
 		zap.S().Errorf("applicationTX.AcceptApplication failed, err:%v", err)
 		return errcode.ErrNotFound
 	}
+	//TODO:提示对方有新的消息
 
 	return nil
 }
@@ -79,6 +80,8 @@ func (application) RefuseApplication(c *gin.Context, applicantID, receiverID uin
 		zap.S().Errorf("qApplication.RefuseApplication failed,err:%v", err)
 		return errcode.ErrServer
 	}
+	//TODO:提示对方有新的消息
+
 	return nil
 }
 
@@ -99,7 +102,7 @@ func (application) GetApplicationsList(c *gin.Context, accountID, limit, offset 
 		return nil, errcode.ErrServer
 	}
 	selfEasyAccount := &reply2.EasyAccount{
-		AccountID: selfAccount.ID,
+		AccountID: uint(selfAccount.ID),
 		Name:      selfAccount.Name,
 		Avatar:    selfAccount.Avatar,
 	}
@@ -136,7 +139,7 @@ func InquireApplicantAndReceiver(applicantID, receiverID, accountID uint, selfEa
 			return nil, nil, errcode.ErrServer
 		}
 		receiver = &reply2.EasyAccount{
-			AccountID: receiverInfo.ID,
+			AccountID: uint(receiverInfo.ID),
 			Name:      receiverInfo.Name,
 			Avatar:    receiverInfo.Avatar,
 		}
@@ -147,7 +150,7 @@ func InquireApplicantAndReceiver(applicantID, receiverID, accountID uint, selfEa
 			return nil, nil, errcode.ErrServer
 		}
 		applicant = &reply2.EasyAccount{
-			AccountID: applicantInfo.ID,
+			AccountID: uint(applicantInfo.ID),
 			Name:      applicantInfo.Name,
 			Avatar:    applicantInfo.Avatar,
 		}

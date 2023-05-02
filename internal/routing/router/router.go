@@ -38,6 +38,7 @@ func NewRouter() *gin.Engine {
 		rg.Email.Init(r)
 		rg.Account.Init(r)
 		rg.Application.Init(r)
+		rg.Setting.Init(r)
 	}
 
 	return r

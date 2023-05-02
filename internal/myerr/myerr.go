@@ -31,4 +31,5 @@ var (
 	AppplicationNotValid   = errcode.NewErr(5002, "申请不合法")
 	FriendHasAlreadyExists = errcode.NewErr(5003, "好友已经存在了")
 	CanNotAddSelf          = errcode.NewErr(5004, "不能添加自己为好友")
+	RelationNotExist       = errcode.NewErr(6001, "关系不存在")
 )

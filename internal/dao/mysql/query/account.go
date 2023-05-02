@@ -33,7 +33,10 @@ func (qAccount) GetAccountByID(AccountID uint) (*automigrate.Account, error) {
 func (qAccount) GetAccountsByName(AccountName string, limit, offset int32) ([]*automigrate.Account, int64, error) {
 	var accountInfos []*automigrate.Account
 	var totalCount int64
-	if result := dao.Group.DB.Model(&automigrate.Account{}).Where("name like ?", "%"+AccountName+"%").Offset(int(offset)).Limit(int(limit)).Find(&accountInfos); result.Error != nil {
+	if result := dao.Group.DB.Model(&automigrate.Account{}).
+		Where("name like ?", "%"+AccountName+"%").
+		Offset(int(offset)).Limit(int(limit)).
+		Find(&accountInfos); result.Error != nil {
 		return nil, 0, result.Error
 	} else {
 		totalCount = result.RowsAffected

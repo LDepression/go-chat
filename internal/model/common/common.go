@@ -18,6 +18,13 @@ type State struct {
 }
 
 type ApplicationStatus string
+type RelationType string
+
+const (
+	RelationTypeGroup  RelationType = "group"
+	RelationTypeFriend RelationType = "friend"
+	RelationTypeNo     RelationType = ""
+)
 
 const (
 	ApplicationStateAccepted ApplicationStatus = "已接受"

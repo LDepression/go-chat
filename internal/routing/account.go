@@ -23,7 +23,6 @@ func (a *account) Init(root *gin.RouterGroup) {
 	g.GET("/getToken/:id", v1.Group.Account.GetToken)
 	g.GET("/infos/user", v1.Group.Account.GetAccountsByUserID)
 
-	//TODO
 	ag := root.Group("account").Use(middleware.Auth(), middleware.AuthMustAccount())
 	{
 		ag.GET("/info", v1.Group.Account.GetAccountByID)

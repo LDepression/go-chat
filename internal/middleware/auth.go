@@ -32,6 +32,9 @@ func Auth() gin.HandlerFunc {
 		payLoad, err := global.Maker.VerifyToken(tokenString)
 		if err != nil {
 			rly.Reply(myerr.TokenInValid)
+			if payLoad == nil {
+				zap.S().Error("payLoad == nil")
+			}
 			zap.S().Infof("global.Maker.VerifyToken(tokenString) failed: %v", err)
 			ctx.Abort()
 			return

@@ -60,7 +60,7 @@ func (account) GetAccountByID(c *gin.Context) {
 func (account) GetAccountsByName(c *gin.Context) {
 	res := app.NewResponse(c)
 	params := &request.GetAccountsByName{}
-	if err := c.ShouldBindQuery(params); err != nil {
+	if err := c.ShouldBindJSON(params); err != nil {
 		zap.S().Errorf("&request.GetAccountByName{} c.ShouldBindJSON(params) failed: %v", err)
 		res.Reply(errcode.ErrParamsNotValid.WithDetails(err.Error()))
 		return

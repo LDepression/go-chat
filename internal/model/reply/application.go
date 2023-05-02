@@ -12,11 +12,6 @@ type CreateApplicationRep struct {
 	ApplicationID uint64
 	Status        string
 }
-type EasyAccount struct {
-	AccountID uint64 `gorm:"type:bigint"`
-	Name      string `gorm:"type:varchar(255);not null"`
-	Avatar    string `gorm:"type:varchar(255);not null"`
-}
 
 type GetApplication struct {
 	Applicant *EasyAccount
