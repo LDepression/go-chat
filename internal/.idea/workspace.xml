@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e038dce3-69c5-45d4-b4d0-3079a5c9fa76" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/chat/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/chat/enter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/chat/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/chat/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/query/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/query/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/query/group_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/query/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/tx/file_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/tx/group_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/tx/setting_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/mysql/tx/setting_tx_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/automigrate/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/client/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/client/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/serve/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/serve/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/chat/serve/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/reply/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/reply/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/reply/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/request/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/request/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/request/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/oss/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/oss/oss.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/oss/test/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setting/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../websocket/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../websocket/room.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../websocket/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../websocket/sockjs.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/go-chat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/go-chat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../config/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/mysql/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/mysql/query/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/mysql/query/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/mysql/tx/account_tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/mysql/tx/account_tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/redis/query/relation.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/redis/query/relation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/global.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/cors.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/cors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/automigrate/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/automigrate/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/automigrate/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/automigrate/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/automigrate/ralation.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/automigrate/ralation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/automigrate/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/automigrate/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/common/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/common/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/request/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/request/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myerr/myerr.go" beforeDir="false" afterPath="$PROJECT_DIR$/myerr/myerr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/app/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/app/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/goroutine/heal/heal.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/goroutine/heal/heal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/goroutine/task/task_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/goroutine/task/task_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routing/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routing/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routing/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setting/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/setting/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../storage/Applogs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/../storage/Applogs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../storage/Applogs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/../storage/Applogs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/build-errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/../tmp/build-errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/main.exe" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../go1.19.5" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="ProjectId" id="2PhbMkGRgPSUIJRyZTxY3WxVhmw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "D:/workspace/go/src/go-chat/internal",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

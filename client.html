@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script type="module"></script>
+    <script type="text/javascript" src="./socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+<body>
+<button id="2" onclick="auth()">验证身份</button>
+<br>
+<button id="1" onclick="test()">发送信息</button>
+</body>
+<script>
+    const token = "v2.local.gx2sq6Ea6czBqKtE1qCru4oEA0PHM8eV87Kv4fgu6SZ1GKELrKOHquAwtHOMh5I3936Zrz9XlHlyNV-ltedvofIuZ1vqT-pCURlUUKoh6Ju14znLHvp1x9JDxIqFr_a4PZiriBuY4mNDGc7ar8EnXkW-f0wwKpQxZrthh7xTxfMjBIJLb-cb7YQr0FPafMroVGOah50ivneWXfQi8jB5C3oxvvuAfnc7KkV_xr88q_mpdtHWDojDqwjh5DEVon0o0zd4qMjPCXECLmlJ1atGmtiJsJ-GPX-CUMccIOFXbqLf5RvOTNmJzuXkAzEv7TSfFMc2.bnVsbA";
+    const uil = "ws://127.0.0.1:8084"
+    let socket = io(uil);
+    let chat = io("ws://127.0.0.1:8084/chat");
+
+    socket.on("auth", function (sendAckCb) {
+        console.log("auth_1")
+        sendAckCb("connect");
+        console.log("auth_2")
+    });
+
+    chat.on("test", function (msg) {
+        console.log("chat_test_1")
+        console.log("recv:" + msg)
+        console.log("chat_test_2")
+    })
+    chat.on("update_account",function (msg) {
+        console.log("chat_update msg is comming............")
+        console.log(msg)
+        console.log("chat_update msg is ending............")
+    })
+    function auth() {
+        console.log("auth_1")
+        chat.emit("auth", token, function (data) {
+            console.log("recv:" + data);
+        });
+        console.log("auth_2")
+    }
+
+    function test() {
+        console.log("test_1")
+        chat.emit("test", JSON.stringify({"name": "yyy", "age": "20"}), function (data) {
+            console.log("recv:" + data);
+        });
+        console.log("test_2")
+    }
+
+    socket.on('send_msg', function (msg) {
+        console.log(msg);
+    });
+
+    socket.on('read_msg', function (msg) {
+        console.log(msg);
+    });
+</script>
+</html>

@@ -14,6 +14,16 @@ import (
 )
 
 type application struct{}
+
+// CreateApplication
+// @Tags     application
+// @Summary  发起好友申请
+// @accept   application/json
+// @Produce  application/json
+// @Param    Authorization  header    string           true "x-token 用户令牌"
+// @Param    data           body      request.CreateApplicationReq  true  "发起好友申请"
+// @Success  200            {object}  common.State{reply.CreateApplicationRep}             "1001:参数有误 1003:系统错误 2001:鉴权失败 5003:好友已经存在 5004:不能添加自己为好友"
+// @Router   /api/v1/application/create [post]
 func (a application) CreateApplication(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
 	var req request.CreateApplicationReq
@@ -35,6 +45,15 @@ func (a application) CreateApplication(ctx *gin.Context) {
 	rly.Reply(nil, replyInfo)
 }
 
+// DeleteApplication
+// @Tags     application
+// @Summary  删除已经发送的好友申请
+// @accept   application/json
+// @Produce  application/json
+// @Param    Authorization  header    string           true "x-token 用户令牌"
+// @Param    data           body      request.DeleteApplicationReq  true  "删除已经发起的申请"
+// @Success  200            {object}  common.State{}             "1001:参数有误 1003:系统错误 2001:鉴权失败 "
+// @Router   /api/v1/application/delete [delete]
 func (application) DeleteApplication(ctx *gin.Context) {
 	rly := app.NewResponse(ctx)
 	var req request.DeleteAccountReq
@@ -63,7 +82,7 @@ func (application) DeleteApplication(ctx *gin.Context) {
 // @Param    Authorization  header    string           true "x-token 用户令牌"
 // @Param    data           body      request.AcceptApplication  true  "需要同意的申请"
 // @Success  200            {object}  common.State{}             "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在 3004:重复操作申请"
-// @Router   /api/application/accept [put]
+// @Router   /api/v1/application/accept [put]
 func (application) AcceptApplication(c *gin.Context) {
 	res := app.NewResponse(c)
 	params := &request.AcceptApplication{}
@@ -89,7 +108,7 @@ func (application) AcceptApplication(c *gin.Context) {
 // @Param    Authorization  header    string                     true "x-token 用户令牌"
 // @Param    data           body      request.RefuseApplication  true  "需要拒绝的申请"
 // @Success  200            {object}  common.State{}             "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在 3004:重复操作申请"
-// @Router   /api/application/refuse [put]
+// @Router   /api/v1/application/refuse [put]
 func (application) RefuseApplication(c *gin.Context) {
 	res := app.NewResponse(c)
 	params := &request.RefuseApplication{}
@@ -115,7 +134,7 @@ func (application) RefuseApplication(c *gin.Context) {
 // @Param    Authorization  header    string                        true "x-token 用户令牌"
 // @Param    data           query     request.GetApplicationsList                  true  "分页参数"
 // @Success  200            {object}  common.State{data=reply.ApplicationsList}  "1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在"
-// @Router   /api/application/list [get]
+// @Router   /api/v1/application/list [get]
 func (application) GetApplicationsList(c *gin.Context) {
 	res := app.NewResponse(c)
 	content, ok := middleware.GetContent(c)

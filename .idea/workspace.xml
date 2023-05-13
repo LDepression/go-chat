@@ -4,78 +4,122 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c50d48dd-bbf5-479e-801b-bc7c5353548e" name="变更" comment="完成application模块">
+    <list default="true" id="636b9497-4adc-4d58-8c0f-83915bc0648f" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/client.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/chat/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/chat/enter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/chat/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/chat/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/v1/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/query/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/query/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/query/group_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/query/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/file_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/group_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/setting_tx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/setting_tx_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/logic/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/logic/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/logic/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/manager/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/automigrate/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/client/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/client/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/serve/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/serve/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/chat/serve/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/reply/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/reply/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/reply/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/request/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/request/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/request/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/pkg/oss/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/pkg/oss/oss.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/pkg/oss/test/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routing/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routing/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routing/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routing/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/setting/chat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/task/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/task/handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/task/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket/room.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket/sockjs.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83634019-f490-4e06-904d-a2fa316fb49c/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/enter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/dao/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/application.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/tx/application.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/tx/application_tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/application_tx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logic/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/tx/account_tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/tx/account_tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/redis/query/relation.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/redis/query/relation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/global/global.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/enter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/request/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/request/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middleware/cors.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/cors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/ralation.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/ralation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/common/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/common/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/request/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/request/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/myerr/myerr.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/myerr/myerr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/app/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/app/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/goroutine/heal/heal.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/goroutine/heal/heal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/goroutine/task/task_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/goroutine/task/task_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/routing/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routing/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routing/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routing/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routing/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routing/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/setting/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/setting/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/Applogs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/Applogs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/Applogs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/Applogs/info.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/build-errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/main.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Go File" />
-      </list>
-    </option>
-  </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../go1.19.5" />
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="master" />
-  </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="why" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="lyc" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/config/app.yaml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2NbG1yoPeOqCH3kJ1giE5feVhua" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2PhbmjRlE2xvGRLotdgvtWaQih9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -84,16 +128,13 @@
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
-    "configurable..is.expanded": "false",
-    "configurable.GoLibrariesConfigurable.is.expanded": "true",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "D:/workspace/go/src/go-chat",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "go.sdk",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -102,130 +143,9 @@
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Go\goproject\src\my_project\go-chat2\go-chat\internal\routing" />
-      <recent name="E:\Go\goproject\src\my_project\go-chat2\go-chat\internal\dao\mysql" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Go Test.go-chat/internal/dao/mysql/query 中的 TestGetAccountsByName">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <package value="go-chat" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetAccountsByName" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestGetAccountsByName\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetApplicationByID" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestGetApplicationByID\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestGetApplicationList" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestGetApplicationList\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/query 中的 TestRefuseApplication" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/query" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/query" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestRefuseApplication\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go-chat/internal/dao/mysql/tx 中的 TestAcceptApplicationWithTX" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-chat" />
-      <working_directory value="$PROJECT_DIR$/internal/dao/mysql/tx" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-chat/internal/dao/mysql/tx" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAcceptApplicationWithTX\E$" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/lyc" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加分页" />
-    <MESSAGE value="完善account模块" />
-    <MESSAGE value="修改预加载查询" />
-    <MESSAGE value="将token的id改为uint,gender改为string" />
-    <MESSAGE value="合并分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并分支" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

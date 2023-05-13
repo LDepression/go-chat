@@ -10,6 +10,7 @@ package global
 
 import (
 	ut "github.com/go-playground/universal-translator"
+	"go-chat/internal/manager"
 	"go-chat/internal/model/config"
 	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/goroutine/work"
@@ -27,4 +28,5 @@ var (
 	Maker     token.Maker
 	Pager     *app.Page
 	SnowFlake *snowflake.SnowFlake
+	ChatMap   *manager.ChatMap //聊天连接管理器
 )

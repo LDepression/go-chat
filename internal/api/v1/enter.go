@@ -8,11 +8,19 @@
 
 package v1
 
+import (
+	"go-chat/internal/api/v1/chat"
+)
+
 type group struct {
 	User        user
 	Email       email
 	Account     account
 	Application application
+	File        file
+	Setting     setting
+	Chat        chat.Group
+	VGroup      vgroup
 }
 
 var Group = new(group)

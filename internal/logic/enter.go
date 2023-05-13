@@ -13,6 +13,9 @@ type group struct {
 	Email       email
 	Account     account
 	Application application
+	File        file
+	Setting     setting
+	VGroup      vgroup
 }
 
 var Group = new(group)

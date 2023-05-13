@@ -8,7 +8,10 @@
 
 package model
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"go-chat/internal/pkg/token"
+)
 
 type TokenType string
 
@@ -35,4 +38,11 @@ func (c *Content) Marshal() ([]byte, error) {
 func (c *Content) UnMarshal(data []byte) error {
 	err := json.Unmarshal(data, &c)
 	return err
+}
+
+// Token 结合token.Payload和Token
+type Token struct {
+	AccessToken string
+	Payload     *token.Payload
+	Content     *Content
 }

@@ -1,9 +1,9 @@
 package app
 
 import (
+	"go-chat/internal/model/common"
 	"net/http"
 
-	"go-chat/internal/model/common"
 	"go-chat/internal/pkg/app/errcode"
 
 	"github.com/gin-gonic/gin"

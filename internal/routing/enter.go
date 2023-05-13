@@ -13,6 +13,10 @@ type group struct {
 	Email       email
 	Account     account
 	Application application
+	File        file
+	Setting     setting
+	Chat        ws
+	Group       vgroup
 }
 
 var Group = new(group)

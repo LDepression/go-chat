@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"ttms/internal/pkg/goroutine/task"
+	"go-chat/internal/pkg/goroutine/task"
 
 	"github.com/stretchr/testify/require"
 )

@@ -1,0 +1,73 @@
+
+<html lang="cn">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>WebSocket</title>
+      <script type="text/javascript" src="socket.io.js"></script>
+  </head>
+  <body>
+      <h1> socket.io 消息发送测试</h1>
+      <input id="sendTxt" type="text"/>
+      <button id="sendBtn">发送</button>
+      <div id="recv"></div>
+      <script type="text/javascript">
+         
+         var socket = io("ws://127.0.0.1:8084/");
+         var s2 = io("ws://127.0.0.1:8084/chat");
+
+          //把接收的数据显示到界面
+          function showMessage(str,type){
+              var div = document.createElement('div');
+              div.innerHTML = str;
+              if(type == "enter"){
+                  div.style.color = 'blue';
+              }else if(type == "leave"){
+                  div.style.color = "red"
+              }
+              document.body.appendChild(div)
+          }
+   
+          // 点击之后发送
+          document.getElementById("sendBtn").onclick = function(){
+              var txt = document.getElementById("sendTxt").value;
+              if(txt){        // 文本不为空发送
+                  socket.emit('bye',txt);
+                  s2.emit("msg","chat-->"+txt)
+              }
+          }
+
+         // 连接成功
+         socket.on('connect', function(socket){
+             showMessage("连接成功",'leave')
+             // socket.join('RealTimeDataRoom');
+         });
+
+         // 连接失败
+         socket.on('disconnect', function(socket){
+             showMessage("连接失败",'leave')
+         });
+
+         socket.on('error', function(socket){
+             showMessage("连接错误",'leave')
+         });
+          
+          // 第一个enter代表是进入事件，第二个enter为了显示需要
+          socket.on('bye',function(data){
+              console.log("--------reply--------->",data);
+              showMessage(data,'enter')
+          })
+   
+          socket.on('message',function(data){
+              showMessage(data,'message')
+          })
+   
+          socket.on('leave',function(data){
+              showMessage(data,'leave')
+          })
+   
+   
+      </script>
+  </body>
+  </html>

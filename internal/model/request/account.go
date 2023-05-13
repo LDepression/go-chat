@@ -14,7 +14,6 @@ const (
 type CreateAccountReq struct {
 	ID        int64      `json:"ID"`
 	Name      string     `json:"name" binding:"required"`             //昵称
-	Avatar    string     `json:"avatar" binding:"required"`           //头像图片
 	Signature string     `json:"sigNature"`                           //个性签名
 	Gender    GenderType `json:"gender" binding:"required,oneof=男 女"` //性别
 }
@@ -36,8 +35,4 @@ type UpdateAccount struct {
 	Signature string     `json:"signature,omitempty" form:"signature"`
 	Avatar    string     `json:"avatar,omitempty" form:"avatar"`
 	Gender    GenderType `json:"gender,omitempty" form:"gender"`
-}
-
-func FuncA(a, b, c int) (int, int) {
-	return 0, 0
 }

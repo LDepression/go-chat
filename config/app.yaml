@@ -41,6 +41,9 @@ Rule:
   delUserTime: 60s
   delCodeTime: 120s
   accountMax: 5
+  DefaultAccountAvatar: http://lycmall.lyc666.xyz/chat/first.jpg
+  FileMaxSize: 1024000
+  DefaultInsertDataNum : 50
 Auto:
   retry:
     timeDuration: 5s
@@ -50,10 +53,17 @@ Token:
   AccessTokenExpire: 168h
   RefreshTokenExpire: 720h
   AccountTokenExpire: 24h
-  AuthType: "x-token"
+  AuthType: "x_token"
   AuthKey: "Claims"
 Page:
   DefaultPageSize: 10
   MaxPageSize: 200
   PageKey: page
   PageSizeKey: page_size
+AliyunOSS:
+  Endpoint: "http://oss-cn-hangzhou.aliyuncs.com"
+  AccessKeyId: "***"
+  AccessKeySecret: "***"
+  BucketName: "lycmall2"
+  BucketUrl: "chat"
+  BasePath: "http://lycmall.lyc666.xyz"
