@@ -811,3 +811,4 @@
 2023-05-13T23:54:15.518+0800	INFO	middleware/auth.go:63	&{account 1837105152}
 2023-05-13T23:56:00.653+0800	INFO	go-chat/main.go:83	Server started!
 2023-05-13T23:57:22.250+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:57:30.501+0800	INFO	go-chat/main.go:83	Server started!
