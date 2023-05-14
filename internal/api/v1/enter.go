@@ -14,6 +14,7 @@ type group struct {
 	Account     account
 	Application application
 	Setting     setting
+	MGroup      mGroup
 }
 
 var Group = new(group)
