@@ -8,4 +8,10 @@
 
 package chat
 
+import socketio "github.com/googollee/go-socket.io"
+
 type message struct{}
+
+func (message) SendMsg(s socketio.Conn, msg string) {
+
+}

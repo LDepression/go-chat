@@ -16,6 +16,7 @@ import (
 	"go-chat/internal/model/common"
 	"go-chat/internal/pkg/app/errcode"
 	"go-chat/internal/task"
+	"go.uber.org/zap"
 	"log"
 	"time"
 )
@@ -80,6 +81,7 @@ func (handle) Auth(s socketio.Conn, accessToken string) string {
 	if merr != nil {
 		return common.NewState(merr).JsonStr()
 	}
+	zap.S().Infof(accessToken)
 	s.SetContext(token)
 	// 加入在线群组
 	global.ChatMap.Link(s, int64(token.Content.ID))

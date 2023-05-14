@@ -9,8 +9,10 @@
 package manager
 
 import (
+	"fmt"
 	socketio "github.com/googollee/go-socket.io"
 	"sync"
+	"time"
 )
 
 func NewChatMap() *ChatMap {
@@ -25,7 +27,12 @@ type ChatMap struct {
 }
 
 type ConnMap struct {
-	m sync.Map //k: sID v:socketio.Conn
+	m sync.Map //k: sID v:Active
+}
+
+type Active struct {
+	s          socketio.Conn
+	activeTime time.Time
 }
 
 // Link 添加设备
@@ -34,11 +41,17 @@ func (c *ChatMap) Link(s socketio.Conn, accountID int64) {
 	cm, ok := c.m.Load(accountID)
 	if !ok {
 		cm := &ConnMap{}
-		cm.m.Store(s.ID(), s)
+		activeConn := &Active{}
+		activeConn.s = s
+		activeConn.activeTime = time.Now()
+		cm.m.Store(s.ID(), activeConn)
 		c.m.Store(accountID, cm)
 		return
 	}
-	cm.(*ConnMap).m.Store(s.ID(), s) //这里是另外又去存一个设备
+	activeConn := &Active{}
+	activeConn.s = s
+	activeConn.activeTime = time.Now()
+	cm.(*ConnMap).m.Store(s.ID(), activeConn) //这里是另外又去存一个设备
 }
 
 // Leave 去除设备
@@ -69,7 +82,9 @@ func (c *ChatMap) Send(accountID int64, event string, args ...interface{}) {
 		return
 	}
 	cm.(*ConnMap).m.Range(func(key, value any) bool {
-		value.(socketio.Conn).Emit(event, args...) //emit是向event发送消息
+		t := value.(*Active)
+		fmt.Println(args)
+		t.s.Emit(event, args...) //emit是向event发送消息
 		return true
 	})
 }
@@ -82,7 +97,8 @@ func (c *ChatMap) SendMany(accountIDs []int64, event string, args ...interface{}
 			return
 		}
 		cm.(*ConnMap).m.Range(func(key, value any) bool {
-			value.(socketio.Conn).Emit(event, args...)
+			t := value.(Active)
+			t.s.Emit(event, args...)
 			return true
 		})
 	}
@@ -93,4 +109,27 @@ func (c *ChatMap) SendMany(accountIDs []int64, event string, args ...interface{}
 func (c *ChatMap) HasSID(sID string) bool {
 	_, ok := c.sID.Load(sID)
 	return ok
+}
+
+func (c *ChatMap) CheckForEachAllMap() {
+
+	fmt.Println("**************************************")
+
+	c.m.Range(func(key, value any) bool {
+		//key就是account,value就是ConnMap
+		value.(*ConnMap).m.Range(func(key1, value1 any) bool {
+			//此时的key1就是sID,value1就是Active
+			activeTime := value1.(*Active).activeTime
+			if time.Now().Sub(activeTime) > 10*time.Minute {
+				err := value1.(*Active).s.Close()
+				if err != nil {
+					return false
+				}
+			}
+			return true
+		},
+		)
+		return true
+	},
+	)
 }

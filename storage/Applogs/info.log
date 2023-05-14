@@ -812,3 +812,81 @@
 2023-05-13T23:56:00.653+0800	INFO	go-chat/main.go:83	Server started!
 2023-05-13T23:57:22.250+0800	INFO	go-chat/main.go:83	Server started!
 2023-05-13T23:57:30.501+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T00:07:07.225+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T15:31:30.200+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:34:14.774+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-14T15:34:14.779+0800	INFO	logic/user.go:43	account1837105152
+2023-05-14T15:34:14.779+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-14T15:34:48.327+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:35:48.673+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-14T15:36:02.012+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T15:41:00.840+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:41:06.795+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:41:49.828+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:42:24.373+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:17.058+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:27.075+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:46.057+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T15:44:20.897+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:44:29.842+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:44:35.809+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:45:13.889+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:45:47.411+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:46:26.877+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:10:12.515+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:10:27.790+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:20:54.415+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:21:02.715+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:21:13.745+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:22:27.400+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:22:52.760+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:22:56.882+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:23:14.035+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:23:21.485+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:23:42.578+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:25:18.653+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:25:34.019+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:25:55.014+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:25:59.525+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:27:14.815+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:27:21.493+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:29:18.098+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:29:23.436+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:29:42.804+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:29:46.069+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:32:16.350+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:32:18.827+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:32:28.494+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:33:49.411+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:33:59.221+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:34:02.998+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:34:42.317+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:36:05.414+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:36:11.343+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:36:16.689+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:36:28.759+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:36:37.587+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:37:27.328+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:37:32.984+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:38:19.189+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:38:37.988+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:39:25.240+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:39:34.168+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:39:44.110+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:39:55.961+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:41:54.715+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:42:30.516+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:42:45.748+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:43:52.289+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:44:02.792+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:44:45.859+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:45:11.960+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:45:40.322+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:45:43.579+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:45:51.305+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:46:15.205+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:47:50.709+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:51:52.708+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:51:52.930+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:52:02.478+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:52:06.708+0800	INFO	go-chat/main.go:110	ShutDown Server...
