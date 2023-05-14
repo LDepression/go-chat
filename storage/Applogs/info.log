@@ -402,148 +402,491 @@
 2023-04-07T00:52:55.380+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
 2023-04-07T00:53:12.593+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
 2023-04-07T00:57:12.313+0800	INFO	middleware/auth.go:48	&{account 7042309196552863744}
-2023-04-10T23:56:28.131+0800	INFO	middleware/auth.go:47	&{account 7042309196552863744}
-2023-04-10T23:56:53.035+0800	INFO	middleware/auth.go:47	&{account 7042309196552863744}
-2023-04-10T23:59:27.408+0800	INFO	v1/user.go:41	ctx.ShouldBindJSON(&reqRegister) failed: %vKey: 'Register.mobile' Error:Field validation for 'mobile' failed on the 'mobile' tag
-2023-04-11T00:00:29.539+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-11T00:00:29.540+0800	INFO	v1/account.go:85	ctx.ShouldBindJSON(&req) failed: json: cannot unmarshal number into Go struct field CreateAccountReq.gender of type request.GenderType
-2023-04-11T00:00:55.767+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-11T00:00:55.778+0800	INFO	logic/user.go:43	account7044171305423208448
-2023-04-11T00:00:55.779+0800	INFO	logic/user.go:45	{"type":"account","id":7044171305423208448}
-2023-04-11T00:01:49.222+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-11T00:01:49.229+0800	INFO	logic/user.go:43	account7044171529629728768
-2023-04-11T00:01:49.229+0800	INFO	logic/user.go:45	{"type":"account","id":7044171529629728768}
-2023-04-11T00:05:14.264+0800	INFO	middleware/auth.go:47	&{account 7044171305423208448}
-2023-04-13T20:08:22.901+0800	INFO	logic/email.go:62	400
-2023-04-13T20:08:22.901+0800	INFO	logic/email.go:63	dial tcp: lookup smtp.qq.com: i/o timeout
-2023-04-13T20:08:22.902+0800	INFO	logic/email.go:68	send error: dial tcp: lookup smtp.qq.com: i/o timeout
-2023-04-13T20:09:47.533+0800	INFO	logic/user.go:43	user1
-2023-04-13T20:09:47.533+0800	INFO	logic/user.go:43	user1
-2023-04-13T20:09:47.533+0800	INFO	logic/user.go:45	{"type":"user","id":1}
-2023-04-13T20:09:47.534+0800	INFO	logic/user.go:45	{"type":"user","id":1}
-2023-04-13T20:17:43.073+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:17:43.083+0800	INFO	logic/user.go:43	account7045201268041580544
-2023-04-13T20:17:43.084+0800	INFO	logic/user.go:45	{"type":"account","id":7045201268041580544}
-2023-04-13T20:18:04.882+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:04.889+0800	INFO	logic/user.go:43	account7045201359510962176
-2023-04-13T20:18:04.889+0800	INFO	logic/user.go:45	{"type":"account","id":7045201359510962176}
-2023-04-13T20:18:08.911+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:08.918+0800	INFO	logic/user.go:43	account7045201376409812992
-2023-04-13T20:18:08.918+0800	INFO	logic/user.go:45	{"type":"account","id":7045201376409812992}
-2023-04-13T20:18:12.221+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:12.229+0800	INFO	logic/user.go:43	account7045201390292959232
-2023-04-13T20:18:12.229+0800	INFO	logic/user.go:45	{"type":"account","id":7045201390292959232}
-2023-04-13T20:18:15.048+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:15.054+0800	INFO	logic/user.go:43	account7045201402150256640
-2023-04-13T20:18:15.054+0800	INFO	logic/user.go:45	{"type":"account","id":7045201402150256640}
-2023-04-13T20:18:17.841+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:17.848+0800	INFO	logic/user.go:43	account7045201413864947712
-2023-04-13T20:18:17.848+0800	INFO	logic/user.go:45	{"type":"account","id":7045201413864947712}
-2023-04-13T20:18:22.438+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:22.445+0800	INFO	logic/user.go:43	account7045201433146163200
-2023-04-13T20:18:22.445+0800	INFO	logic/user.go:45	{"type":"account","id":7045201433146163200}
-2023-04-13T20:18:25.862+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:25.871+0800	INFO	logic/user.go:43	account7045201447507460096
-2023-04-13T20:18:25.871+0800	INFO	logic/user.go:45	{"type":"account","id":7045201447507460096}
-2023-04-13T20:18:28.898+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:28.905+0800	INFO	logic/user.go:43	account7045201460241367040
-2023-04-13T20:18:28.905+0800	INFO	logic/user.go:45	{"type":"account","id":7045201460241367040}
-2023-04-13T20:18:32.265+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:18:32.273+0800	INFO	logic/user.go:43	account7045201474363588608
-2023-04-13T20:18:32.273+0800	INFO	logic/user.go:45	{"type":"account","id":7045201474363588608}
-2023-04-13T20:18:45.347+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: 超时错误
-2023-04-13T20:18:58.647+0800	INFO	middleware/auth.go:47	&{account 7045201268041580544}
-2023-04-13T20:24:55.893+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:25:07.212+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:25:11.616+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:26:39.619+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:26:39.626+0800	INFO	logic/user.go:43	account7045203512245878784
-2023-04-13T20:26:39.626+0800	INFO	logic/user.go:45	{"type":"account","id":7045203512245878784}
-2023-04-13T20:26:48.328+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:33:21.720+0800	INFO	logic/user.go:43	user1
-2023-04-13T20:33:21.720+0800	INFO	logic/user.go:43	user1
-2023-04-13T20:33:21.721+0800	INFO	logic/user.go:45	{"type":"user","id":1}
-2023-04-13T20:33:21.721+0800	INFO	logic/user.go:45	{"type":"user","id":1}
-2023-04-13T20:34:37.726+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:34:37.731+0800	INFO	logic/user.go:43	account7045205516011700224
-2023-04-13T20:34:37.732+0800	INFO	logic/user.go:45	{"type":"account","id":7045205516011700224}
-2023-04-13T20:34:51.368+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:34:51.375+0800	INFO	logic/user.go:43	account7045205573230395392
-2023-04-13T20:34:51.375+0800	INFO	logic/user.go:45	{"type":"account","id":7045205573230395392}
-2023-04-13T20:34:54.335+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:34:54.343+0800	INFO	logic/user.go:43	account7045205585674895360
-2023-04-13T20:34:54.343+0800	INFO	logic/user.go:45	{"type":"account","id":7045205585674895360}
-2023-04-13T20:34:57.272+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:34:57.280+0800	INFO	logic/user.go:43	account7045205597997760512
-2023-04-13T20:34:57.281+0800	INFO	logic/user.go:45	{"type":"account","id":7045205597997760512}
-2023-04-13T20:35:01.220+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:01.227+0800	INFO	logic/user.go:43	account7045205614556872704
-2023-04-13T20:35:01.228+0800	INFO	logic/user.go:45	{"type":"account","id":7045205614556872704}
-2023-04-13T20:35:02.997+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:03.003+0800	INFO	logic/user.go:43	account7045205622005956608
-2023-04-13T20:35:03.004+0800	INFO	logic/user.go:45	{"type":"account","id":7045205622005956608}
-2023-04-13T20:35:06.153+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:06.159+0800	INFO	logic/user.go:43	account7045205635243180032
-2023-04-13T20:35:06.160+0800	INFO	logic/user.go:45	{"type":"account","id":7045205635243180032}
-2023-04-13T20:35:08.122+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:08.128+0800	INFO	logic/user.go:43	account7045205643501764608
-2023-04-13T20:35:08.129+0800	INFO	logic/user.go:45	{"type":"account","id":7045205643501764608}
-2023-04-13T20:35:10.368+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:10.376+0800	INFO	logic/user.go:43	account7045205652922171392
-2023-04-13T20:35:10.376+0800	INFO	logic/user.go:45	{"type":"account","id":7045205652922171392}
-2023-04-13T20:35:15.584+0800	INFO	middleware/auth.go:47	&{user 1}
-2023-04-13T20:35:15.590+0800	INFO	logic/user.go:43	account7045205674799661056
-2023-04-13T20:35:15.590+0800	INFO	logic/user.go:45	{"type":"account","id":7045205674799661056}
-2023-04-13T20:35:34.493+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:36:13.310+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:36:13.311+0800	INFO	v1/account.go:41	params.AccountID:7045205516011700224
-2023-04-13T20:36:41.001+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:54:11.551+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:56:22.083+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:56:34.917+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:56:45.687+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:56:58.364+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:57:08.787+0800	INFO	middleware/auth.go:47	&{account 7045205516011700224}
-2023-04-13T20:58:05.170+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:59:15.621+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T20:59:34.192+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T21:08:43.900+0800	INFO	middleware/auth.go:38	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T21:11:30.831+0800	INFO	middleware/auth.go:32	tokenString:
-2023-04-13T21:11:30.870+0800	INFO	middleware/auth.go:39	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
-2023-04-13T21:12:28.337+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:12:28.338+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:15:43.617+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:15:43.617+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:16:46.735+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:16:46.735+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:19:13.478+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:19:13.521+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:19:21.707+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:19:21.707+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:21:13.815+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:21:13.815+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:21:35.509+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:21:35.509+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:21:40.371+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:21:40.372+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:23:44.256+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:23:44.301+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:30:04.317+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:30:04.368+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:37:20.368+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:37:20.411+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:47:01.407+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:47:01.450+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:49:09.517+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:49:09.564+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:49:55.595+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:49:55.638+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:50:36.286+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:50:36.328+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:52:06.780+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:52:06.826+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T21:54:30.079+0800	INFO	middleware/auth.go:32	tokenString:v2.local.57V4aq67kIM3XTZUGmmhO8mxcvlWlwPu4f_3yFUKSg8iyRc2G_09ho2i8JVG3rm7RpA1LBG4Cc80J8wzOWO0DoJlAz4rcwb17oHUlLN2iN_vzxcqx3LvBp6d3lvHxp8fbOPc0K_NosL1JzIioOO24_Y5-jN1lHmG_x0Ko0HI7S-eRtKN3buvxGXeu31ltl2ON6E7YMGCRvF8gbBwQkrZ4SBnLj3dhDkNUdVVwut82LxyXEkhd_4meq1C4-ZfNLQrjYdJQS5IKMRaxQG7DN7JF1p1PIYhX3LxTkiMcIK7iGfL6Fg7YaCboZdInmq71kR_8UZ4W8LG5Qx9MnE_zE92.bnVsbA
-2023-04-13T21:54:30.116+0800	INFO	middleware/auth.go:51	&{account 7045205516011700224}
-2023-04-13T22:00:25.917+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}
-2023-04-13T22:02:13.932+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}
-2023-04-13T22:04:36.069+0800	INFO	middleware/auth.go:50	&{account 7045205516011700224}
+2023-04-10T22:50:57.886+0800	INFO	v1/user.go:66	ctx.ShouldBindJSON(&reqLogin) failed: %vjson: cannot unmarshal string into Go struct field Login.loginType of type request.LoginType
+2023-04-10T22:57:57.932+0800	INFO	logic/user.go:43	user2
+2023-04-10T22:57:57.932+0800	INFO	logic/user.go:43	user2
+2023-04-10T22:57:57.932+0800	INFO	logic/user.go:45	{"type":"user","id":2}
+2023-04-10T22:57:57.932+0800	INFO	logic/user.go:45	{"type":"user","id":2}
+2023-04-10T23:05:13.618+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:05:13.618+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:05:13.618+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:05:13.618+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:07:53.351+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-10T23:08:38.208+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-10T23:16:25.719+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:16:25.719+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:16:25.720+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:16:25.720+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:16:32.850+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-10T23:18:56.357+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:18:56.357+0800	INFO	logic/user.go:43	user4
+2023-04-10T23:18:56.357+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:18:56.357+0800	INFO	logic/user.go:45	{"type":"user","id":4}
+2023-04-10T23:23:37.032+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-12T20:58:11.679+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-12T21:04:03.166+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-12T21:49:56.402+0800	INFO	middleware/auth.go:35	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-04-17T22:04:14.591+0800	INFO	logic/user.go:43	user1
+2023-04-17T22:04:14.591+0800	INFO	logic/user.go:43	user1
+2023-04-17T22:04:14.592+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-17T22:04:14.592+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-04-17T22:06:05.728+0800	INFO	middleware/auth.go:47	&{user 1}
+2023-04-17T22:06:05.740+0800	INFO	logic/user.go:43	account7046676613466947584
+2023-04-17T22:06:05.740+0800	INFO	logic/user.go:45	{"type":"account","id":7046676613466947584}
+2023-04-17T22:19:16.550+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:19:17.090+0800	INFO	v1/file.go:49	logic.Group.File.UpdateAccountAvatar(int64(content.ID), rep.File){err 26 0  错误码:1003,错误信息:系统错误,详细信息:[]}
+2023-04-17T22:23:25.635+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:23:26.360+0800	INFO	v1/file.go:49	logic.Group.File.UpdateAccountAvatar(int64(content.ID), rep.File){err 26 0  错误码:1003,错误信息:系统错误,详细信息:[]}
+2023-04-17T22:28:35.315+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:31:40.083+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:36:48.915+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:42:22.868+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:42:34.212+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:42:34.899+0800	INFO	v1/file.go:49	logic.Group.File.UpdateAccountAvatar(int64(content.ID), rep.File){err 26 0  错误码:1003,错误信息:系统错误,详细信息:[]}
+2023-04-17T22:52:05.617+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:52:06.171+0800	INFO	v1/file.go:49	logic.Group.File.UpdateAccountAvatar(int64(content.ID), rep.File){err 26 0  错误码:1003,错误信息:系统错误,详细信息:[]}
+2023-04-17T22:58:18.479+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T22:59:57.736+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T23:00:11.873+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T23:00:11.874+0800	INFO	logic/file.go:53	qFile.GetFileByFileID(fileID){err 26 0  该文件不存在}
+2023-04-17T23:00:11.874+0800	INFO	v1/file.go:76	logic.Group.File.FindFileInfoByFileID failed: %v错误码:1003,错误信息:系统错误,详细信息:[该文件不存在]
+2023-04-17T23:00:58.851+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T23:00:58.856+0800	INFO	logic/file.go:53	qFile.GetFileByFileID(fileID){err 26 0  该文件不存在}
+2023-04-17T23:00:58.857+0800	INFO	v1/file.go:76	logic.Group.File.FindFileInfoByFileID failed: %v错误码:1003,错误信息:系统错误,详细信息:[该文件不存在]
+2023-04-17T23:01:11.279+0800	INFO	middleware/auth.go:47	&{account 7046676613466947584}
+2023-04-17T23:12:50.792+0800	INFO	middleware/auth.go:50	&{account 7046676613466947584}
+2023-04-17T23:13:25.259+0800	INFO	middleware/auth.go:50	&{account 7046676613466947584}
+2023-04-17T23:13:48.023+0800	INFO	middleware/auth.go:50	&{account 7046676613466947584}
+2023-04-17T23:17:40.708+0800	INFO	middleware/auth.go:50	&{account 7046676613466947584}
+2023-05-01T01:04:25.406+0800	INFO	logic/user.go:43	user1
+2023-05-01T01:04:25.406+0800	INFO	logic/user.go:43	user1
+2023-05-01T01:04:25.407+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-01T01:04:25.407+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-01T01:09:20.910+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10182, string=1)
+2023-05-01T01:09:31.943+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10197, string=2)
+2023-05-01T01:09:42.978+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10220, string=3)
+2023-05-01T01:09:54.012+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10230, string=4)
+2023-05-01T01:15:56.294+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10702, string=1)
+2023-05-01T01:16:07.331+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10715, string=2)
+2023-05-01T01:16:18.370+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10736, string=3)
+2023-05-01T01:16:29.396+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10751, string=4)
+2023-05-01T01:16:40.435+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10765, string=5)
+2023-05-01T01:16:51.479+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10781, string=6)
+2023-05-01T01:17:02.516+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10797, string=7)
+2023-05-01T01:17:13.541+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10816, string=8)
+2023-05-01T01:17:24.582+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10835, string=9)
+2023-05-01T01:17:35.607+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10848, string=a)
+2023-05-01T01:17:46.645+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10860, string=b)
+2023-05-01T01:17:57.677+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10872, string=c)
+2023-05-01T01:18:08.709+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10886, string=d)
+2023-05-01T01:18:19.749+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10899, string=e)
+2023-05-01T01:18:30.776+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10911, string=f)
+2023-05-01T01:18:41.806+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10923, string=g)
+2023-05-01T01:18:52.843+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10935, string=h)
+2023-05-01T01:19:03.880+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10951, string=i)
+2023-05-01T01:19:14.916+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10964, string=j)
+2023-05-01T01:19:25.950+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:10979, string=k)
+2023-05-01T01:22:40.245+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:11260, string=1)
+2023-05-01T01:22:51.277+0800	INFO	chat/handle.go:33	auth failed:%!(EXTRA string=127.0.0.1:11275, string=2)
+2023-05-01T04:50:25.403+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-01T04:54:49.597+0800	INFO	go-chat/main.go:106	ShutDown Server...
+2023-05-01T20:57:42.711+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-02T19:51:08.246+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:15:23.185+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:16:00.088+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-05T22:18:02.309+0800	INFO	logic/user.go:43	user1
+2023-05-05T22:18:02.309+0800	INFO	logic/user.go:43	user1
+2023-05-05T22:18:02.310+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-05T22:18:02.310+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-05T22:19:18.367+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-05T22:19:18.368+0800	INFO	logic/user.go:43	account1837105152
+2023-05-05T22:19:18.368+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-05T22:37:07.519+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:37:58.286+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:41:34.830+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:41:35.851+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:42:07.400+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:44:11.869+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:44:24.594+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:45:15.600+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:45:31.524+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:45:36.852+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:46:45.905+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:46:53.559+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:46:56.398+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:48:23.424+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:48:55.824+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:49:26.123+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:49:28.450+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:52:40.410+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:53:04.794+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:53:10.177+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:53:55.544+0800	INFO	go-chat/main.go:111	ShutDown Server...
+2023-05-05T22:54:09.780+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:54:13.446+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:54:41.025+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:55:57.328+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:56:18.110+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:58:58.541+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T22:59:00.269+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T22:59:00.271+0800	INFO	v1/setting.go:70	UpdatePins failed,err: 错误码:1003,错误信息:系统错误,详细信息:[]
+2023-05-05T22:59:25.267+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T23:01:54.543+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:02:15.200+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T23:02:15.201+0800	INFO	v1/setting.go:70	UpdatePins failed,err: 错误码:1003,错误信息:系统错误,详细信息:[]
+2023-05-05T23:02:59.303+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:03:01.649+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T23:03:01.650+0800	INFO	v1/setting.go:70	UpdatePins failed,err: 错误码:1003,错误信息:系统错误,详细信息:[]
+2023-05-05T23:06:12.940+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:06:20.219+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:06:35.113+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-05T23:07:45.218+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:07:46.215+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:09:16.400+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:09:58.341+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:10:36.169+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-05T23:11:50.442+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-06T16:19:16.458+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T16:19:16.470+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T16:23:11.679+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T16:34:59.016+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T17:36:29.681+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T17:36:57.379+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T17:37:14.988+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T17:38:04.228+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T21:56:39.865+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T21:58:05.515+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T21:58:06.716+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T22:44:30.759+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T22:49:12.953+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T22:50:03.520+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T22:50:03.729+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T22:50:52.521+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T23:16:36.388+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-06T23:17:19.531+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-06T23:17:19.533+0800	INFO	logic/user.go:43	account1837105152
+2023-05-06T23:17:19.533+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-06T23:18:27.457+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-06T23:20:10.365+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T23:20:38.264+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-06T23:20:59.246+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-06T23:22:30.078+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T15:01:02.752+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T15:26:51.067+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T15:27:39.117+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T15:40:00.876+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-07T15:40:11.428+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-05-07T15:40:38.097+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-07T15:43:25.996+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-07T15:44:11.794+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-07T16:06:12.752+0800	INFO	middleware/auth.go:63	&{account 7045205516011700224}
+2023-05-07T16:07:17.922+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-07T16:08:18.924+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-07T16:08:31.373+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T16:08:35.457+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-07T16:14:16.293+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-07T16:14:19.867+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-07T16:14:42.534+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-08T17:08:39.293+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-10T16:08:38.943+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T16:08:45.650+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-10T16:09:16.697+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-10T16:09:16.699+0800	INFO	logic/user.go:43	account1837105152
+2023-05-10T16:09:16.699+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-10T16:12:33.929+0800	INFO	middleware/auth.go:63	&{account 7045205516011700224}
+2023-05-10T16:12:47.161+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-10T16:12:59.782+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-05-10T16:13:15.378+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-10T16:13:59.380+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T16:14:15.489+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-10T16:14:41.275+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-10T16:17:43.621+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T16:17:44.026+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T16:45:29.402+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T21:33:13.242+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-10T21:33:38.234+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-11T19:13:07.396+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T19:13:07.403+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T19:22:25.190+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T19:54:26.530+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-11T19:54:37.679+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-11T19:54:37.681+0800	INFO	logic/user.go:43	account1837105152
+2023-05-11T19:54:37.681+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-11T19:54:54.646+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T19:55:22.118+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T19:55:28.228+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-11T19:55:35.979+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T19:55:40.913+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T20:10:09.544+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T20:10:16.258+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T20:32:23.410+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T20:35:13.090+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T20:54:45.970+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-11T20:54:56.269+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T20:54:59.918+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:03:32.858+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:03:41.059+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:03:45.729+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:18:50.674+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:18:56.131+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:21:46.505+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:21:50.008+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:24:14.705+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:24:52.135+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:26:09.183+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:26:39.755+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:34:00.690+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:38:03.813+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:40:23.666+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:40:29.133+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:43:14.593+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:43:18.109+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:44:23.653+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:44:27.195+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:49:15.134+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:49:18.454+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:49:35.503+0800	INFO	tx/setting_tx.go:146	failer error error: invalid field found for struct go-chat/internal/dao/mysql/tx.Result's field Settings: define a valid foreign key for relations or implement the Valuer/Scanner interface
+2023-05-11T21:51:29.866+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:51:31.873+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T21:51:42.279+0800	INFO	tx/setting_tx.go:146	failer error error: invalid field found for struct go-chat/internal/dao/mysql/tx.Result's field Settings: define a valid foreign key for relations or implement the Valuer/Scanner interface
+2023-05-11T21:55:21.113+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T21:55:25.680+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:02:30.600+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:02:36.799+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:05:28.172+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:05:31.004+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:10:19.801+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:10:22.000+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:12:35.291+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:12:37.931+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:16:53.858+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:17:03.278+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:27:44.948+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:27:47.733+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:28:51.775+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:28:58.305+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:31:16.581+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:31:19.509+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:41:20.355+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:41:23.683+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:41:23.685+0800	INFO	logic/setting.go:75	tx.GetShowsOrderByShowTime FAILED: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? 
+		OR JSON_EXTRACT( r.friend_type, '$.AccountID2' ) = ?) 
+		AND r.deleted_at I' at line 9
+2023-05-11T22:41:47.959+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:41:50.810+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:48:13.579+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:48:19.432+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T22:59:32.733+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T22:59:36.853+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:02:08.476+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:02:32.222+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:03:31.891+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:03:35.367+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:04:12.788+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:04:16.573+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:04:48.289+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:04:51.290+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:09:39.965+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:09:42.780+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:11:00.662+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:11:05.309+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-11T23:13:12.955+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-11T23:13:17.073+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T00:57:02.115+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T00:57:04.876+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-13T00:57:46.727+0800	INFO	logic/user.go:43	user1
+2023-05-13T00:57:46.727+0800	INFO	logic/user.go:43	user1
+2023-05-13T00:57:46.728+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-13T00:57:46.728+0800	INFO	logic/user.go:45	{"type":"user","id":1}
+2023-05-13T00:58:03.449+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-13T00:58:03.450+0800	INFO	logic/user.go:43	account1837105152
+2023-05-13T00:58:03.450+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-13T00:58:51.011+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T00:58:51.014+0800	INFO	logic/setting.go:80	tx.GetShowsOrderByShowTime FAILED: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 8
+2023-05-13T00:59:11.915+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T00:59:18.751+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T01:01:30.892+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-13T01:01:50.490+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:01:56.066+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T01:06:46.502+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:06:49.274+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T01:13:52.887+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: failed to decode token: incorrect token header
+2023-05-13T01:14:28.631+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-13T01:15:01.738+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-13T01:15:01.739+0800	INFO	logic/user.go:43	account1837105152
+2023-05-13T01:15:01.740+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-13T01:15:10.735+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T01:17:42.111+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:18:02.481+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:32:46.635+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:32:56.595+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T01:33:34.240+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:33:38.429+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T01:33:41.117+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:00:34.038+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:02:39.118+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:09:28.071+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-13T14:10:07.407+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:10:07.412+0800	INFO	tx/group_tx.go:77	dao.Group.Redis failed,err:redis: can't marshal []int64 (implement encoding.BinaryMarshaler)
+2023-05-13T14:10:07.412+0800	INFO	v1/group.go:59	logic.Group.VGroup.Dissolve failed,err:错误码:1003,错误信息:系统错误,详细信息:[redis: can't marshal []int64 (implement encoding.BinaryMarshaler)]
+2023-05-13T14:16:39.866+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:16:42.694+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:16:42.695+0800	INFO	v1/group.go:59	logic.Group.VGroup.Dissolve failed,err:错误码:6001,错误信息:没有这个关系,详细信息:[]
+2023-05-13T14:19:51.812+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:20:01.308+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:20:07.021+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:21:48.796+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:22:22.211+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:22:22.212+0800	INFO	v1/group.go:59	logic.Group.VGroup.Dissolve failed,err:错误码:6001,错误信息:没有这个关系,详细信息:[]
+2023-05-13T14:24:16.117+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:26:14.903+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:28:10.788+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:48:27.064+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:49:04.595+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:49:14.834+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:49:22.723+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T14:50:10.508+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T14:50:23.880+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T15:13:39.935+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T15:14:58.521+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T15:16:33.518+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T15:17:46.053+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T17:59:19.332+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T17:59:52.476+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:01:40.315+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:01:49.350+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:07:30.694+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:07:30.700+0800	INFO	logic/group.go:132	TransferGroup failed,err:record not found
+2023-05-13T18:07:30.700+0800	INFO	v1/group.go:120	logic.Group.VGroup.TransferGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T18:14:46.467+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:14:56.936+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:15:08.031+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:22:24.575+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:22:27.888+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:23:10.125+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:23:22.222+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:23:25.007+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:24:09.757+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:25:28.418+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:25:36.019+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:25:38.353+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:25:54.905+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:26:04.473+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:26:06.745+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:26:06.751+0800	INFO	logic/group.go:132	TransferGroup failed,err:record not found
+2023-05-13T18:26:06.751+0800	INFO	v1/group.go:120	logic.Group.VGroup.TransferGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T18:26:25.163+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:26:27.624+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:26:27.628+0800	INFO	logic/group.go:132	TransferGroup failed,err:record not found
+2023-05-13T18:26:27.628+0800	INFO	v1/group.go:120	logic.Group.VGroup.TransferGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T18:27:11.089+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:27:16.526+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:27:20.725+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:27:23.685+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:29:12.517+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T18:35:25.215+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T18:35:25.218+0800	INFO	tx/group_tx.go:168	delete failed 
+2023-05-13T18:35:25.218+0800	INFO	v1/group.go:143	logic.Group.VGroup.TransferGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T23:31:18.606+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:31:18.610+0800	INFO	tx/group_tx.go:168	delete failed 
+2023-05-13T23:31:18.610+0800	INFO	v1/group.go:143	logic.Group.VGroup.TransferGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T23:31:44.732+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:31:48.156+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:33:02.970+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:33:02.971+0800	INFO	v1/group.go:143	logic.Group.VGroup.TransferGroup failed err:错误码:6002,错误信息:该群没有这个成员,详细信息:[]
+2023-05-13T23:33:38.237+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:34:23.413+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:40:00.385+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-13T23:40:13.597+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-13T23:40:13.599+0800	INFO	logic/user.go:43	account1837105152
+2023-05-13T23:40:13.599+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-13T23:40:52.767+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:43:36.099+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:43:36.102+0800	INFO	v1/group.go:160	logic.Group.VGroup.VGroup failed err:错误码:1003,错误信息:系统错误,详细信息:[record not found]
+2023-05-13T23:50:15.020+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:52:39.052+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:52:44.463+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:52:49.306+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:54:10.490+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:54:15.518+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-13T23:56:00.653+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:57:22.250+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-13T23:57:30.501+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T00:07:07.225+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T15:31:30.200+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:34:14.774+0800	INFO	middleware/auth.go:63	&{user 1}
+2023-05-14T15:34:14.779+0800	INFO	logic/user.go:43	account1837105152
+2023-05-14T15:34:14.779+0800	INFO	logic/user.go:45	{"type":"account","id":1837105152}
+2023-05-14T15:34:48.327+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:35:48.673+0800	INFO	middleware/auth.go:51	global.Maker.VerifyToken(tokenString) failed: 超时错误
+2023-05-14T15:36:02.012+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T15:41:00.840+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:41:06.795+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:41:49.828+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:42:24.373+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:17.058+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:27.075+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:43:46.057+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T15:44:20.897+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:44:29.842+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:44:35.809+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:45:13.889+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:45:47.411+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T15:46:26.877+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:10:12.515+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:10:27.790+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:20:54.415+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:21:02.715+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:21:13.745+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:22:27.400+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:22:52.760+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:22:56.882+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:23:14.035+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:23:21.485+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:23:42.578+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:25:18.653+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:25:34.019+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:25:55.014+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:25:59.525+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:27:14.815+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:27:21.493+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:29:18.098+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:29:23.436+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:29:42.804+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:29:46.069+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:32:16.350+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:32:18.827+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:32:28.494+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:33:49.411+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:33:59.221+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:34:02.998+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:34:42.317+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:36:05.414+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:36:11.343+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:36:16.689+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:36:28.759+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:36:37.587+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:37:27.328+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:37:32.984+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:38:19.189+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:38:37.988+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:39:25.240+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:39:34.168+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:39:44.110+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:39:55.961+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:41:54.715+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:42:30.516+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:42:45.748+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:43:52.289+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:44:02.792+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:44:45.859+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:45:11.960+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:45:40.322+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:45:43.579+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:45:51.305+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:46:15.205+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:47:50.709+0800	INFO	go-chat/main.go:110	ShutDown Server...
+2023-05-14T16:51:52.708+0800	INFO	go-chat/main.go:83	Server started!
+2023-05-14T16:51:52.930+0800	INFO	chat/handle.go:84	v2.local.Es7Tn4FcWxzfm2oi2JNyXz1TVXRVy_kyFNSBB31TGo1MRzCimDu3kPnkX96fllr25E6L1gcMyCD0eU6pT3i8ASCfYhBNylIaScVfHiVPI0ICJvvJdPcwa888JIDq1KoCWbEzlJYmpV3ugMSh7fTfsp7hCiWSyZMpVNVleEJc42BZiGlHd5ENhAHd1Ih0niNMFNdchVFdTo0z4diudSTeddlZiSFtD9HwOAHub8kbXzfiEdZkHrK6NX0lFf4ctdeHmq_Uzzn5dGWZRwRHtDHqnyD2BBLDF0hh1GsXQdvLAwlgtIKHXB7SYJxqHGsznAFvKRzZ.bnVsbA
+2023-05-14T16:52:02.478+0800	INFO	middleware/auth.go:63	&{account 1837105152}
+2023-05-14T16:52:06.708+0800	INFO	go-chat/main.go:110	ShutDown Server...

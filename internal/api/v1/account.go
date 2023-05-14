@@ -178,4 +178,5 @@ func (account) UpdateAccount(c *gin.Context) {
 	}
 	err := logic.Group.Account.UpdateAccount(c, content.ID, params.Name, params.Signature, params.Avatar, string(params.Gender))
 	res.Reply(err)
+
 }

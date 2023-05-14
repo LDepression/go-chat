@@ -56,7 +56,7 @@ func (AccountTx) CreateAccountWithTX(ctx context.Context, userID int64, req requ
 	AccountInfo.ID = uint64(req.ID)
 	AccountInfo.Name = req.Name
 	AccountInfo.UserID = uint(userID)
-	AccountInfo.Avatar = req.Avatar
+	AccountInfo.Avatar = global.Settings.Rule.DefaultAccountAvatar
 	AccountInfo.Gender = string(req.Gender)
 	AccountInfo.Signature = req.Signature
 	if result := tx.Create(&AccountInfo); result.RowsAffected == 0 {
@@ -85,7 +85,7 @@ func (AccountTx) CreateAccountWithTX(ctx context.Context, userID int64, req requ
 		return result.Error
 	}
 	tx.Commit()
-	if err := dao.Group.Redis.AddRelationAccount(ctx, int64(relation.ID), []int64{int64(AccountInfo.ID)}); err != nil {
+	if err := dao.Group.Redis.AddRelationAccount(ctx, int64(relation.ID), int64(AccountInfo.ID)); err != nil {
 		return err
 	}
 	return nil

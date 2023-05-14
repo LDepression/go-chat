@@ -36,7 +36,8 @@ const docTemplate = `{
                         "type": "string",
                         "description": "x-token 用户令牌",
                         "name": "Authorization",
-                        "in": "header"
+                        "in": "header",
+                        "required": true
                     },
                     {
                         "type": "integer",
@@ -83,7 +84,8 @@ const docTemplate = `{
                         "type": "string",
                         "description": "x-token 用户令牌",
                         "name": "Authorization",
-                        "in": "header"
+                        "in": "header",
+                        "required": true
                     },
                     {
                         "type": "integer",
@@ -98,8 +100,7 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "name": "account_name",
-                        "in": "query",
-                        "required": true
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -135,7 +136,8 @@ const docTemplate = `{
                         "type": "string",
                         "description": "x-token 用户令牌",
                         "name": "Authorization",
-                        "in": "header"
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -192,6 +194,217 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败",
+                        "schema": {
+                            "$ref": "#/definitions/common.State"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/application/accept": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "application"
+                ],
+                "summary": "被申请者同意好友申请",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "需要同意的申请",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AcceptApplication"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在 3004:重复操作申请",
+                        "schema": {
+                            "$ref": "#/definitions/common.State"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/application/create": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "application"
+                ],
+                "summary": "发起好友申请",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "发起好友申请",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CreateApplicationReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2001:鉴权失败 5003:好友已经存在 5004:不能添加自己为好友",
+                        "schema": {
+                            "$ref": "#/definitions/common.State"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "application"
+                ],
+                "summary": "删除已经发送的好友申请",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "删除已经发起的申请",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeleteApplicationReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2001:鉴权失败 ",
+                        "schema": {
+                            "$ref": "#/definitions/common.State"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/application/list": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "application"
+                ],
+                "summary": "账户查看和自身相关的好友申请(不论是申请者还是被申请者)",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "Page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "PageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.State"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/reply.ApplicationsList"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/application/refuse": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "application"
+                ],
+                "summary": "被申请者拒绝好友申请",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token 用户令牌",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "需要拒绝的申请",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.RefuseApplication"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在 3004:重复操作申请",
                         "schema": {
                             "$ref": "#/definitions/common.State"
                         }
@@ -654,6 +867,34 @@ const docTemplate = `{
                 }
             }
         },
+        "reply.ApplicationsList": {
+            "type": "object",
+            "properties": {
+                "applicationList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/reply.GetApplication"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "reply.EasyAccount": {
+            "type": "object",
+            "properties": {
+                "accountID": {
+                    "type": "integer"
+                },
+                "avatar": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "reply.GetAccountByID": {
             "type": "object",
             "properties": {
@@ -708,6 +949,26 @@ const docTemplate = `{
                 }
             }
         },
+        "reply.GetApplication": {
+            "type": "object",
+            "properties": {
+                "applicant": {
+                    "$ref": "#/definitions/reply.EasyAccount"
+                },
+                "applyMsg": {
+                    "type": "string"
+                },
+                "receiver": {
+                    "$ref": "#/definitions/reply.EasyAccount"
+                },
+                "refuseMsg": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
         "reply.LoginReply": {
             "type": "object",
             "properties": {
@@ -739,6 +1000,17 @@ const docTemplate = `{
                 }
             }
         },
+        "request.AcceptApplication": {
+            "type": "object",
+            "required": [
+                "applicant_id"
+            ],
+            "properties": {
+                "applicant_id": {
+                    "type": "integer"
+                }
+            }
+        },
         "request.CheckEmailExist": {
             "type": "object",
             "required": [
@@ -748,6 +1020,32 @@ const docTemplate = `{
                 "email": {
                     "description": "检查是否存在的邮箱",
                     "type": "string"
+                }
+            }
+        },
+        "request.CreateApplicationReq": {
+            "type": "object",
+            "required": [
+                "accountID",
+                "applicationMsg"
+            ],
+            "properties": {
+                "accountID": {
+                    "type": "integer"
+                },
+                "applicationMsg": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.DeleteApplicationReq": {
+            "type": "object",
+            "required": [
+                "accountID"
+            ],
+            "properties": {
+                "accountID": {
+                    "type": "integer"
                 }
             }
         },
@@ -772,6 +1070,20 @@ const docTemplate = `{
                 },
                 "password": {
                     "description": "密码",
+                    "type": "string"
+                }
+            }
+        },
+        "request.RefuseApplication": {
+            "type": "object",
+            "required": [
+                "applicant_id"
+            ],
+            "properties": {
+                "applicant_id": {
+                    "type": "integer"
+                },
+                "refuse_msg": {
                     "type": "string"
                 }
             }
@@ -840,14 +1152,7 @@ const docTemplate = `{
         },
         "request.UpdateAccount": {
             "type": "object",
-            "required": [
-                "account_id"
-            ],
             "properties": {
-                "account_id": {
-                    "type": "integer",
-                    "minimum": 1
-                },
                 "avatar": {
                     "type": "string"
                 },

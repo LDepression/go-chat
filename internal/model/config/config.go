@@ -11,16 +11,17 @@ package config
 import "time"
 
 type Settings struct {
-	Serve    Serve    `json:"Serve" mapstructure:"Serve"`
-	Mysql    *Mysql   `json:"Mysql" mapstructure:"Mysql"`
-	Log      Log      `json:"Log" mapstructure:"Log"`
-	SMTPInfo SMTPInfo `json:"SMTPInfo" mapstructure:"SMTPInfo"`
-	Redis    Redis    `json:"Redis" mapstructure:"Redis"`
-	Work     Work     `json:"Work" mapstructure:"Work"`
-	Rule     Rule     `json:"Rule" mapstructure:"Rule"`
-	Auto     Auto     `json:"Auto" mapstructure:"Auto"`
-	Token    Token    `json:"Token" mapstructure:"Token"`
-	Page     Page     `json:"Page" mapstructure:"Page"`
+	Serve     Serve     `json:"Serve" mapstructure:"Serve"`
+	Mysql     *Mysql    `json:"Mysql" mapstructure:"Mysql"`
+	Log       Log       `json:"Log" mapstructure:"Log"`
+	SMTPInfo  SMTPInfo  `json:"SMTPInfo" mapstructure:"SMTPInfo"`
+	Redis     Redis     `json:"Redis" mapstructure:"Redis"`
+	Work      Work      `json:"Work" mapstructure:"Work"`
+	Rule      Rule      `json:"Rule" mapstructure:"Rule"`
+	Auto      Auto      `json:"Auto" mapstructure:"Auto"`
+	Token     Token     `json:"Token" mapstructure:"Token"`
+	Page      Page      `json:"Page" mapstructure:"Page"`
+	AliyunOSS AliyunOSS `json:"AliyunOSS" mapstructure:"AliyunOSS"`
 }
 
 type Mysql struct {
@@ -73,10 +74,12 @@ type Work struct {
 }
 
 type Rule struct {
-	DelUserTime    time.Duration `json:"delUserTime" mapstructure:"delUserTime"`  //延时删除用户的时间
-	DelCodeTime    time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"`  //延时删除验证码的时间
-	AccountMaxNums int           `json:"accountMaxNum" mapstructure:"accountMax"` //账户可以创建的最大的数目
-
+	DelUserTime          time.Duration `json:"delUserTime" mapstructure:"delUserTime"`                   //延时删除用户的时间
+	DelCodeTime          time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"`                   //延时删除验证码的时间
+	AccountMaxNums       int           `json:"accountMaxNum" mapstructure:"accountMax"`                  //账户可以创建的最大的数目
+	DefaultAccountAvatar string        `json:"DefaultAccountAvatar" mapstructure:"DefaultAccountAvatar"` //账户默认的头像
+	FileMaxSize          int64         `json:"FileMaxSize" mapstructure:"FileMaxSize"`
+	DefaultInsertDataNum int           `json:"DefaultInsertDataNum" mapstructure:"DefaultInsertDataNum"`
 }
 
 type Auto struct {
@@ -102,4 +105,13 @@ type Page struct {
 	PageKey         string `json:"pageKey" mapstructure:"pageKey"`
 	PageSizeKey     string `json:"pageSizeKey" mapstructure:"pageSizeKey"`
 	DefaultPageSize int32  `json:"defaultPageSize" mapstructure:"defaultPageSize"`
+}
+
+type AliyunOSS struct {
+	Endpoint        string `json:"endpoint" mapstructure:"Endpoint"`
+	AccessKeyId     string `json:"accessKeyId" mapstructure:"AccessKeyId"`
+	AccessKeySecret string `json:"accessKeySecret" mapstructure:"AccessKeySecret"`
+	BucketName      string `json:"bucketName" mapstructure:"BucketName"`
+	BucketUrl       string `json:"bucketUrl" mapstructure:"BucketUrl"`
+	BasePath        string `json:"basePath" mapstructure:"BasePath"`
 }

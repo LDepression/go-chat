@@ -15,5 +15,4 @@ func (application) Init(root *gin.RouterGroup) {
 	g.PUT("accept", v1.Group.Application.AcceptApplication)
 	g.PUT("refuse", v1.Group.Application.RefuseApplication)
 	g.GET("list", v1.Group.Application.GetApplicationsList)
-
 }

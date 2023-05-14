@@ -1,117 +1,59 @@
+/**
+ * @Author: lenovo
+ * @Description:
+ * @File:  setting
+ * @Version: 1.0.0
+ * @Date: 2023/05/05 17:11
+ */
+
 package query
 
 import (
-	"fmt"
+	"errors"
 	"go-chat/internal/dao"
 	"go-chat/internal/model/automigrate"
-	"go-chat/internal/model/common"
 )
 
-type setting struct {
-}
+type setting struct{}
 
-func NewQuerySetting() *setting {
+func NewSetting() *setting {
 	return &setting{}
 }
 
-func (setting) GetRelationInfoByAccountsID(selfAccountID, targetAccountID uint) (*automigrate.Relation, error) {
-	var RelationInfo automigrate.Relation
-	if result := dao.Group.DB.Model(&automigrate.Relation{}).
-		Where("JSON_EXTRACT(friend_type,'$.AccountID1') = ? AND JSON_EXTRACT(friend_type,'$.AccountID2') = ?", selfAccountID, targetAccountID).
-		Or("JSON_EXTRACT(friend_type,'$.AccountID1') = ? AND JSON_EXTRACT(friend_type,'$.AccountID2') = ?", targetAccountID, selfAccountID).
-		First(&RelationInfo); result.Error != nil {
-		return nil, result.Error
-	}
-	return &RelationInfo, nil
-}
+var ErrorNoUpdateRow = errors.New("暂无更新的部分")
 
-func (setting) GetRelationInfos(selfAccountID uint) ([]*automigrate.Relation, error) {
-	var RelationInfos []*automigrate.Relation
-	if result := dao.Group.DB.Model(&automigrate.Relation{}).
-		Where("JSON_EXTRACT(friend_type,'$.AccountID1') = ? AND relation_type = ?", selfAccountID, common.RelationTypeFriend).
-		Or("JSON_EXTRACT(friend_type,'$.AccountID2') = ? AND relation_type = ?", selfAccountID, common.RelationTypeFriend).
-		Find(&RelationInfos); result.Error != nil {
-		return nil, result.Error
-	}
-	return RelationInfos, nil
-}
-
-func (setting) GetRelationInfoByRelationID(relationID uint) (*automigrate.Relation, error) {
-	var RelationInfo automigrate.Relation
-	if result := dao.Group.DB.Model(&automigrate.Relation{}).
-		Where("id = ?", relationID).
-		First(&RelationInfo); result.Error != nil {
-		return nil, result.Error
-	}
-	return &RelationInfo, nil
-}
-
-func (setting) GetFriendInfoByID(accountID, relationID uint) (*automigrate.Setting, error) {
-	var FriendInfo automigrate.Setting
-	if result := dao.Group.DB.Model(&automigrate.Setting{}).
-		Where("relation_id = ?", relationID).
-		Joins("Account").Where("account.id = ?", accountID).
-		Joins("Relation").
-		Find(&FriendInfo); result.Error != nil {
-		return nil, result.Error
-	} else if result.RowsAffected == 0 {
-		return nil, nil
-	}
-	/*
-		Where("relation_id = ?", relationID).
-		Preload("Account", "id = ?", accountID).
-		Preload("Relation", "id = ?", relationID).
-		Find(&FriendInfo);
-	*/
-	return &FriendInfo, nil
-}
-
-func (setting) GetFriendInfoByName(accountID, relationID, limit, offset uint, name string) (*automigrate.Setting, error) {
-	var FriendInfo automigrate.Setting
-	if result := dao.Group.DB.Model(&automigrate.Setting{}).
-		Where("settings.relation_id = ? AND settings.account_id = ? ", relationID, accountID).
-		//TODO accounts.id 和 account.id不一样很烦
-		Joins("Account").Where("account.id = ? AND (settings.nick_name LIKE ? OR account.name LIKE ?)", accountID, "%"+name+"%", "%"+name+"%").
-		Preload("Relation").
-		Preload("Account").
-		Offset(int(offset)).Limit(int(limit)).
-		Find(&FriendInfo); result.Error != nil {
-		return nil, result.Error
-		//Where("relation_id = ?", relationID).
-		//Joins("left join settings on account.id = setting.account_id").
-		//Joins("Account").Where("(account.name like ? OR setting.nick_name like ?) AND account.id = ?", "%"+name+"%", "%"+name+"%", accountID).
-		//Joins("Relation").
-		//Group("account.id"). // 如果 name既符合account.name和setting.nick_name，会产生重复数据
-	} else if result.RowsAffected == 0 {
-		return nil, nil
-	}
-	return &FriendInfo, nil
-}
-
-func (setting) UpdateNickName(targetAccountID, relationID uint, nickName string) error {
-	if result := dao.Group.DB.Model(&automigrate.Setting{}).
-		Where("relation_id = ? AND account_id = ?", relationID, targetAccountID).
-		Update("nick_name", nickName); result.Error != nil {
-		return result.Error
-	} else if result.RowsAffected == 0 {
-		return fmt.Errorf("UpdateNickName failed")
+func (setting) UpdatePinsState(relationID int64, isPin bool) error {
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relationID).Update("is_pin", isPin); result.RowsAffected == 0 {
+		return ErrorNoUpdateRow
 	}
 	return nil
 }
 
-func (setting) UpdateSettingDisturb(targetAccountID, relationID uint, isDisturbed bool) error {
-	var IsDisturbed int
-	if isDisturbed {
-		IsDisturbed = 1
-	} else {
-		IsDisturbed = 0
+func (setting) CheckRelationIDExist(relationID int64) (automigrate.Setting, bool) {
+	var settingInfo automigrate.Setting
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relationID).Find(&settingInfo); result.RowsAffected == 0 {
+		return settingInfo, false
 	}
-	if result := dao.Group.DB.Model(&automigrate.Setting{}).
-		Where("relation_id = ? AND account_id = ?", relationID, targetAccountID).
-		Update("is_not_disturbed", IsDisturbed); result.Error != nil {
-		return result.Error
-	} else if result.RowsAffected == 0 {
-		return fmt.Errorf("UpdateNickName failed")
+	return settingInfo, true
+}
+
+func (setting) UpdateNickName(NickName string, relationID int64) error {
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relationID).Update("nick_name", NickName); result.RowsAffected == 0 {
+		return ErrorNoUpdateRow
+	}
+	return nil
+}
+
+func (setting) UpdateIsDisturbState(relationID int64, isDisturbState bool) error {
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relationID).Update("is_not_disturbed", isDisturbState); result.RowsAffected == 0 {
+		return ErrorNoUpdateRow
+	}
+	return nil
+}
+
+func (setting) UpdateIsShowState(relatiionID int64, isShowState bool) error {
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relatiionID).Update("is_pin", isShowState); result.RowsAffected == 0 {
+		return ErrorNoUpdateRow
 	}
 	return nil
 }

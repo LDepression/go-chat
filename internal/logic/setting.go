@@ -1,250 +1,188 @@
+/**
+ * @Author: lenovo
+ * @Description:
+ * @File:  setting
+ * @Version: 1.0.0
+ * @Date: 2023/04/18 20:59
+ */
+
 package logic
 
 import (
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/dao/mysql/query"
-	"go-chat/internal/dao/mysql/tx"
-	"go-chat/internal/model/automigrate"
-	"go-chat/internal/model/common"
+	tx2 "go-chat/internal/dao/mysql/tx"
+	"go-chat/internal/global"
+	"go-chat/internal/model/chat/serve"
 	"go-chat/internal/model/reply"
+	"go-chat/internal/model/request"
 	"go-chat/internal/myerr"
 	"go-chat/internal/pkg/app/errcode"
+	"go-chat/internal/task"
 	"go.uber.org/zap"
-	"gorm.io/gorm"
 )
 
-type setting struct {
+type setting struct{}
+
+func (setting) GetPins(accountID uint64) (*reply.SettingReq, errcode.Err) {
+	tx := tx2.NewSettingTX()
+	frindsPinsRows, err := tx.GetFriendsPinsInfo(accountID)
+	if err != nil {
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+	groupsPinsRows, err := tx.GetGroupsPinsInfo(accountID)
+	if err != nil {
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+
+	//将上面的按照pin的时间来进行一个排序
+	var totalSettingReq reply.SettingReq
+
+	//两个pinTime都是按照降序排列的，所以直接使用双指针进行排序
+	var i, j int
+	for i, j = 0, 0; i < int(frindsPinsRows.Total) && j < int(groupsPinsRows.Total); {
+		if frindsPinsRows.Data[i].BaseSetting.PinTime.After(*groupsPinsRows.Data[j].BaseSetting.PinTime) {
+			totalSettingReq.Data = append(totalSettingReq.Data, frindsPinsRows.Data[i])
+			totalSettingReq.Total++
+			i++
+		} else {
+			totalSettingReq.Data = append(totalSettingReq.Data, groupsPinsRows.Data[j])
+			totalSettingReq.Total++
+			j++
+		}
+	}
+	for i < int(frindsPinsRows.Total) {
+		totalSettingReq.Data = append(totalSettingReq.Data, frindsPinsRows.Data[i])
+		totalSettingReq.Total++
+		i++
+	}
+	for j < int(groupsPinsRows.Total) {
+		totalSettingReq.Data = append(totalSettingReq.Data, groupsPinsRows.Data[j])
+		totalSettingReq.Total++
+		j++
+	}
+
+	totalSettingReq.Total = frindsPinsRows.Total + groupsPinsRows.Total
+
+	return &totalSettingReq, nil
 }
 
-func (setting) DeleteFriend(c *gin.Context, selfAccountID, targetAccountID uint) errcode.Err {
-	qSetting := query.NewQuerySetting()
-	// 通过对方accountID获取两人之间的 relationID
-	relationInfo, err := qSetting.GetRelationInfoByAccountsID(selfAccountID, targetAccountID)
+func (setting) GetShowsOrderByShowTime(accountID uint64) (*reply.SettingReq, errcode.Err) {
+	//展示在首页上面
+	tx := tx2.NewSettingTX()
+	friendsInfo, err := tx.GetFriendsShowsOrderByShowTime(accountID)
 	if err != nil {
-		zap.S().Errorf("qSetting.GetRelationInfoByAccountsID failed,err:%v", err)
-		if err == gorm.ErrRecordNotFound {
-			return myerr.RelationNotExist
+		zap.S().Infof("tx.GetShowsOrderByShowTime FAILED: %v", err)
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+	groupInfo, err := tx.GetGroupShowsOrderBy(accountID)
+	if err != nil {
+		zap.S().Infof("tx.GetShowsOrderByShowTime FAILED: %v", err)
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	}
+
+	var totalSettingReq reply.SettingReq
+
+	//两个pinTime都是按照降序排列的，所以直接使用双指针进行排序
+	var i, j int
+	for i, j = 0, 0; i < int(friendsInfo.Total) && j < int(groupInfo.Total); {
+		if friendsInfo.Data[i].BaseSetting.PinTime.After(*groupInfo.Data[j].BaseSetting.PinTime) {
+			totalSettingReq.Data = append(totalSettingReq.Data, friendsInfo.Data[i])
+			totalSettingReq.Total++
+			i++
+		} else {
+			totalSettingReq.Data = append(totalSettingReq.Data, groupInfo.Data[j])
+			totalSettingReq.Total++
+			j++
 		}
-		return errcode.ErrServer
 	}
-	// 通过relationID删除 relation和settings
-	settingTX := tx.NewSettingTX()
-	err = settingTX.DeleteFriendWithTX(relationInfo.ID)
-	if err != nil {
-		zap.S().Errorf("settingTX.DeleteFriendWithTX failed,err:%v", err)
-		return errcode.ErrServer
+	for i < int(friendsInfo.Total) {
+		totalSettingReq.Data = append(totalSettingReq.Data, friendsInfo.Data[i])
+		totalSettingReq.Total++
+		i++
 	}
+	for j < int(groupInfo.Total) {
+		totalSettingReq.Data = append(totalSettingReq.Data, groupInfo.Data[j])
+		totalSettingReq.Total++
+		j++
+	}
+	totalSettingReq.Total = friendsInfo.Total + groupInfo.Total
+	return &totalSettingReq, nil
+}
+
+func (setting) UpdatePins(ctx *gin.Context, isPins bool, relationID int64) errcode.Err {
+
+	//先去判断一下relationID是否是存在的
+	qS := query.NewSetting()
+	settingInfo, ok := qS.CheckRelationIDExist(relationID)
+	if !ok {
+		return myerr.DoNotHaveThisRelation
+	}
+	if settingInfo.IsPin == isPins {
+		return nil
+	}
+	tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
+	if !ok {
+		return errcode.ErrUnauthorizedAuthNotExist
+	}
+	if err := qS.UpdatePinsState(relationID, isPins); err != nil {
+		return errcode.ErrServer.WithDetails(err.Error())
+	}
+	global.Worker.SendTask(task.UpdateSettingState(tokenString, serve.SettingPin, int64(settingInfo.RelationID)))
 	return nil
 }
 
-func (setting) GetFriendsList(c *gin.Context, selfAccountID uint) (*reply.GetFriendsList, errcode.Err) {
-	qSetting := query.NewQuerySetting()
-	RelationInfos, err := qSetting.GetRelationInfos(selfAccountID)
-	if err != nil {
-		zap.S().Errorf("qSetting.GetFriendsAccounts failed,err:%v", err)
-		return &reply.GetFriendsList{}, errcode.ErrServer
+func (setting) UpdateNickName(ctx *gin.Context, req request.UpdateNickName) errcode.Err {
+	//修改关系线对应的昵称
+	//注意这里只是修改了好友或者是群的备注，并没有修改本身的nickname
+	qS := query.NewSetting()
+	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	if !ok {
+		return myerr.DoNotHaveThisRelation
 	}
-	if len(RelationInfos) == 0 {
-		return &reply.GetFriendsList{}, nil
+	if settingInfo.NickName == req.NickName {
+		return nil
 	}
-	FriendsInfos, err := GetFriendsInfosByID(selfAccountID, RelationInfos)
-	if err != nil {
-		zap.S().Errorf("GetFriendsInfosByID failed,err:%v", err)
-		return &reply.GetFriendsList{}, errcode.ErrServer
-	}
-	return &reply.GetFriendsList{
-		FriendsInfos: FriendsInfos,
-		Total:        len(FriendsInfos),
-	}, nil
-}
-
-func GetFriendsInfosByID(selfAccountID uint, relationInfos []*automigrate.Relation) ([]*reply.GetFriendInfo, error) {
-	qSetting := query.NewQuerySetting()
-	FriendsInfos := make([]*reply.GetFriendInfo, 0, len(relationInfos))
-	for _, v := range relationInfos {
-		relationID := v.ID
-		var targetAccountID uint
-		var FriendInfo *automigrate.Setting
-		var err error
-		if uint(v.FriendType.AccountID1) == selfAccountID {
-			targetAccountID = uint(v.FriendType.AccountID2)
-			FriendInfo, err = qSetting.GetFriendInfoByID(targetAccountID, relationID)
-			if err != nil {
-				return nil, err
-			}
-		} else if uint(v.FriendType.AccountID2) == selfAccountID {
-			targetAccountID = uint(v.FriendType.AccountID1)
-			FriendInfo, err = qSetting.GetFriendInfoByID(targetAccountID, relationID)
-			if err != nil {
-				return nil, err
-			}
-		}
-		if FriendInfo == nil {
-			return nil, nil
-		}
-		FriendsInfos = append(FriendsInfos, &reply.GetFriendInfo{
-			Account: reply.EasyAccount{
-				AccountID: targetAccountID,
-				Name:      FriendInfo.Account.Name,
-				Avatar:    FriendInfo.Account.Avatar,
-			},
-			Setting: reply.EasySetting{
-				RelationID:     relationID,
-				RelationType:   common.RelationTypeFriend,
-				NickName:       FriendInfo.NickName,
-				IsNotDisturbed: FriendInfo.IsNotDisturbed,
-				IsPin:          FriendInfo.IsPin,
-				PinTime:        FriendInfo.PinTime,
-				IsShow:         FriendInfo.IsShow,
-				LastShowTime:   FriendInfo.LastShowTime,
-				IsSelf:         FriendInfo.IsSelf,
-			},
-		})
-	}
-	return FriendsInfos, nil
-}
-
-func (setting) GetFriendsByName(c *gin.Context, selfAccountID, limit, offset uint, name string) (*reply.GetFriendsByName, errcode.Err) {
-	if name == "" {
-		return &reply.GetFriendsByName{}, nil
-	}
-	qSetting := query.NewQuerySetting()
-	RelationInfos, err := qSetting.GetRelationInfos(selfAccountID)
-	if err != nil {
-		zap.S().Errorf("qSetting.GetFriendsAccounts failed,err:%v", err)
-		return &reply.GetFriendsByName{}, errcode.ErrServer
-	}
-	if len(RelationInfos) == 0 {
-		zap.S().Infof("relationInfos = %v", RelationInfos)
-		return &reply.GetFriendsByName{}, nil
-	}
-	FriendsInfos, err := GetFriendsInfosByName(selfAccountID, limit, offset, name, RelationInfos)
-	if err != nil {
-		zap.S().Errorf("GetFriendsInfosByName failed,err:%v", err)
-		return &reply.GetFriendsByName{}, errcode.ErrServer
-	}
-	return &reply.GetFriendsByName{
-		FriendsInfos: FriendsInfos,
-		Total:        len(FriendsInfos),
-	}, nil
-}
-
-func GetFriendsInfosByName(selfAccountID, limit, offset uint, name string, relationInfos []*automigrate.Relation) ([]*reply.GetFriendInfo, error) {
-	qSetting := query.NewQuerySetting()
-	FriendsInfos := make([]*reply.GetFriendInfo, 0, len(relationInfos))
-	for _, v := range relationInfos {
-		relationID := v.ID
-		var targetAccountID uint
-		var FriendInfo *automigrate.Setting
-		var err error
-		if uint(v.FriendType.AccountID1) == selfAccountID {
-			targetAccountID = uint(v.FriendType.AccountID2)
-			FriendInfo, err = qSetting.GetFriendInfoByName(targetAccountID, relationID, limit, offset, name)
-			if err != nil {
-				return nil, err
-			}
-		} else if uint(v.FriendType.AccountID2) == selfAccountID {
-			targetAccountID = uint(v.FriendType.AccountID1)
-			FriendInfo, err = qSetting.GetFriendInfoByName(targetAccountID, relationID, limit, offset, name)
-			if err != nil {
-				return nil, err
-			}
-		}
-		if FriendInfo == nil {
-			return nil, nil
-		}
-		FriendsInfos = append(FriendsInfos, &reply.GetFriendInfo{
-			Account: reply.EasyAccount{
-				AccountID: targetAccountID,
-				Name:      FriendInfo.Account.Name,
-				Avatar:    FriendInfo.Account.Avatar,
-			},
-			Setting: reply.EasySetting{
-				RelationID:     relationID,
-				RelationType:   common.RelationTypeFriend,
-				NickName:       FriendInfo.NickName,
-				IsNotDisturbed: FriendInfo.IsNotDisturbed,
-				IsPin:          FriendInfo.IsPin,
-				PinTime:        FriendInfo.PinTime,
-				IsShow:         FriendInfo.IsShow,
-				LastShowTime:   FriendInfo.LastShowTime,
-				IsSelf:         FriendInfo.IsSelf,
-			},
-		})
-	}
-	return FriendsInfos, nil
-}
-
-func (setting) UpdateNickName(c *gin.Context, selfAccountID, relationID uint, nickName string) errcode.Err {
-	// 通过relationID获取relationInfo
-	qSetting := query.NewQuerySetting()
-	relationInfo, err := qSetting.GetRelationInfoByRelationID(relationID)
-	if err != nil {
-		zap.S().Errorf("qSetting.GetRelationInfoByRelationID failed,err:%v", err)
-		if err == gorm.ErrRecordNotFound {
-			return myerr.RelationNotExist
-		}
+	if err := qS.UpdateNickName(req.NickName, req.RelationID); err != nil {
 		return errcode.ErrServer
 	}
-	// 通过relationType判断修改的信息
-	switch relationInfo.RelationType {
-	case common.RelationTypeFriend:
-		if uint(relationInfo.FriendType.AccountID1) == selfAccountID {
-			targetAccountID := uint(relationInfo.FriendType.AccountID2)
-			err = qSetting.UpdateNickName(targetAccountID, relationID, nickName)
-		} else if uint(relationInfo.FriendType.AccountID2) == selfAccountID {
-			targetAccountID := uint(relationInfo.FriendType.AccountID1)
-			err = qSetting.UpdateNickName(targetAccountID, relationID, nickName)
-		}
-		if err != nil {
-			zap.S().Errorf("qSetting.UpdateNickName failed,err:%v", err)
-			return errcode.ErrServer
-		}
-	case common.RelationTypeGroup:
-		err = qSetting.UpdateNickName(0, relationID, nickName)
-		if err != nil {
-			zap.S().Errorf("qSetting.UpdateNickName failed,err:%v", err)
-			return errcode.ErrServer
-		}
-	default:
-		return errcode.ErrNotFound
-	}
+	tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
+	global.Worker.SendTask(task.UpdateSettingNickName(tokenString, req.RelationID))
 	return nil
 }
 
-func (setting) UpdateSettingDisturb(c *gin.Context, selfAccountID, relationID uint, isDisturbed bool) errcode.Err {
-	// 通过relationID获取relationInfo
-	qSetting := query.NewQuerySetting()
-	relationInfo, err := qSetting.GetRelationInfoByRelationID(relationID)
-	if err != nil {
-		zap.S().Errorf("qSetting.GetRelationInfoByRelationID failed,err:%v", err)
-		if err == gorm.ErrRecordNotFound {
-			return myerr.RelationNotExist
-		}
-		return errcode.ErrServer
+func (setting) UpdateDisturbState(ctx *gin.Context, req request.UpdateIsDisturbState) errcode.Err {
+	qS := query.NewSetting()
+	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	if !ok {
+		return myerr.DoNotHaveThisRelation
 	}
-	// 通过relationType判断修改的信息
-	switch relationInfo.RelationType {
-	case common.RelationTypeFriend:
-		if uint(relationInfo.FriendType.AccountID1) == selfAccountID {
-			targetAccountID := uint(relationInfo.FriendType.AccountID2)
-			err = qSetting.UpdateSettingDisturb(targetAccountID, relationID, isDisturbed)
-		} else if uint(relationInfo.FriendType.AccountID2) == selfAccountID {
-			targetAccountID := uint(relationInfo.FriendType.AccountID1)
-			err = qSetting.UpdateSettingDisturb(targetAccountID, relationID, isDisturbed)
-		}
-		if err != nil {
-			zap.S().Errorf("qSetting.UpdateNickName failed,err:%v", err)
-			return errcode.ErrServer
-		}
-	case common.RelationTypeGroup:
-		err = qSetting.UpdateSettingDisturb(0, relationID, isDisturbed)
-		if err != nil {
-			zap.S().Errorf("qSetting.UpdateNickName failed,err:%v", err)
-			return errcode.ErrServer
-		}
-	default:
-		return errcode.ErrNotFound
+	if settingInfo.IsNotDisturbed == req.IsDisturbState {
+		return nil
 	}
+	if err := qS.UpdateIsDisturbState(req.RelationID, req.IsDisturbState); err != nil {
+		zap.S().Infof("UpdateIsDisturbState failed err: %v", err)
+		return errcode.ErrServer.WithDetails(err.Error())
+	}
+	tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
+	global.Worker.SendTask(task.UpdateSettingIsDisturbState(tokenString, req.RelationID, req.IsDisturbState))
+	return nil
+}
+
+func (setting) UpdateShowState(ctx *gin.Context, req request.UpdateShowState) errcode.Err {
+	qS := query.NewSetting()
+	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	if !ok {
+		return myerr.DoNotHaveThisRelation
+	}
+	if settingInfo.IsShow == req.IsShow {
+		return nil
+	}
+	if err := qS.UpdateIsShowState(req.RelationID, req.IsShow); err != nil {
+		zap.S().Infof("UpdateIsDisturbState failed err: %v", err)
+		return errcode.ErrServer.WithDetails(err.Error())
+	}
+	tokenString := ctx.GetHeader(global.Settings.Token.AuthType)
+	global.Worker.SendTask(task.UpdateSettingShow(tokenString, req.RelationID, req.IsShow))
 	return nil
 }

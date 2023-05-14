@@ -24,12 +24,15 @@ var (
 	UserNotExist     = errcode.NewErr(3012, "用户不存在")
 	UserExist        = errcode.NewErr(3013, "用户已经登录了")
 	AuthFailed       = errcode.NewErr(3014, "身份认证失败")
+	DoNotHaveAuth    = errcode.NewErr(3015, "没有权限")
 
-	AccountNotExist     = errcode.NewErr(4001, "账户不存在")
-	ApplicationNotFound = errcode.NewErr(5001, "好友申请不存在")
+	AccountNotExist = errcode.NewErr(4001, "账户不存在")
 
+	ApplicationNotFound    = errcode.NewErr(5001, "好友申请不存在")
 	AppplicationNotValid   = errcode.NewErr(5002, "申请不合法")
 	FriendHasAlreadyExists = errcode.NewErr(5003, "好友已经存在了")
 	CanNotAddSelf          = errcode.NewErr(5004, "不能添加自己为好友")
-	RelationNotExist       = errcode.NewErr(6001, "关系不存在")
+
+	DoNotHaveThisRelation = errcode.NewErr(6001, "没有这个关系")
+	DoNotHaveThisAccount  = errcode.NewErr(6002, "该群没有这个成员")
 )

@@ -10,6 +10,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"github.com/gin-gonic/gin/binding"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
@@ -73,36 +74,47 @@ func main() {
 			return t
 		})
 	}
-	r := router.NewRouter()
+	r, ws := router.NewRouter() // 注册路由
 	s := &http.Server{
 		Addr:           global.Settings.Serve.Addr,
 		Handler:        r,
-		ReadTimeout:    global.Settings.Serve.ReadTimeout,
-		WriteTimeout:   global.Settings.Serve.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
-	//zap.S().Info(global.Settings.SMTPInfo)
+	global.Logger.Info("Server started!")
+	errChan := make(chan error, 1)
+	defer close(errChan)
 	go func() {
 		err := s.ListenAndServe()
 		if err != nil {
-			log.Println(err)
+			errChan <- err
 		}
 	}()
-	gracefulExit(s)
+	go func() {
+		defer ws.Close()
+		if err := ws.Serve(); err != nil {
+			errChan <- err
+		}
+	}()
+	gracefulExit(s, errChan)
 }
 
 // 优雅退出
-func gracefulExit(s *http.Server) {
-	// 退出通知
+func gracefulExit(s *http.Server, errChan chan error) {
+	// 优雅退出
 	quit := make(chan os.Signal, 1)
-	// 等待退出通知
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
-	<-quit
-	log.Println("shutDone....")
-	// 给几秒完成剩余任务
-	ctx, cancel := context.WithTimeout(context.Background(), global.Settings.Serve.DefaultTimeout)
-	defer cancel()
-	if err := s.Shutdown(ctx); err != nil { // 优雅退出
-		log.Println("Server forced to ShutDown,Err:" + err.Error())
+	select {
+	case err := <-errChan:
+		global.Logger.Error(err.Error())
+	case <-quit:
+		global.Logger.Info("ShutDown Server...")
+		// 给几秒完成剩余任务
+		ctx, cancel := context.WithTimeout(context.Background(), global.Settings.Serve.DefaultTimeout)
+		defer cancel()
+		if err := s.Shutdown(ctx); err != nil { // 优雅退出
+			if !errors.Is(err, context.DeadlineExceeded) {
+				global.Logger.Error("Server forced to ShutDown,Err:" + err.Error())
+			}
+		}
 	}
 }

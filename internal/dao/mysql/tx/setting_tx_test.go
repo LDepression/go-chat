@@ -1,21 +1,64 @@
+/**
+ * @Author: lenovo
+ * @Description:
+ * @File:  setting_tx_test
+ * @Version: 1.0.0
+ * @Date: 2023/04/18 21:48
+ */
+
 package tx
 
 import (
 	"fmt"
-	"go-chat/internal/dao"
+	"github.com/stretchr/testify/require"
 	"testing"
 )
 
-func TestDeleteFriendWithTX(t *testing.T) {
-	InitMySql()
-	if dao.Group.DB == nil {
-		fmt.Println("dao.Group.DB == nil")
+func testSettingTX_GetFriendsPinsInfo(t *testing.T) {
+	tests := []struct {
+		name string
+		f    func()
+	}{
+		{name: "goodCase", f: func() {
+			tx := NewSettingTX()
+			result, err := tx.GetFriendsPinsInfo(1837105152)
+			require.NoError(t, err)
+			for _, v := range result.Data {
+				fmt.Println(v.Friend)
+			}
+		}},
 	}
-	settingTX := NewSettingTX()
-	err := settingTX.DeleteFriendWithTX(60)
-	if err != nil {
-		fmt.Println("为啥啊？", err)
-		fmt.Printf("\n\tapplicationInfo, err := , err:%#v \n", err)
-		t.Errorf("err:%v\n,", err)
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.f()
+		})
 	}
+}
+
+func testSettingTX_GetGroupsPinsInfo(t *testing.T) {
+	tests := []struct {
+		name string
+		f    func()
+	}{
+		{name: "good", f: func() {
+			tx := NewSettingTX()
+			req, err := tx.GetGroupsPinsInfo(7046676613466947584)
+			require.NoError(t, err)
+			for _, v := range req.Data {
+				//fmt.Println(v.BaseSetting.ID)
+				fmt.Println(v.Group.Signature)
+			}
+		}},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.f()
+		})
+	}
+}
+
+func TestTotal(t *testing.T) {
+	testSettingTX_GetGroupsPinsInfo(t)
 }

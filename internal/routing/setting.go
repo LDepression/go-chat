@@ -1,3 +1,11 @@
+/**
+ * @Author: lenovo
+ * @Description:
+ * @File:  setting
+ * @Version: 1.0.0
+ * @Date: 2023/04/18 20:30
+ */
+
 package routing
 
 import (
@@ -6,21 +14,19 @@ import (
 	"go-chat/internal/middleware"
 )
 
-type setting struct {
-}
+type setting struct{}
 
 func (s *setting) Init(root *gin.RouterGroup) {
-	g := root.Group("setting", middleware.Auth())
+	rg := root.Group("setting", middleware.Auth(), middleware.AuthMustAccount())
+
 	{
-		friendGroup := g.Group("friend", middleware.AuthMustAccount())
-		{
-			friendGroup.DELETE("delete", v1.Group.Setting.DeleteFriend)
-			friendGroup.GET("list", v1.Group.Setting.GetFriendsList)
-			friendGroup.GET("list/name", v1.Group.Setting.GetFriendsByName)
+		rg.GET("/pins", v1.Group.Setting.GetPinsList)
+		rg.GET("/shows", v1.Group.Setting.GetShowsList)
 
-			friendGroup.PUT("update/nick_name", v1.Group.Setting.UpdateNickName)
-			friendGroup.PUT("update/disturb", v1.Group.Setting.UpdateSettingDisturb)
-		}
+		upGroup := rg.Group("update")
+		upGroup.PUT("/pins", v1.Group.Setting.UpdatePinsInfo)
+		upGroup.PUT("/nick_name", v1.Group.Setting.UpdateNickName)
+		upGroup.PUT("/disturb", v1.Group.Setting.UpdateDisturbState)
+		upGroup.PUT("/shows", v1.Group.Setting.UpdateShowState)
 	}
-
 }

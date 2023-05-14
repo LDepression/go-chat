@@ -14,9 +14,13 @@ import (
 	"go-chat/internal/global"
 	"go-chat/internal/model"
 	"go-chat/internal/myerr"
+	"go-chat/internal/pkg/token"
+	"go.uber.org/zap"
+)
+
+import (
 	"go-chat/internal/pkg/app"
 	"go-chat/internal/pkg/app/errcode"
-	"go.uber.org/zap"
 )
 
 func GetContent(ctx *gin.Context) (*model.Content, bool) {
@@ -25,6 +29,18 @@ func GetContent(ctx *gin.Context) (*model.Content, bool) {
 	return c, ok
 }
 
+// ParseHeader 获取并解析header中token
+// 返回 payload,token,err
+func ParseHeader(accessToken string) (*token.Payload, string, errcode.Err) {
+	payload, err := global.Maker.VerifyToken(accessToken)
+	if err != nil {
+		if err.Error() == "超时错误" {
+			return nil, "", myerr.TokenInValid
+		}
+		return nil, "", myerr.TokenInValid
+	}
+	return payload, accessToken, nil
+}
 func Auth() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		rly := app.NewResponse(ctx)
@@ -110,5 +126,6 @@ func AuthMustAccount() gin.HandlerFunc {
 			ctx.Abort()
 			return
 		}
+		ctx.Next()
 	}
 }

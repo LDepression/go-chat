@@ -86,3 +86,13 @@ func (qAccount) GetAccountsByUserID(userID int64) ([]automigrate.Account, error)
 	result := dao.Group.DB.Where("user_id = ?", userID).Find(&accountInfos)
 	return accountInfos, result.Error
 }
+
+func (qAccount) UpdateAvatar(accountID uint64, avatar string) error {
+	var accountInfo automigrate.Account
+	accountInfo.Avatar = avatar
+	accountInfo.ID = uint64(accountID)
+	if result := dao.Group.DB.Model(&automigrate.Account{}).Where("id  = ?", accountID).Updates(&accountInfo); result.RowsAffected == 0 {
+		return result.Error
+	}
+	return nil
+}

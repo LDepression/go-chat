@@ -16,6 +16,7 @@ type group struct {
 	Maker  maker
 	Pager  page
 	Sf     sf
+	Chat   chat
 }
 
 var Group = new(group)
@@ -28,4 +29,5 @@ func InitAll() {
 	Group.Maker.Init()
 	Group.Pager.Init()
 	Group.Sf.Init()
+	Group.Chat.Init()
 }

@@ -15,7 +15,7 @@ import (
 
 var RelationKey = "Group"
 
-func (q *Queries) AddRelationAccount(ctx context.Context, relationID int64, accountIDs []int64) error {
+func (q *Queries) AddRelationAccount(ctx context.Context, relationID int64, accountIDs ...int64) error {
 	for i := 0; i < len(accountIDs); i++ {
 		id := utils.IDToSting(uint(relationID))
 		if err := q.rdb.SAdd(ctx, utils.LinkStr(RelationKey, id), accountIDs[i]).Err(); err != nil {
@@ -32,7 +32,11 @@ func (q *Queries) DeleteRelationAccount(ctx context.Context, relationID int64, a
 	}
 	id := utils.IDToSting(uint(relationID))
 	key := utils.LinkStr(RelationKey, id)
-	if err := q.rdb.SRem(ctx, key, accountIDs).Err(); err != nil {
+	var ids []interface{}
+	for _, id := range accountIDs {
+		ids = append(ids, id)
+	}
+	if err := q.rdb.SRem(ctx, key, ids).Err(); err != nil {
 		return err
 	}
 	return nil
@@ -50,4 +54,19 @@ func (q *Queries) DeleteAccountByRelations(ctx context.Context, accountID int64,
 		}
 	}
 	return nil
+}
+
+func (q *Queries) GetAllAccountsByRelationID(ctx context.Context, relationID int64) ([]int64, error) {
+	id := utils.IDToSting(uint(relationID))
+	key := utils.LinkStr(RelationKey, id)
+	accountIDStr, err := q.rdb.SMembers(ctx, key).Result()
+	if err != nil {
+		return nil, err
+	}
+	var accountIDs []int64
+	for _, str := range accountIDStr {
+		accountID := utils.StringToIDMust(str)
+		accountIDs = append(accountIDs, accountID)
+	}
+	return accountIDs, nil
 }

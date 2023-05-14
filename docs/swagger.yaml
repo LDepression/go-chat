@@ -48,6 +48,24 @@ definitions:
       signature:
         type: string
     type: object
+  reply.ApplicationsList:
+    properties:
+      applicationList:
+        items:
+          $ref: '#/definitions/reply.GetApplication'
+        type: array
+      total:
+        type: integer
+    type: object
+  reply.EasyAccount:
+    properties:
+      accountID:
+        type: integer
+      avatar:
+        type: string
+      name:
+        type: string
+    type: object
   reply.GetAccountByID:
     properties:
       avatar:
@@ -83,6 +101,19 @@ definitions:
       total:
         type: integer
     type: object
+  reply.GetApplication:
+    properties:
+      applicant:
+        $ref: '#/definitions/reply.EasyAccount'
+      applyMsg:
+        type: string
+      receiver:
+        $ref: '#/definitions/reply.EasyAccount'
+      refuseMsg:
+        type: string
+      status:
+        type: string
+    type: object
   reply.LoginReply:
     properties:
       AccessToken:
@@ -103,6 +134,13 @@ definitions:
       total:
         type: integer
     type: object
+  request.AcceptApplication:
+    properties:
+      applicant_id:
+        type: integer
+    required:
+    - applicant_id
+    type: object
   request.CheckEmailExist:
     properties:
       email:
@@ -110,6 +148,23 @@ definitions:
         type: string
     required:
     - email
+    type: object
+  request.CreateApplicationReq:
+    properties:
+      accountID:
+        type: integer
+      applicationMsg:
+        type: string
+    required:
+    - accountID
+    - applicationMsg
+    type: object
+  request.DeleteApplicationReq:
+    properties:
+      accountID:
+        type: integer
+    required:
+    - accountID
     type: object
   request.Login:
     properties:
@@ -128,6 +183,15 @@ definitions:
     required:
     - email
     - loginType
+    type: object
+  request.RefuseApplication:
+    properties:
+      applicant_id:
+        type: integer
+      refuse_msg:
+        type: string
+    required:
+    - applicant_id
     type: object
   request.Register:
     properties:
@@ -176,9 +240,6 @@ definitions:
     type: object
   request.UpdateAccount:
     properties:
-      account_id:
-        minimum: 1
-        type: integer
       avatar:
         type: string
       gender:
@@ -187,8 +248,6 @@ definitions:
         type: string
       signature:
         type: string
-    required:
-    - account_id
     type: object
   token.Payload:
     properties:
@@ -223,6 +282,7 @@ paths:
       - description: x-token 用户令牌
         in: header
         name: Authorization
+        required: true
         type: string
       - in: query
         name: account_id
@@ -250,6 +310,7 @@ paths:
       - description: x-token 用户令牌
         in: header
         name: Authorization
+        required: true
         type: string
       - in: query
         name: Page
@@ -259,7 +320,6 @@ paths:
         type: integer
       - in: query
         name: account_name
-        required: true
         type: string
       produces:
       - application/json
@@ -282,6 +342,7 @@ paths:
       - description: x-token 用户令牌
         in: header
         name: Authorization
+        required: true
         type: string
       responses:
         "200":
@@ -321,6 +382,142 @@ paths:
       summary: 更新账户信息
       tags:
       - account
+  /api/application/accept:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 需要同意的申请
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.AcceptApplication'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在
+            3004:重复操作申请
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 被申请者同意好友申请
+      tags:
+      - application
+  /api/application/create:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 删除已经发起的申请
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeleteApplicationReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '1001:参数有误 1003:系统错误 2001:鉴权失败 '
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 删除已经发送的好友申请
+      tags:
+      - application
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 发起好友申请
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateApplicationReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2001:鉴权失败 5003:好友已经存在 5004:不能添加自己为好友
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 发起好友申请
+      tags:
+      - application
+  /api/application/list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - in: query
+        name: Page
+        type: integer
+      - in: query
+        name: PageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.State'
+            - properties:
+                data:
+                  $ref: '#/definitions/reply.ApplicationsList'
+              type: object
+      summary: 账户查看和自身相关的好友申请(不论是申请者还是被申请者)
+      tags:
+      - application
+  /api/application/refuse:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 需要拒绝的申请
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.RefuseApplication'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 1001:参数有误 1003:系统错误 2007:身份不存在 2008:身份验证失败 2010:账号不存在 3002:申请不存在
+            3004:重复操作申请
+          schema:
+            $ref: '#/definitions/common.State'
+      summary: 被申请者拒绝好友申请
+      tags:
+      - application
   /api/v1/account//infos/user:
     get:
       consumes:

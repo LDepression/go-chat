@@ -1,22 +1,33 @@
+/**
+ * @Author: lenovo
+ * @Description:
+ * @File:  setting
+ * @Version: 1.0.0
+ * @Date: 2023/04/18 20:54
+ */
+
 package request
 
-import "go-chat/internal/model/common"
-
-type DeleteFriend struct {
-	TargetAccountID uint `json:"target_account_id" form:"target_account_id"`
+type GetPinsReq struct {
+	AccountID uint64 `json:"AccountID" binding:"required"`
 }
 
-type GetFriendsByName struct {
-	Name string `json:"name" form:"name"`
-	common.Pager
+type UpdatePinsReq struct {
+	IsPin      bool  `json:"IsPin"`
+	RelationID int64 `json:"RelationID" binding:"required"`
 }
 
 type UpdateNickName struct {
-	RelationID uint   `json:"relation_id" form:"relation_id"`
-	NickName   string `json:"nick_name" form:"nick_name"`
+	NickName   string `json:"NickName" binding:"required"`
+	RelationID int64  `json:"RelationID" binding:"required"`
 }
 
-type UpdateSettingDisturb struct {
-	RelationID  uint `json:"relation_id" form:"relation_id"`
-	IsDisturbed bool `json:"is_disturbed" form:"is_disturbed"`
+type UpdateIsDisturbState struct {
+	IsDisturbState bool  `json:"IsDisturbState"`
+	RelationID     int64 `json:"RelationID" binding:"required"`
+}
+
+type UpdateShowState struct {
+	RelationID int64 `json:"RelationID" `
+	IsShow     bool  `json:"IsShow" binding:"required"`
 }

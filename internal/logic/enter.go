@@ -15,6 +15,7 @@ type group struct {
 	Application application
 	Setting     setting
 	MGroup      mGroup
+	File        file
 }
 
 var Group = new(group)
