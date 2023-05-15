@@ -35,4 +35,6 @@ var (
 
 	DoNotHaveThisRelation = errcode.NewErr(6001, "没有这个关系")
 	DoNotHaveThisAccount  = errcode.NewErr(6002, "该群没有这个成员")
+	CanNotTalkInDifGroup  = errcode.NewErr(6003, "不能回复不同群的消息")
+	CanNotReplyRevoke     = errcode.NewErr(6004, "不能回复已经撤回的消息")
 )

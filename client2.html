@@ -15,7 +15,7 @@
 <button id="3" onclick="send()">发送信息(正式)</button>
 </body>
 <script>
-    const token ="v2.local.pvgxqGmTcQhgyG8nlshbtS2XVFaboBaeePEy7cQn4OmuZUeRX2SxOpImgplDdDWbxg2-Kk5rCSlXm4QL7kwsd7pCy_ivSU5kf8ZPSoxK323ftVbD_GJD_2UhB1Nw-dsDycrrPIGvRZO1C58AvgTEsSLlgsot8uaoLfoKe58imPQF2pYfIO7kAr6Q-jvs1JsPzPtUX8lxJOa681cv6jy3irRrEtaoKJYF5kHJM4Gt7LSoTrfMLlqfRDja3dcZYwjHVbfcJheHrFdBGw7k32O5F71lAToBWjpJgCKsFqUHKbHUWGb_Ux4sbhASXCRCC19juD7q.bnVsbA"
+    const token ="v2.local.y6JqJMI3GK2zq4e4bviMtCHVX_tA_1t8mwLMqQM8Dkqs-M33BnacaauHWB9U-KkKQsXnmjKx5nxvmg_R-Bs3uFPmZ-nsSF4aezu82yS-K5ryyStCoTaHTcHoQ1zHpIGfSvsNwxzqDK7yaKHg5_YABE2SizTt2ClF9J6wsIm_WGrlAJHFvDhwcwTAtTMmyqY94XFXLx1Nq97_eSVEBQqGJmLhyVxk8SEoBoOHAvQJrNQDYoT5AWgLcWfVOkbL08xcu577Eu51n9FkkTn3XOJRg_rd7TAnthEBM5mbMLLHbUVbXY7hj2Rtub_hTCFaNQtHSUC_TvajGBKFQ1kF0Dg4.bnVsbA"
     const uil = "ws://127.0.0.1:8084"
     let socket = io(uil);
     let chat = io("ws://127.0.0.1:8084/chat");
@@ -47,7 +47,6 @@
         console.log("auth_1")
         chat.emit("auth", token, function (data) {
             console.log("recv:" + data);
-
         });
         console.log("auth_2")
     }

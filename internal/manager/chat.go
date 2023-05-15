@@ -133,3 +133,8 @@ func (c *ChatMap) CheckForEachAllMap() {
 	},
 	)
 }
+
+func (c *ChatMap) CheckIsOnConnection(accountID int64) bool {
+	_, ok := c.m.Load(accountID)
+	return ok
+}

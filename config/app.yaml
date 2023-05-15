@@ -23,7 +23,7 @@ SMTPInfo:
   host: "smtp.qq.com"
   port: 465
   userName: "1197285120@qq.com"
-  password: "..." #密码
+  password: "***" #密码
   isSSL: true
   from: "1197285120@qq.com" #发件人
   to: #接收人
@@ -62,8 +62,8 @@ Page:
   PageSizeKey: page_size
 AliyunOSS:
   Endpoint: "http://oss-cn-hangzhou.aliyuncs.com"
-  AccessKeyId: "..."
-  AccessKeySecret: "..."
+  AccessKeyId: "***"
+  AccessKeySecret: "***"
   BucketName: "lycmall2"
   BucketUrl: "chat"
   BasePath: "http://lycmall.lyc666.xyz"

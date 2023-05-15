@@ -70,9 +70,9 @@ func CheckConnCtxToken(v interface{}) (*model.Token, errcode.Err) {
 
 // CheckAuth 检查token是否有效，有效返回token，否则断开链接
 func CheckAuth(s socketio.Conn) (*model.Token, bool) {
-	token, merr := CheckConnCtxToken(s.Context())
-	if merr != nil {
-		s.Emit(chat.ServerError, common.NewState(merr))
+	token, err := CheckConnCtxToken(s.Context())
+	if err != nil {
+		s.Emit(chat.ServerError, common.NewState(err))
 		_ = s.Close()
 		return nil, false
 	}

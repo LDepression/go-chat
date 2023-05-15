@@ -23,3 +23,8 @@ func AccountLogin(accessToken, address string, accountID int64) func() {
 		})
 	}
 }
+
+// SetActiveTimeToNow 重置活跃时间到现在(仅仅只是发送消息这个时间)
+func SetActiveTimeToNow(sID int64) {
+
+}

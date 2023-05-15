@@ -4,22 +4,41 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="636b9497-4adc-4d58-8c0f-83915bc0648f" name="变更" comment="完成群组和设置模块">
+    <list default="true" id="636b9497-4adc-4d58-8c0f-83915bc0648f" name="变更" comment="添加心跳机制定期删除僵尸连接">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/client.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/chat/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/chat/common.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/api/v1/chat/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/chat/handle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/api/v1/chat/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/chat/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/v1/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/v1/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/mysql/query/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/mysql/query/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/group.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/logic/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/logic/setting.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/manager/chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/manager/chat.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routing/chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routing/chat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/automigrate/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/automigrate/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/chat/client/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/chat/client/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/common/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/common/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/myerr/myerr.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/myerr/myerr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/task/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/task/handle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/Applogs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/Applogs/info.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/build-errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/main.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../go1.19.5" />
   <component name="Git.Settings">
@@ -35,6 +54,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -96,20 +117,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成群组和设置模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成群组和设置模块" />
+    <MESSAGE value="添加心跳机制定期删除僵尸连接" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加心跳机制定期删除僵尸连接" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/manager/chat.go</url>
-          <line>83</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

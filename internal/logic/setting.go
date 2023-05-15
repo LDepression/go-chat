@@ -110,11 +110,12 @@ func (setting) GetShowsOrderByShowTime(accountID uint64) (*reply.SettingReq, err
 	return &totalSettingReq, nil
 }
 
-func (setting) UpdatePins(ctx *gin.Context, isPins bool, relationID int64) errcode.Err {
+func (setting) UpdatePins(ctx *gin.Context, accountID uint, isPins bool, relationID int64) errcode.Err {
 
 	//先去判断一下relationID是否是存在的
 	qS := query.NewSetting()
-	settingInfo, ok := qS.CheckRelationIDExist(relationID)
+	settingInfo, ok := qS.CheckRelationIDExist(int64(accountID), relationID)
+
 	if !ok {
 		return myerr.DoNotHaveThisRelation
 	}
@@ -132,11 +133,12 @@ func (setting) UpdatePins(ctx *gin.Context, isPins bool, relationID int64) errco
 	return nil
 }
 
-func (setting) UpdateNickName(ctx *gin.Context, req request.UpdateNickName) errcode.Err {
+func (setting) UpdateNickName(ctx *gin.Context, accountID uint, req request.UpdateNickName) errcode.Err {
 	//修改关系线对应的昵称
 	//注意这里只是修改了好友或者是群的备注，并没有修改本身的nickname
 	qS := query.NewSetting()
-	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	settingInfo, ok := qS.CheckRelationIDExist(int64(accountID), req.RelationID)
+
 	if !ok {
 		return myerr.DoNotHaveThisRelation
 	}
@@ -151,9 +153,10 @@ func (setting) UpdateNickName(ctx *gin.Context, req request.UpdateNickName) errc
 	return nil
 }
 
-func (setting) UpdateDisturbState(ctx *gin.Context, req request.UpdateIsDisturbState) errcode.Err {
+func (setting) UpdateDisturbState(ctx *gin.Context, accountID uint, req request.UpdateIsDisturbState) errcode.Err {
 	qS := query.NewSetting()
-	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	settingInfo, ok := qS.CheckRelationIDExist(int64(accountID), req.RelationID)
+
 	if !ok {
 		return myerr.DoNotHaveThisRelation
 	}
@@ -169,9 +172,9 @@ func (setting) UpdateDisturbState(ctx *gin.Context, req request.UpdateIsDisturbS
 	return nil
 }
 
-func (setting) UpdateShowState(ctx *gin.Context, req request.UpdateShowState) errcode.Err {
+func (setting) UpdateShowState(ctx *gin.Context, accountID uint, req request.UpdateShowState) errcode.Err {
 	qS := query.NewSetting()
-	settingInfo, ok := qS.CheckRelationIDExist(req.RelationID)
+	settingInfo, ok := qS.CheckRelationIDExist(int64(accountID), req.RelationID)
 	if !ok {
 		return myerr.DoNotHaveThisRelation
 	}

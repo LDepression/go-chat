@@ -66,7 +66,7 @@ func (s *setting) UpdatePinsInfo(ctx *gin.Context) {
 		rly.Reply(errcode.ErrUnauthorizedAuthNotExist)
 		return
 	}
-	if err := logic.Group.Setting.UpdatePins(ctx, req.IsPin, req.RelationID); err != nil {
+	if err := logic.Group.Setting.UpdatePins(ctx, content.ID, req.IsPin, req.RelationID); err != nil {
 		zap.S().Infof("UpdatePins failed,err: %v", err)
 		rly.Reply(err)
 		return
@@ -86,7 +86,7 @@ func (s *setting) UpdateNickName(ctx *gin.Context) {
 		rly.Reply(errcode.ErrUnauthorizedAuthNotExist)
 		return
 	}
-	if err := logic.Group.Setting.UpdateNickName(ctx, req); err != nil {
+	if err := logic.Group.Setting.UpdateNickName(ctx, content.ID, req); err != nil {
 		zap.S().Infof("UpdateNickName failed,err: %v", err)
 		rly.Reply(err)
 		return
@@ -107,7 +107,7 @@ func (s *setting) UpdateDisturbState(ctx *gin.Context) {
 		rly.Reply(errcode.ErrUnauthorizedAuthNotExist)
 		return
 	}
-	if err := logic.Group.Setting.UpdateDisturbState(ctx, req); err != nil {
+	if err := logic.Group.Setting.UpdateDisturbState(ctx, content.ID, req); err != nil {
 		rly.Reply(err)
 		return
 	}
@@ -126,7 +126,7 @@ func (s *setting) UpdateShowState(ctx *gin.Context) {
 		rly.Reply(errcode.ErrUnauthorizedAuthNotExist)
 		return
 	}
-	if err := logic.Group.Setting.UpdateShowState(ctx, req); err != nil {
+	if err := logic.Group.Setting.UpdateShowState(ctx, content.ID, req); err != nil {
 		zap.S().Info("logic.Group.Setting.UpdateShowState(ctx, req) err:", err)
 		rly.Reply(err)
 		return

@@ -31,3 +31,33 @@ func (g GroupType) Value() (driver.Value, error) {
 func (g *GroupType) Scan(value interface{}) error {
 	return json.Unmarshal(value.([]byte), &g)
 }
+
+func (g Msgnotifytype) Value() (driver.Value, error) {
+	return json.Marshal(g)
+}
+
+// 实现 sql.Scanner 接口，Scan 将 value 扫描至 Jsonb
+
+func (g *Msgnotifytype) Scan(value interface{}) error {
+	return json.Unmarshal(value.([]byte), &g)
+}
+
+func (g MsgExtend) Value() (driver.Value, error) {
+	return json.Marshal(g)
+}
+
+// 实现 sql.Scanner 接口，Scan 将 value 扫描至 Jsonb
+
+func (g *MsgExtend) Scan(value interface{}) error {
+	return json.Unmarshal(value.([]byte), &g)
+}
+
+func (g MsgType) Value() (driver.Value, error) {
+	return json.Marshal(g)
+}
+
+// 实现 sql.Scanner 接口，Scan 将 value 扫描至 Jsonb
+
+func (g *MsgType) Scan(value interface{}) error {
+	return json.Unmarshal(value.([]byte), &g)
+}

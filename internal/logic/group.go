@@ -47,7 +47,7 @@ func (vgroup) Dissolve(ctx *gin.Context, accountID uint, relationID int64) errco
 
 	//先要去判断一下解散群的是不是leader
 	qS := query.NewSetting()
-	settiingInfo, ok := qS.CheckRelationIDExist(relationID)
+	settiingInfo, ok := qS.CheckRelationIDExist(int64(accountID), relationID)
 	if !ok {
 		return myerr.DoNotHaveThisRelation
 	}
@@ -114,7 +114,7 @@ func (vgroup) GetGroupList(accountID int64) (*reply.GroupListReply, errcode.Err)
 func (vgroup) TransferGroup(ctx *gin.Context, accountID int64, relationID int64, toID int64) errcode.Err {
 
 	qS := query.NewSetting()
-	_, ok := qS.CheckRelationIDExist(relationID)
+	_, ok := qS.CheckRelationIDExist(accountID, relationID)
 	if !ok {
 		return errcode.ErrServer
 	}
@@ -124,7 +124,7 @@ func (vgroup) TransferGroup(ctx *gin.Context, accountID int64, relationID int64,
 		return myerr.DoNotHaveAuth
 	}
 	//去查询一下，toID是否是在群里面
-	if ok := qGroup.ExistAccountInGroup(relationID, toID); !ok {
+	if ok = qGroup.ExistAccountInGroup(relationID, toID); !ok {
 		return myerr.DoNotHaveThisAccount
 	}
 	tx := tx2.NewGroupTX()

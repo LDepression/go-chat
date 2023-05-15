@@ -29,9 +29,9 @@ func (setting) UpdatePinsState(relationID int64, isPin bool) error {
 	return nil
 }
 
-func (setting) CheckRelationIDExist(relationID int64) (automigrate.Setting, bool) {
+func (setting) CheckRelationIDExist(accountID, relationID int64) (automigrate.Setting, bool) {
 	var settingInfo automigrate.Setting
-	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ?", relationID).Find(&settingInfo); result.RowsAffected == 0 {
+	if result := dao.Group.DB.Model(&automigrate.Setting{}).Where("relation_id = ? AND account_id = ?", relationID, accountID).Find(&settingInfo); result.RowsAffected == 0 {
 		return settingInfo, false
 	}
 	return settingInfo, true

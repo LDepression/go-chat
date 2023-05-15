@@ -102,3 +102,20 @@ func Decode(data string, v interface{}) error {
 	validateOnce.Do(func() { validate = validator.New() })
 	return validate.Struct(v)
 }
+
+type Remind struct {
+	Idx       int64 `json:"idx" binding:"required,gte=1" validate:"required,gte=1"`        // 第几个@
+	AccountID int64 `json:"account_id" binding:"required,gte=1" validate:"required,gte=1"` // 被@的账号ID
+}
+
+// MsgExtend 消息扩展信息 可能为null
+type MsgExtend struct {
+	Remind []Remind `json:"remind"` // @的描述信息
+}
+
+type Msgnotifytype string
+
+const (
+	MsgnotifytypeSystem Msgnotifytype = "system"
+	MsgnotifytypeCommon Msgnotifytype = "common"
+)
