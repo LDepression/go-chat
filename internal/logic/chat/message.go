@@ -9,6 +9,8 @@
 package chat
 
 import (
+	"database/sql"
+	"fmt"
 	"go-chat/internal/dao/mysql/query"
 	"go-chat/internal/global"
 	"go-chat/internal/model/automigrate"
@@ -54,8 +56,23 @@ func (message) SendMsg(param serve.HandleSendMsg) (*serve.SendMsgRly, errcode.Er
 			MsgType:    string(msgInfo.MsgType),
 		}
 	}
-
-	global.Worker.SendTask(task.SendMsg(param.AccountID, reply.MsgInfoWithRly{
+	params := query.CreateMsgParams{
+		AccountID:  sql.NullInt64{Int64: param.AccountID, Valid: true},
+		MsgType:    string(automigrate.MsgTypeText),
+		RelationID: sql.NullInt64{Int64: param.RelationID, Valid: true},
+		MsgContent: param.MsgContent,
+		MsgExtend:  param.MsgExtend,
+		ReplyMsgID: sql.NullInt64{Int64: param.RlyMsgID, Valid: param.RlyMsgID > 0},
+	}
+	qM := query.NewMessage()
+	msgInfo, err := qM.CreateMsg(params)
+	if err != nil {
+		zap.S().Infof("create message %v", err)
+		return nil, errcode.ErrServer.WithDetails(err.Error())
+	} else {
+		fmt.Printf("MsgID------------------------------> %d\n", msgInfo.ID)
+	}
+	global.Worker.SendTask(task.SendMsg(reply.MsgInfoWithRly{
 		MsgInfo: reply.MsgInfo{
 			NotifyType: string(automigrate.MsgnotifytypeCommon),
 			MsgType:    string(automigrate.MsgTypeText),
@@ -66,5 +83,8 @@ func (message) SendMsg(param serve.HandleSendMsg) (*serve.SendMsgRly, errcode.Er
 		},
 		RlyMsg: rlyMsg,
 	}))
-	return nil, nil
+	return &serve.SendMsgRly{
+		CreateTime: msgInfo.CreatedAt,
+		MsgID:      int64(msgInfo.ID),
+	}, nil
 }

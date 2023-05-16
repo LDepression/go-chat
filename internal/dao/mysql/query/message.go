@@ -28,7 +28,7 @@ func (message) CheckMsgInfoByID(msgID int64) (*automigrate.Message, error) {
 	return &msgInfo, nil
 }
 
-func (message) CreateMsg(params CreateMsgParams) (int64, error) {
+func (message) CreateMsg(params CreateMsgParams) (*automigrate.Message, error) {
 	Msg := &automigrate.Message{
 		MsgType:    automigrate.MsgType(params.MsgType),
 		MsgContent: params.MsgContent,
@@ -41,7 +41,7 @@ func (message) CreateMsg(params CreateMsgParams) (int64, error) {
 		IsPin:      false,
 	}
 	if result := dao.Group.DB.Model(&automigrate.Message{}).Create(Msg); result.RowsAffected == 0 {
-		return 0, result.Error
+		return nil, result.Error
 	}
-	return int64(Msg.ID), nil
+	return Msg, nil
 }

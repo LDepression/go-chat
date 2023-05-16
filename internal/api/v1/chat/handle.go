@@ -9,17 +9,14 @@
 package chat
 
 import (
-	"context"
 	"fmt"
-	"github.com/apache/rocketmq-client-go/v2"
-	"github.com/apache/rocketmq-client-go/v2/consumer"
-	"github.com/apache/rocketmq-client-go/v2/primitive"
 	socketio "github.com/googollee/go-socket.io"
 	"go-chat/internal/global"
-	"go-chat/internal/model/chat"
 	"go-chat/internal/model/chat/client"
 	"go-chat/internal/model/common"
 	"go-chat/internal/pkg/app/errcode"
+	c2 "go-chat/internal/pkg/rocketmq/consumer"
+	p2 "go-chat/internal/pkg/rocketmq/producer"
 	"go-chat/internal/task"
 	"go.uber.org/zap"
 	"log"
@@ -94,46 +91,10 @@ func (handle) Auth(s socketio.Conn, accessToken string) string {
 	// 加入在线群组
 	global.ChatMap.Link(s, int64(token.Content.ID))
 	// 通知其他设备
+	go p2.SendMsgToMQ(token.Content.ID)
 	global.Worker.SendTask(task.AccountLogin(token.AccessToken, s.RemoteAddr().String(), int64(token.Content.ID)))
 	log.Println("auth accept:", s.RemoteAddr().String())
-
 	//现在我们应该是从mq中，读取离线信息
-	go startConsumer(int64(token.Content.ID))
+	go c2.StartConsumer(int64(token.Content.ID))
 	return common.NewState(nil).JsonStr()
-}
-
-func startConsumer(accountID int64) {
-	c, err := rocketmq.NewPushConsumer(
-		consumer.WithNameServer([]string{"192.168.28.30:9876"}),
-	)
-	if err != nil {
-		fmt.Println("创建消费者失败:", err)
-		return
-	}
-	uID := fmt.Sprintf("accountID:%d", accountID)
-	if err := c.Subscribe(uID, consumer.MessageSelector{}, func(ctx context.Context, msgs ...*primitive.MessageExt) (consumer.ConsumeResult, error) {
-		for i := range msgs {
-			global.ChatMap.Send(accountID, chat.ClientSendMsg, msgs[i])
-			fmt.Printf("获取到值：%v\n", msgs[i])
-		}
-		return consumer.ConsumeSuccess, nil
-	}); err != nil {
-		fmt.Println("订阅消息失败:", err)
-		return
-	}
-
-	if err := c.Start(); err != nil {
-		fmt.Println("启动消费者失败:", err)
-		return
-	}
-
-	defer func() {
-		if err := c.Shutdown(); err != nil {
-			fmt.Println("关闭消费者失败:", err)
-		} else {
-			fmt.Println("消费者已关闭.")
-		}
-	}()
-
-	select {}
 }

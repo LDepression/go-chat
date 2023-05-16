@@ -81,6 +81,8 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 	global.Logger.Info("Server started!")
+	global.Logger.Info(global.Settings.Rocketmq.Addr)
+	//global.Logger.Info( global.Settings.Rocketmq.Port)
 	errChan := make(chan error, 1)
 	defer close(errChan)
 	go func() {

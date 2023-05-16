@@ -21,6 +21,7 @@ type Settings struct {
 	Auto      Auto      `json:"Auto" mapstructure:"Auto"`
 	Token     Token     `json:"Token" mapstructure:"Token"`
 	Page      Page      `json:"Page" mapstructure:"Page"`
+	Rocketmq  Rocketmq  `json:"Rocketmq" mapstructure:"Rocketmq"`
 	AliyunOSS AliyunOSS `json:"AliyunOSS" mapstructure:"AliyunOSS"`
 }
 
@@ -76,8 +77,9 @@ type Work struct {
 type Rule struct {
 	DelUserTime          time.Duration `json:"delUserTime" mapstructure:"delUserTime"`                   //延时删除用户的时间
 	DelCodeTime          time.Duration `json:"delCodeTime" mapstructure:"delCodeTime"`                   //延时删除验证码的时间
-	AccountMaxNums       int           `json:"accountMaxNum" mapstructure:"accountMax"`                  //账户可以创建的最大的数目
+	AccountMaxNums       int           `json:"accountMaxNum" mapstructure:"accountMaxNums"`              //账户可以创建的最大的数目
 	DefaultAccountAvatar string        `json:"DefaultAccountAvatar" mapstructure:"DefaultAccountAvatar"` //账户默认的头像
+	DefaultClientTimeout time.Duration `json:"DefaultClientTimeout" mapstructure:"DefaultClientTimeout"` //客户端默认超时时间
 	FileMaxSize          int64         `json:"FileMaxSize" mapstructure:"FileMaxSize"`
 	DefaultInsertDataNum int           `json:"DefaultInsertDataNum" mapstructure:"DefaultInsertDataNum"`
 }
@@ -114,4 +116,9 @@ type AliyunOSS struct {
 	BucketName      string `json:"bucketName" mapstructure:"BucketName"`
 	BucketUrl       string `json:"bucketUrl" mapstructure:"BucketUrl"`
 	BasePath        string `json:"basePath" mapstructure:"BasePath"`
+}
+
+type Rocketmq struct {
+	Addr string `json:"addr" mapstructure:"Addr"`
+	Port int    `json:"port" mapstructure:"Port"`
 }

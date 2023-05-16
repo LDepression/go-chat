@@ -38,10 +38,11 @@ Work: #工作池配置
   WorkerChanCapacity: 50 # 工作队列容量
   WorkerNum: 10 # 工作池数量
 Rule:
-  delUserTime: 60s
-  delCodeTime: 120s
-  accountMax: 5
-  DefaultAccountAvatar: http://lycmall.lyc666.xyz/chat/first.jpg
+  delUserTime: "60s"
+  delCodeTime: "120s"
+  accountMaxNums: 5
+  DefaultAccountAvatar: "http://lycmall.lyc666.xyz/chat/first.jpg"
+  DefaultClientTimeout: "20s"
   FileMaxSize: 1024000
   DefaultInsertDataNum : 50
 Auto:
@@ -67,3 +68,6 @@ AliyunOSS:
   BucketName: "lycmall2"
   BucketUrl: "chat"
   BasePath: "http://lycmall.lyc666.xyz"
+Rocketmq:
+  Addr: "192.168.28.30"
+  Port: 9876

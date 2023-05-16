@@ -43,3 +43,7 @@ func (message) SendMsg(s socketio.Conn, msg string) string {
 	})
 	return common.NewState(err, result).JsonStr()
 }
+
+func ReadMsg(s socketio.Conn, reader []int64) {
+
+}

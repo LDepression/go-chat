@@ -15,6 +15,8 @@ import (
 	"time"
 )
 
+const DefaultClientTimeout = 20 * time.Second
+
 func NewChatMap() *ChatMap {
 	return &ChatMap{
 		m: sync.Map{},
@@ -81,8 +83,11 @@ func (c *ChatMap) Send(accountID int64, event string, args ...interface{}) {
 	if !ok {
 		return
 	}
+	//key: sID
+	//value: Active
 	cm.(*ConnMap).m.Range(func(key, value any) bool {
 		t := value.(*Active)
+		t.activeTime = time.Now()
 		fmt.Println(args)
 		t.s.Emit(event, args...) //emit是向event发送消息
 		return true
@@ -97,7 +102,8 @@ func (c *ChatMap) SendMany(accountIDs []int64, event string, args ...interface{}
 			return
 		}
 		cm.(*ConnMap).m.Range(func(key, value any) bool {
-			t := value.(Active)
+			t := value.(*Active)
+			t.activeTime = time.Now()
 			t.s.Emit(event, args...)
 			return true
 		})
@@ -113,14 +119,14 @@ func (c *ChatMap) HasSID(sID string) bool {
 
 func (c *ChatMap) CheckForEachAllMap() {
 
-	fmt.Println("**************************************")
+	//fmt.Println("**************************************")
 
 	c.m.Range(func(key, value any) bool {
 		//key就是account,value就是ConnMap
 		value.(*ConnMap).m.Range(func(key1, value1 any) bool {
 			//此时的key1就是sID,value1就是Active
 			activeTime := value1.(*Active).activeTime
-			if time.Now().Sub(activeTime) > 10*time.Minute {
+			if time.Now().Sub(activeTime) > DefaultClientTimeout {
 				err := value1.(*Active).s.Close()
 				if err != nil {
 					return false
