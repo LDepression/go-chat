@@ -29,7 +29,7 @@ var (
 	AccountNotExist = errcode.NewErr(4001, "账户不存在")
 
 	ApplicationNotFound    = errcode.NewErr(5001, "好友申请不存在")
-	AppplicationNotValid   = errcode.NewErr(5002, "申请不合法")
+	ApplicationNotValid    = errcode.NewErr(5002, "申请不合法")
 	FriendHasAlreadyExists = errcode.NewErr(5003, "好友已经存在了")
 	CanNotAddSelf          = errcode.NewErr(5004, "不能添加自己为好友")
 

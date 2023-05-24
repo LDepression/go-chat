@@ -14,8 +14,9 @@ type group struct {
 	Account     account
 	Application application
 	Setting     setting
-	MGroup      mGroup
+	VGroup      vgroup
 	File        file
+	Notify      notify
 }
 
 var Group = new(group)

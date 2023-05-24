@@ -29,7 +29,7 @@ SMTPInfo:
   to: #接收人
     - "1780006511@qq.com"
 Redis:
-  addr: "192.168.1.133:6379"
+  addr: "192.168.1.135:6379"
   password: ""
   poolSize: 20
   CacheTime: 1h

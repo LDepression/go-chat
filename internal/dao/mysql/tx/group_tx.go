@@ -101,7 +101,7 @@ func (groupTX) AddAccounts2GroupWithTX(accountID int64, relationID int64, invite
 			IsShow:     true,
 		})
 	}
-	if result := tx.Model(&automigrate.Setting{}).Where("relationID = ?", relationID).CreateInBatches(&examples, global.Settings.Rule.DefaultInsertDataNum); result.RowsAffected == 0 {
+	if result := tx.Model(&automigrate.Setting{}).CreateInBatches(&examples, global.Settings.Rule.DefaultInsertDataNum); result.RowsAffected == 0 {
 		tx.Rollback()
 
 		return result.Error

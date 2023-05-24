@@ -74,8 +74,6 @@ const (
 	ApplicationStateRefused  ApplicationStatus = "已拒绝"
 )
 
-type RelationType string
-
 const (
 	FriendType RelationType = "friend"
 	GroupType  RelationType = "group"

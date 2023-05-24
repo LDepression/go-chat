@@ -76,7 +76,7 @@ func (vgroup) Invite2Group(ctx *gin.Context, accountID int64, req request.Invite
 	//再去判断一下所选择的人是否是在群里面
 	var ids []int64
 	for _, id := range req.InvitePeopleIDs {
-		if exist := qGroup.ExistAccountInGroup(req.RelationID, accountID); exist {
+		if exist := qGroup.ExistAccountInGroup(req.RelationID, id); exist {
 			continue
 		}
 		ids = append(ids, id)

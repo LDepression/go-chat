@@ -17,6 +17,7 @@ type group struct {
 	Setting     setting
 	Chat        ws
 	Group       vgroup
+	Notify      notify
 }
 
 var Group = new(group)

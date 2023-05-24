@@ -113,7 +113,7 @@ func (c *ChatMap) HasSID(sID string) bool {
 
 func (c *ChatMap) CheckForEachAllMap() {
 
-	fmt.Println("**************************************")
+	//fmt.Println("**************************************")
 
 	c.m.Range(func(key, value any) bool {
 		//key就是account,value就是ConnMap
